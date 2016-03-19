@@ -1,0 +1,68 @@
+PROGRAM
+
+new var w1;w2;w3;
+		g1;g2;g3;
+		c1;c2;c3;
+		b1;b2;
+
+	proc load() {
+		while true do
+			if
+				:: w1 & b1 -> w2 = true; b2 = true; w1 = false; b1 = false 
+				:: g1 & b1 -> g2 = true; b2 = true; g1 = false; b1 = false  
+				:: c1 & b1 -> c2 = true; b2 = true; c1 = false; b1 = false 
+				:: w3 & b2 -> w2 = true; b1 = true; w3 = false; b2 = false  
+				:: g3 & b2 -> g2 = true; b1 = true; g3 = false; b2 = false  
+				:: c3 & b2 -> c2 = true; b1 = true; c3 = false; b2 = false
+				:: b1 -> b2 = true; b1 = false 
+				:: b2 -> b1 = true; b2 = false
+			fi
+		od
+	};
+
+	proc unload(){
+		while true do
+			if
+				:: w2 & b1 -> w1 = true; w2 = false
+				:: g2 & b1 -> g1 = true; g2 = false
+				:: c2 & b1 -> c1 = true; c2 = false
+				:: w2 & b2 -> w3 = true; w2 = false
+				:: g2 & b2 -> g3 = true; g2 = false
+				:: c2 & b2 -> c3 = true; c2 = false
+			fi		
+		od
+	};
+
+	proc travel(){
+		while true do
+			if
+				:: b2 & w1 & g1 -> g1 = false
+				:: b2 & g1 & c1 -> c1 = false
+				:: b1 & w3 & g3 -> g3 = false
+				:: b1 & g3 & c3 -> c3 = false
+			fi
+		od
+	}
+in
+	w1 = true; g1 = true; c1 = true; b1 = true;
+	while true do
+		load();travel();unload()
+	od	
+end
+
+CHECK
+
+w1,
+¬w1,
+(w1 v ¬w1),
+(w1 ^ ¬w1),
+[]w1,
+<>w1,
+Vz.(w1 ^ []:z),
+Uz.(w1 v <>:z)
+
+
+::lado1(lobo) & lado1(cabra) -> !lado1(cabra)
+::lado1(cabra) & lado1(pasto) -> !lado1(pasto)
+::lado2(lobo) & lado2(cabra) -> !lado2(cabra)
+::lado2(cabra) & lado2(pasto) -> !lado2(pasto)

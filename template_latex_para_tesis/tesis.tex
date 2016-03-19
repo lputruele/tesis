@@ -1,0 +1,185 @@
+%=============================================================================
+% Tesis de Licenciatura: .....
+%=============================================================================
+   
+%=============================================================================
+%                                Preambulo Latex
+%=============================================================================
+\documentclass[oneside,letterpaper,10pt,spanish]{report}
+
+%\usepackage[spanish]{babel} % division de silabas en español.
+%\usepackage{ucs}
+%\usepackage[utf8]{inputenc} %%%Para poner acentos directamente
+
+%\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{fancyhdr}
+%\usepackage{babel}
+\setcounter{secnumdepth}{3} 
+\setcounter{tocdepth}{3}  
+\usepackage{makeidx}
+\usepackage{graphics}  
+\usepackage{algorithm}
+%\usepackage{algorithmic}
+\usepackage[dvips]{graphicx}
+\usepackage{latexsym}
+\usepackage{amssymb} 
+\usepackage{amsthm}
+\usepackage{url}
+\usepackage{color}
+
+
+
+\addtolength{\textwidth}{1cm} % Ancho del texto
+
+% traducción de algunos nombres del paquete algorithm
+%\floatname{algorithm}{Algoritmo}
+%\renewcommand{\listalgorithmname}{Indice de algoritmos}
+
+% Definiciones
+\newtheorem{definition}{Definición}[section]
+
+%Ejemplos
+\newtheorem{ejemplo}{\normalfont \rule{0.2in}{0.11in}  {\rm Ejemplo }} [section]
+
+%Casos de las reglas de reconstraccion
+\newtheorem{caso}{\large {\rm Caso}}
+ 
+
+%SUBCasos de las reglas de reconstraccion
+\newtheorem{subcaso}{\large {\rm Caso}} [caso]
+
+     
+% Teoremas
+\newtheorem{theorem}{Teorema}[section]
+
+% Lemmas
+\newtheorem{lema}{Lema}[section]
+
+%%%%%%%%%%%%%%%% DEFINICIONES DE ALGUNOS COMANDOS Y AMBIENTES %%%%%%%%%%%%%%%
+
+\newcounter{ruleAGcounter}
+\newenvironment{AG}
+{
+ \setcounter{ruleAGcounter}{0} \begin{center} \begin{figure}[!hb]
+ \rule{\textwidth}{.5pt} \footnotesize
+}
+{\normalsize \rule{\textwidth}{.5pt} \end{figure} \end{center}}
+ 
+\newcommand{\newproduction}[2]{$p_\arabic{ruleAGcounter}$:
+            \emph{#1} $\rightarrow$ \emph{#2}
+            \addtocounter{ruleAGcounter}{1}\\}
+
+%Por ahora al pedo esta lo que sigue
+\newenvironment{micaso}[1][2] {\begin{caso} \textnormal{#1}} {\end{caso}}
+
+%\newenvironment{proof}[1][Prueba]{}
+ 
+\newcommand{\attribution}[1]{\hspace*{2cm}\emph{#1} \\} 
+
+%Letra de los Estados
+\newcommand{\letraEstado} [1] {\texttt{#1}}
+%Letra de lso Diagramas de Clases
+\newcommand{\letraDC} [1] {\texttt{#1}}
+%Letra de las Funcionalidades
+\newcommand{\letraFunc} [1] {\normalsize{#1}}
+%Letra  del texto OR y AND
+\newcommand{\letraORAND} [1] {\texttt{#1}}
+%Color del texto
+\newcommand{\textocolor} [1] {\textcolor{black}{#1}}
+%Color del texto 2
+\newcommand{\textocolorDos} [1] {\textcolor{black}{#1}}
+%Color del texto 3
+\newcommand{\textocolorTres} [1] {\textcolor{black}{#1}}
+
+
+%letras de los elementos Ecore
+\newcommand{\letraEcore} [1] {\texttt{#1}}
+\newcommand{\letraRelaciones} [1] {\textbf{#1}}
+
+\makeatother
+\makeindex
+ 
+%============================================================================
+
+\pagestyle{empty} %get rid of header/footer for toc page
+\begin{document}
+
+
+\title{
+UNIVERSIDAD NACIONAL DE RIO CUARTO\\
+$\;$\\
+$\;$\\
+\small{Trabajo de tesis para la obtenci\'on del grado de Licenciatura en Ciencias de la Computaci\'on}
+$\;$\\$\;$\\
+\Large{\textbf{ T\'itulo .....}}
+} 
+
+\author{
+                        Autores\\
+                        Juancito, Pedrito\\
+                   ...@...\\ \\ \\
+                 Director de Tesis: \emph{Mg. Marcela Daniele}\\ 
+                 Co-Director de Tesis: \emph{Mg. Ariel Gonzalez}\\ 
+}
+
+\date{Rio Cuarto, Argentina\\ mes... 2016}
+
+ 
+\maketitle
+ 
+
+%Para dejar una página en blanco
+\newpage
+\mbox{}
+\thispagestyle{empty} % para que no se numere esta página
+
+%Incluye el abstact y los Agradecimientos.
+
+\include{abstract}
+
+\listoffigures
+\addcontentsline{toc}{chapter}{Lista de figuras} % para que aparezca en el indice de contenidos
+
+%Las siguintes 3 lineas es para sacarle la numeracion de paginas al Indice
+%\addtocontents{toc}{\protect\thispagestyle{empty}}
+\tableofcontents %put toc in
+%\cleardoublepage %start new page
+
+
+\pagestyle{fancy}
+%\addtolength{\headwidth}{1cm} % Ancho del encabezado (fancy headers)
+\renewcommand{\sectionmark}[1]{}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}} % capíitulo en minísculas
+
+%En la Introduccion se resetea el contador de paginas y el estilo de fuente de los numeros.
+
+\input{Introduccion}
+
+\input{TrabajosRelacionados}
+
+\input{NocionesPreliminares}
+
+
+\input{Propuesta}
+
+
+\input{Implementacion}
+
+\input{CasodeEstudio}
+
+\input{ConclusionesTrabajosFuturos}
+
+%\include{Bibliography}
+
+\bibliography{tesis}  
+\bibliographystyle{IEEEtran}
+
+
+\include{Anexos}
+
+%Poner el codigo de la transformación por ejemplo
+
+\printindex
+
+\end{document}

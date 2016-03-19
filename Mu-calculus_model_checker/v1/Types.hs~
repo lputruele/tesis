@@ -1,0 +1,36 @@
+module Types where
+
+import List
+import ParseLib
+
+type Name = String
+type Action = String
+type AP = String
+type State = Int
+type Env = Name -> [State]
+type Labels = State -> [AP]
+type Transition = (State,State)
+type Kripke = ([State],[Transition],Labels)
+
+type BValue = Bool
+type PValue = OBDD AP -> [Value] -> (OBDD AP,Env)
+type Name = String
+type AP = String
+type ProgEnv = [(Name,Value)]
+
+
+data Value = BV BValue | PV PValue deriving (Eq,Show)
+
+bvalue :: Value -> BValue
+bvalue (BV b) = b
+
+mkState :: Env -> OBDD AP
+mkState [] = []
+mkState (x:xs) = OBDD.and[OBDD.unit (fst x) (snd x), mkState xs]
+
+mkState2 :: Env -> OBDD AP
+mkState2 [] = []
+mkState2 (x:xs) = OBDD.and[OBDD.unit ((fst x) ++ "'") (snd x), mkState2 xs]  
+
+mkBValue :: BValue -> Value
+mkBValue b = BV b

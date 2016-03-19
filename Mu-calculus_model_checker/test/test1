@@ -1,0 +1,27 @@
+vars
+  a;b
+
+rules
+  a,b -> a,!b;
+  a,!b -> a,b;
+  a,!b ->
+
+init
+  a,b
+  
+check (5)
+  b,
+  !b,
+  a,
+  !a,
+  <>a,
+  []a,
+  <>b,
+  []b,
+  Uz.(b | <>:z),
+  Uz.(a | <>:z),
+  Vz.(b & []:z),
+  Vz.(a & []:z)
+
+
+

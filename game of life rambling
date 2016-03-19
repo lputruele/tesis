@@ -1,0 +1,19 @@
+RULES(i,j){
+
+	do{
+		[]live_i_j & (lessThanTwoNeighbors | moreThanThreeNeighbors) -> !live_i_j
+		[]live_i_j & (TwoNeighbors | ThreeNeighbors) -> live_i_j
+		[]!live_i_j & ThreeNeighbors -> live_i_j
+	}
+}
+CONFIG
+
+live_1_1
+live_3_5
+live 3_4
+live 1_3
+live 1_2
+live 2_2
+
+CHECK
+

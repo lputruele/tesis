@@ -1,0 +1,47 @@
+PROGRAM
+
+new
+vars
+	w1,w2,w3, //wolf left, on boat, right
+	g1,g2,g3, //goat left, on boat, right
+	c1,c2,c3, //cabbage left, on boat, right
+	b1,b2 	  // boat left, right
+
+load()
+do
+	:: w1 & b1 -> w2; b2; !w1; !b1 
+	:: g1 & b1 -> g2; b2; !g1; !b1  
+	:: c1 & b1 -> c2; b2; !c1; !b1 
+	:: w3 & b2 -> w2; b1; !w3; !b2  
+	:: g3 & b2 -> g2; b1; !g3; !b2  
+	:: c3 & b2 -> c2; b1; !c3; !b2
+	:: b1 -> b2; !b1 
+	:: b2 -> b1; !b2
+od
+
+unload()
+do
+	:: w2 & b1 -> w1; !w2
+    :: g2 & b1 -> g1; !g2
+	:: c2 & b1 -> c1; !c2
+	:: w2 & b2 -> w3; !w2
+    :: g2 & b2 -> g3; !g2
+	:: c2 & b2 -> c3; !c2
+od
+
+travel()
+do
+	:: b2 & w1 & g1 -> !g1
+	:: b2 & g1 & c1 -> !c1
+	:: b1 & w3 & g3 -> !g3
+	:: b1 & g3 & c3 -> !c3
+od
+
+start()
+do
+	:: True -> load();travel();unload()
+od
+
+init()
+	w1; g1; c1; b1;
+    start();

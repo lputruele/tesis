@@ -35,7 +35,7 @@ Dada una valuación, podemos escribir una fórmula que sea verdadera precisament
 En particular, el conjunto de los estados iniciales del sistema puede describirse como una fórmula de primer orden $S_{0}$ sobre las variables en $V$.
 Una transición del sistema se puede representar como un par ordenado de valuaciones, de forma similar podemos describir conjuntos de transiciones mediante una formula para ese par, pero para poder expresar la fórmula se necesita una copia $V'$ de $V$ para hablar del \emph siguiente estado, en V' todas las variables estan primadas. Por ejemplo si tenemos una transición $(x \gets True, y \gets True, z \gets False,(x \gets True, y \gets True, z \gets True))$, podemos derivar la fórmula $(x \land y \land !z \land x' \land y' \land z')$.
 
-Consideremos el siguiente ejemplo, tenemos $V = \{x,y,z\}$ y $D = \{True, False\}$, $S_{0} (x,y,z) = (x= True \land y = True \land z = False)$, y tenemos solo una transición: $z := x \land y$, definimos la estructura de kripke de la siguiente manera:
+Consideremos el siguiente ejemplo, tenemos $V = \{x,y,z\}$ y $D = \{True, False\}$, $S_{0} (x,y,z) = (x= True \land y = True \land z = False)$, y tenemos solo una transición: $z := x \land y$,consideremos False = 0 y True = 1 por una cuestión de facilidad de lectura. Definimos asi la estructura de kripke (\ref{fig:kripke1})  de la siguiente manera:
 
 \[S = D \times D \times D\]
 \[S_{0} = \{(1, 1, 0)\}\]
@@ -44,6 +44,13 @@ Consideremos el siguiente ejemplo, tenemos $V = \{x,y,z\}$ y $D = \{True, False\
 \[L (1, 1, 1) = \{x = 1, y = 1, z = 1\}\]
 
 El único camino posible en esta estructura partiendo del estado inicial es: (1, 1, 0), (1, 1, 1), (1, 1, 1), (1, 1, 1) …
+
+\begin{figure}[h]
+  \centering
+  \includegraphics{Figures/kripke.png}
+  \caption{Estructura de Kripke para este ejemplo.}
+  \label{fig:kripke1}
+\end{figure}
 
 \section{Especificación de propiedades}
 
@@ -54,33 +61,35 @@ Analizaremos a continuación una lógica temporal muy potente llamada Cálculo-$
 
 \section{Cálculo-$\mu$}
 
-Sea $M = (S, T, L)$ una estructura de Kripke y sea $VAR = {Q, Q1, Q2, …}$ un conjunto de variables relacionales, donde a cada variable relacional se le puede asignar un subconjunto de S, construimos una $\mu$-fórmula como sigue:
+Sea $M = (S, T, L)$ una estructura de Kripke y sea $VAR = {Q, Q1, Q2, …}$ un conjunto de variables relacionales, donde a cada variable relacional se le puede asignar un subconjunto de S, construimos una $\mu$-fórmula como sigue: \\
 
--Si $p$ pertenece a $AP$ entonces $p$ es una fórmula.
--Si $Q$ pertenece a $VAR$, $Q$ es una fórmula.
--Si $f$ y $g$ son fórmulas, entonces $\neg f$, $f \lor g$, y $f \land g$ son fórmulas.
--Si $f$ es una fórmula, entonces $\Box f$ y $\Diamond f$ son fórmulas.
--Si $Q \in VAR$ y $f$ es una fórmula entonces $\mu Q.f$ y $\nu Q.f$ son fórmulas
+Si $p$ pertenece a $AP$ entonces $p$ es una fórmula. \\
+Si $Q$ pertenece a $VAR$, $Q$ es una fórmula. \\
+Si $f$ y $g$ son fórmulas, entonces $\neg f$, $f \lor g$, y $f \land g$ son fórmulas. \\
+Si $f$ es una fórmula, entonces $\Box f$ y $\Diamond f$ son fórmulas. \\
+Si $Q \in VAR$ y $f$ es una fórmula entonces $\mu Q.f$ y $\nu Q.f$ son fórmulas. \\
 
 Las variables pueden estar libres o ligadas en una fórmula a través de un operador de punto fijo. Una fórmula cerrada es una fórmula sin variables libres.
 
 El significado intuitivo de $\Diamond f$ es “Es posible realizar una transición a un estado donde f vale“, similarmente $\Box f$ significa “f vale en todos los estados alcanzables por medio de una transición“
-Los operadores $\mu$ y $\nu$ expresan puntos fijos menores y mayores respectivamente. El conjunto vacío de estados se denota con $False$ y el conjunto de todos los estados $S$ se denota con $True$.
+Los operadores $\mu$ y $\nu$ expresan puntos fijos menores y mayores respectivamente. El conjunto vacío de estados se denota con $False$ y el conjunto de todos los estados $S$ se denota con $True$.\\
 
-Ejemplos
+Ejemplos: \\
 
--$\nu Z \cdot f \land \Box Z$ se interpreta como “f es verdadera siempre en todo camino”
--$\mu Z \cdot f \lor \Diamond Z$ se interpreta como “existe un camino hacia un estado donde f vale”
--$\nu Z \cdot \Diamond T \land \Box Z$ se interpreta como “no hay estados que no tengan transiciones hacia otros estados”
+$\nu Z \cdot f \land \Box Z$ se interpreta como “f es verdadera siempre en todo camino”.\\
+$\mu Z \cdot f \lor \Diamond Z$ se interpreta como “existe un camino hacia un estado donde f vale”.\\
+$\nu Z \cdot \Diamond True \land \Box Z$ se interpreta como “no hay estados que no tengan transiciones hacia otros estados”.\\
 
 Formalmente, una fórmula $f$ se interpreta como un conjunto de estados donde $f$ es verdadera, escribimos este conjunto como $[[f]]$ sobre un sistema de transición de estados $M$ y un ambiente $e: VAR \to 2^{S}$, denotaremos $e[Q \gets W]$ como un ambiente que es igual a $e$ solo que $Q$ ahora tiene el valor $W$. el conjunto $[[f]]$ sobre $M$ y $e$ se define recursivamente de la siguiente manera:
 
-\[ [[p]] M e = \{s \mid p \in a L(s)\} \] 
-\[ [[Q]] M e = e(Q) \]
-\[ [[\neg f]] M e = S \setminus [[f]] M e \]
-\[ [[f \land g]] M e = [[f]] M e \cap [[g]] M e \]
-\[ [[f \lor g]] M e = [[f]] M e \cup [[g]] M e \]
-\[ [[\Diamond f]] M e = \{s \mid \exists t : s \to t \land t \in [[f]] M e\} \]
-\[ [[\Box f]] M e = \{s \mid \forall t : s \to t  \rightarrow t \in [[f]] M e\} \]
-$[[[\mu Q f]] M e$ es el menor punto fijo del predicado transformador $t:2^{S} \to 2^{S}$ definido como $t(W) = [[f]] M e[Q \gets W] $
-$ [[\nu Q f]] M e$ es el mayor punto fijo del predicado transformador $t:2^{S} \to 2^{S}$ definido como $t(W) = [[f]] M e[Q \gets W] $
+\begin{align*}
+ [[p]]\ M\ e &= \{s \mid p \in L(s)\}  \\
+ [[Q]]\ M\ e &= e(Q) \\
+ [[\neg f]]\ M\ e &= S \setminus [[f]]\ M\ e \\
+ [[f \land g]]\ M\ e &= [[f]] M e \cap [[g]]\ M\ e \\
+ [[f \lor g]]\ M\ e &= [[f]] M e \cup [[g]]\ M\ e \\
+ [[\Diamond f]]\ M\ e &= \{s \mid \exists t : s \to t \land t \in [[f]]\ M\ e\} \\
+ [[\Box f]]\ M\ e &= \{s \mid \forall t : s \to t  \rightarrow t \in [[f]]\ M\ e\} \\
+\end{align*}
+$[[[\mu Q. f]] \ M\ e\ $ es el menor punto fijo del predicado transformador $t:2^{S} \to 2^{S}$ definido como $t(W) = [[f]]\ M\ e[Q \gets W] $ \\
+$ [[\nu Q. f]] \ M\ e\ $ es el mayor punto fijo del predicado transformador $t:2^{S} \to 2^{S}$ definido como $t(W) = [[f]]\ M\ e[Q \gets W] $

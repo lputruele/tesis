@@ -1,0 +1,19 @@
+\chapter{Lenguaje MC2}
+
+MC2 es un lenguaje de modelado de sistemas basado en la noción de las estructuras de Kripke, es decir que con este lenguaje se puede establecer cómo se comportará una máquina de transición de estados en cuyos estados valen ciertas proposiciones atómicas.
+En esta sección describiremos la sintaxis de MC2, y luego la semántica.
+
+\section{Tipos}
+
+En MC2 tenemos proposiciones atómicas (AP) representadas por cadenas, cada una tiene asociada un valor lógico (True o False), para lo cual existe un tipo Env (environment) que consta de una lista de pares de proposiciones atómicas y sus valores lógicos asociados. Un valor de tipo Env representa el estado del sistema en un momento dado.
+
+$type Name = String
+type AP = String
+type Env = [(AP,Bool)]
+type Assoc = Name -> OBDD AP$
+
+Assoc es un tipo que se utiliza en la semántica de las fórmulas de cálculo mu, este representa una función que toma el nombre de una variable y devuelve el valor asociado (representado por un OBDD).
+
+\section{Sintaxis}
+
+Una especificación MC2 se divide en cuatro partes bien diferenciadas: Una sección donde se declaran las variables (proposiciones atómicas), otra donde se describen las reglas de transición, luego una sección donde se establece el estado inicial, y por último una parte donde se detalla la/s propiedades a verificar en el modelo.

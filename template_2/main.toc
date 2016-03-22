@@ -7,4 +7,12 @@
 \contentsline {chapter}{\numberline {2}Conceptos preliminares}{8}
 \contentsline {section}{\numberline {2.1}Modelado de sistemas}{9}
 \contentsline {section}{\numberline {2.2}Especificaci\IeC {\'o}n de propiedades}{10}
-\contentsline {section}{\numberline {2.3}C\IeC {\'a}lculo-$\mu $}{10}
+\contentsline {section}{\numberline {2.3}C\IeC {\'a}lculo-$\mu $}{11}
+\contentsline {chapter}{\numberline {3}Verificaci\IeC {\'o}n simb\IeC {\'o}lica de modelos}{13}
+\contentsline {section}{\numberline {3.1}Modelos como f\IeC {\'o}rmulas}{13}
+\contentsline {section}{\numberline {3.2}Arboles binarios de decisi\IeC {\'o}n}{13}
+\contentsline {chapter}{\numberline {4}Lenguaje MC2}{14}
+\contentsline {section}{\numberline {4.1}Tipos}{14}
+\contentsline {section}{\numberline {4.2}Sintaxis}{14}
+\contentsline {chapter}{Ap\IeC {\'e}ndices}{16}
+\contentsline {chapter}{\numberline {A}C\IeC {\'o}digo}{17}

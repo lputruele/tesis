@@ -1,5 +1,5 @@
 vars
-  a;b
+  a;b;c
 
 rules
   a,b -> a,!b;
@@ -12,16 +12,20 @@ init
 check (5)
   b,
   !b,
+  (a & b),
   a,
+  []c,
   !a,
   <>a,
   []a,
   <>b,
+  <>(!a & !b),
   []b,
   Uz.(b | <>:z),
   Uz.(a | <>:z),
   Vz.(b & []:z),
-  Vz.(a & []:z)
+  Vz.(a & []:z),
+  Vx.(a | !a)
 
 
 

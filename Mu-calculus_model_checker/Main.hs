@@ -15,7 +15,7 @@ import OBDD.Data
 
 pProg :: Parser (Env,[Form],OBDD AP)
 pProg = do {symbol "vars"; d <- pDecl; symbol "rules"; c <- pComm; symbol "init"; e <- pEnv; 
-            symbol "check"; symbol "("; n <- natural; symbol ")"; f <- pForms; return (deval d e,f,(construct c (OBDD.constant False,[deval d e]) n))} 
+            symbol "check"; f <- pForms; return (deval d e,f,(ceval c (deval d [])))} 
 
 inst :: Env -> OBDD AP -> OBDD AP
 inst [] obdd = obdd
@@ -24,12 +24,12 @@ inst (x:xs) obdd = inst xs (OBDD.instantiate (fst x)(snd x) obdd)
 -- exec
 exec :: (Env,[Form], OBDD AP) -> [Form]
 exec (v,[],obdd) = []
-exec (v,(f:fs), obdd) = if OBDD.satisfiable  (inst v (check f v obdd assoc0)) then f : exec (v,fs,obdd) 
+exec (v,(f:fs), obdd) = if OBDD.satisfiable  (inst v (check f v obdd assoc0 False)) then f : exec (v,fs,obdd) 
                         else exec (v,fs,obdd)
 
 exec2 :: (Env,[Form], OBDD AP) -> [OBDD AP]
 exec2 (v,[],obdd) = []
-exec2 (v,(f:fs), obdd) = ((check f v obdd assoc0)) : exec2 (v,fs,obdd) 
+exec2 (v,(f:fs), obdd) = ((check f v obdd assoc0 False)) : exec2 (v,fs,obdd) 
 
 
 showResult :: [Form] -> IO ()

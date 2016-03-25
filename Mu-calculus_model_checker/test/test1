@@ -1,20 +1,18 @@
 vars
-  a;b;c
+  a;b
 
 rules
-  a,b -> a,!b;
-  a,!b -> a,b;
-  a,!b ->
-
+  a,b -> !b;
+  a,!b -> b;
+  a,!b -> 
 init
   a,b
   
-check (5)
+check
   b,
   !b,
   (a & b),
   a,
-  []c,
   !a,
   <>a,
   []a,
@@ -26,6 +24,3 @@ check (5)
   Vz.(b & []:z),
   Vz.(a & []:z),
   Vx.(a | !a)
-
-
-

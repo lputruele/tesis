@@ -20,26 +20,12 @@ eeval2 (Lit v) visited = (OBDD.constant v, visited)
 eeval2 (Ident n) visited = (OBDD.unit (n++"'") True,[n] `union` visited)
 -}
 
---Constructs OBDD in n steps
-construct :: Comm -> (OBDD AP,[Env]) -> Int -> OBDD AP
-construct c (obdd,[]) step = obdd
-construct c (obdd,xs) 0 = obdd
-construct c (obdd,(e:es)) step = let (x,y) = multiceval c (e:es) in construct c (OBDD.or[obdd,x], es`union`y) (step-1)
 
---Does a step
-multiceval :: Comm -> [Env] -> (OBDD AP,[Env])
-multiceval c es = let xs = map (ceval c) es in (OBDD.or (map fst xs), foldl union [] (map snd xs))
-{-multiceval c [] = (OBDD.constant False,[])
-multiceval c (e:es) = let (x,y) = ceval c e
-                          (obdd,env) = multiceval c es
-                      in (OBDD.or[x,obdd],y `union` env)
--}
 --Generates OBDD and a list of new states/environments from one state/environment
-ceval :: Comm -> Env -> (OBDD AP,[Env])
-ceval (Seq c0 c1) env = let (x,y) = (ceval c0 env,ceval c1 env) in 
-							  (OBDD.or[fst x, fst y],snd x `union` snd y) 
-ceval (Rule (e0,e1)) env = let x = fill env e1 in 
-							  (OBDD.and[mkAnd env,OBDD.and[mkAnd e0, mkAnd2 x]],[x]) 
+ceval :: Comm -> Env -> OBDD AP
+ceval (Seq c0 c1) env = let (x,y) = (ceval c0 env,ceval c1 env) in OBDD.or[x,y] 
+ceval (Rule (e0,e1)) env = let x = fill (fill env e0) e1 in 
+							  OBDD.and[mkAnd e0, mkAnd2 x] 
 
 mkAnd :: Env -> OBDD AP
 mkAnd [] = OBDD.constant True

@@ -7,36 +7,33 @@ import Data.List
 import Data.Set (Set)
 import qualified Data.Set as Set
 
---eval
-
-check :: Form -> Env ->  OBDD AP -> Assoc -> OBDD AP
-check (Prop p) v m e = OBDD.unit p True
-check (Var n) v m e = e n
-check (Not f) v m e = OBDD.not (check f v m e) 
-check (And f0 f1) v m e = OBDD.and[check f0 v m e,check f1 v m e]
-check (Or f0 f1) v m e = OBDD.or[check f0 v m e,check f1 v m e]
-check (Diamond f) v m e = exists_many (Set.fromList [(fst x++"'") | x <- v]) (OBDD.and[m,check2 f v m e])
-check (Box f) v m e = check (Not (Diamond (Not f))) v m e
-check (Lfp n f) v m e =  fix n f m e (OBDD.constant False) (OBDD.constant True)
-						where fix n f m e new old = if OBDD.satisfiable (OBDD.and[OBDD.or[new,OBDD.not old],OBDD.or[old,OBDD.not new]]) then new 
-								   				   else fix n f m (update (n,new) e) (check f v m (update (n,new) e)) new               
-check (Gfp n f) v m e =  fix n f m e (check f v m e) (OBDD.constant True)
-					   where fix n f m e new old = if OBDD.satisfiable (OBDD.and[OBDD.or[new,OBDD.not old],OBDD.or[old,OBDD.not new]]) then new 
-								   				   else fix n f m (update (n,new) e) (check f v m (update (n,new) e)) new
+--Model Checker
+--v = variables, m = model, e = RV Environment, x = isNextState?
 
 
-check2 :: Form -> Env -> OBDD AP -> Assoc -> OBDD AP
-check2 (Prop p) v m e = OBDD.unit (p++"'") True
-check2 (Var n) v m e = e n
-check2 (Not f) v m e = OBDD.not (check2 f v m e) 
-check2 (And f0 f1) v m e = OBDD.and[check2 f0 v m e,check2 f1 v m e]
-check2 (Or f0 f1) v m e = OBDD.or[check2 f0 v m e,check2 f1 v m e]
-check2 (Diamond f) v m e = exists_many (Set.fromList [(fst x++"'") | x <- v]) (OBDD.and[m,check2 f v m e])
-check2 (Box f) v m e = check2 (Not (Diamond (Not f))) v m e
-check2 (Lfp n f) v m e =  fix n f m e (OBDD.constant False) (OBDD.constant True)
-						where fix n f m e new old = if OBDD.satisfiable (OBDD.and[OBDD.or[new,OBDD.not old],OBDD.or[old,OBDD.not new]]) then new 
-								   				   else fix n f m (update (n,new) e) (check2 f v m (update (n,new) e)) new              
-check2 (Gfp n f) v m e =  fix n f m e (check2 f v m e) (OBDD.constant True)
-					   where fix n f m e new old = if OBDD.satisfiable (OBDD.and[OBDD.or[new,OBDD.not old],OBDD.or[old,OBDD.not new]]) then new 
-								   				   else fix n f m (update (n,new) e) (check2 f v m (update (n,new) e)) new
+check :: Form -> Env ->  OBDD AP -> Assoc -> Bool -> OBDD AP
 
+check (Prop p) v m e x = if Prelude.not x then OBDD.unit p True 
+						 				  else OBDD.unit (p++"'") True
+
+check (Var n) v m e x = e n
+
+check (Not f) v m e x = OBDD.not (check f v m e x) 
+
+check (And f0 f1) v m e x = OBDD.and[check f0 v m e x,check f1 v m e x]
+
+check (Or f0 f1) v m e x = OBDD.or[check f0 v m e x,check f1 v m e x]
+
+check (Diamond f) v m e x = exists_many (Set.fromList [(fst y++"'") | y <- v]) (OBDD.and[m,check f v m e True])
+
+check (Box f) v m e x = check (Not (Diamond (Not f))) v m e x
+
+check (Lfp n f) v m e x =  let res = (OBDD.constant False) in fix n f v m e x (check f v m (update (n,res) e) x) res
+						
+check (Gfp n f) v m e x =  let res = (OBDD.constant True) in fix n f v m e x (check f v m (update (n,res) e) x) res
+
+
+fix  :: Name -> Form -> Env -> OBDD AP -> Assoc -> Bool -> OBDD AP -> OBDD AP -> OBDD AP
+fix n f v m e x res old = if OBDD.satisfiable (OBDD.and[OBDD.or[res,OBDD.not old],OBDD.or[old,OBDD.not res]])
+												   then res 
+								   				   else fix n f v m e x (check f v m (update (n,res) e) x) res               

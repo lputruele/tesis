@@ -1,0 +1,87 @@
+name:                buddy
+version:             0.1.0.0
+synopsis:      BuDDy Haskell binding      
+description:   very simple binding for BDD library BuDDy
+
+license:             AllRightsReserved
+license-file:        LICENSE
+author:              Johannes Waldmann
+maintainer:          johannes.waldmann@htwk-leipzig.de
+category:            Numeric
+build-type:          Simple
+cabal-version:       >=1.10
+homepage:            https://github.com/jwaldmann/haskell-buddy
+
+extra-source-files:
+  cbits/config.h
+  cbits/bdd.h
+  cbits/bddio.c
+  cbits/bddop.c
+  cbits/bddtree.h
+  cbits/bvec.c
+  cbits/bvec.h
+  cbits/cache.c
+  cbits/cache.h
+  cbits/fdd.c
+  cbits/fdd.h
+  cbits/imatrix.c
+  cbits/imatrix.h
+  cbits/kernel.c
+  cbits/kernel.h
+  cbits/pairs.c
+  cbits/prime.c
+  cbits/prime.h
+  cbits/reorder.c
+  cbits/tree.c
+
+source-repository head
+    type: git
+    location: git://github.com/jwaldmann/haskell-buddy.git
+
+library
+  hs-source-dirs: src
+  exposed-modules:
+      Buddy
+
+  other-modules:
+      Buddy.Interface
+
+  build-depends:
+        base        < 5,
+        mtl,
+        containers,
+        time
+
+  ghc-options: -Wall -fno-warn-orphans
+  default-language: Haskell2010
+  default-extensions:  
+
+  include-dirs:     cbits
+  includes:         bdd.h
+  cc-options:       -w 
+
+  c-sources:
+    cbits/bddio.c
+    cbits/bddop.c
+    cbits/bvec.c
+    cbits/cache.c
+    cbits/fdd.c
+    cbits/imatrix.c
+    cbits/kernel.c
+    cbits/pairs.c
+    cbits/prime.c
+    cbits/reorder.c
+    cbits/tree.c
+
+test-suite buddy-placement
+  hs-source-dirs: examples
+  type: exitcode-stdio-1.0
+  main-is: Placement.hs
+  build-depends: base, containers, buddy
+
+test-suite buddy-queens
+  hs-source-dirs: examples
+  type: exitcode-stdio-1.0
+  main-is: Queens.hs
+  build-depends: base, containers, buddy
+  

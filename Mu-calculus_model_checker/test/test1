@@ -21,6 +21,8 @@ check
   []b,
   Uz.(b | <>:z),
   Uz.(a | <>:z),
+  Uz.(!b | <>:z),
+  !Uz.(!a | <>:z),
   Vz.(b & []:z),
   Vz.(a & []:z),
   Vx.(a | !a)

@@ -3,25 +3,20 @@ vars
 
 rules
   a -> b;
-  b -> !a;
-  b -> a,!b
-
+  b -> c;
+  c -> d;
+  d -> !a;
+  !a -> !b;
+  !b -> !c;
+  !c -> !d;
+  !d -> a
 init
   a
 
-check (5)
-  b,
-  !b,
-  a,
-  !a,
-  <>a,
-  []a,
-  <>b,
-  []b,
-  Uz.(b | <>Uy.:z),
-  Uz.(a | <>Uy.:z),
-  Vz.(b & []Vy.:z),
-  Vz.(a & []Vy.:z)
+check
+  Uz.((a & (b & c)) | <>:z),
+  Uz.(!b | <>:z),
+  Vz.(d & []:z)
 
 
 

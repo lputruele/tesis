@@ -24,7 +24,7 @@ inst (x:xs) obdd = inst xs (OBDD.instantiate (fst x)(snd x) obdd)
 -- exec
 exec :: (Env,[Form], OBDD AP) -> [Form]
 exec (v,[],obdd) = []
-exec (v,(f:fs), obdd) = if OBDD.satisfiable  (inst v (check f v obdd assoc0 False)) then f : exec (v,fs,obdd) 
+exec (v,(f:fs), obdd) = if OBDD.null  (OBDD.not(inst v (check f v obdd assoc0 False))) then f : exec (v,fs,obdd) 
                         else exec (v,fs,obdd)
 
 exec2 :: (Env,[Form], OBDD AP) -> [OBDD AP]

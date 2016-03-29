@@ -7,6 +7,7 @@ module OBDD.Operation
 , instantiate
 , exists, exists_many
 , fold, foldM
+, rewrite
 )
 
 where
@@ -142,4 +143,24 @@ comp x y = case (x , y) of
     ( Branch {} , Leaf {} ) -> GT
     ( Leaf {} , Branch {} ) ->  LT
     ( Branch v1 _ _ , Branch v2 _ _ ) -> compare v1 v2
+
+--NUEVO
+-- | replace variable by value
+rewrite :: Ord v => 
+            v -> v 
+            -> OBDD v
+            -> OBDD v
+rewrite var newvar x = make $ do
+    let handle x = cached ( top x, top x ) $ case access x of
+            Leaf p -> register $ Leaf p
+            Branch v l r -> 
+                if v == var then do
+                     l' <- handle l
+                     r' <- handle r
+                     register $ Branch newvar l' r' 
+                else  do
+                     l' <- handle l
+                     r' <- handle r
+                     register $ Branch v l' r' 
+    handle x
     

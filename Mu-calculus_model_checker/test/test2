@@ -10,11 +10,13 @@ rules
   !b -> !c;
   !c -> !d;
   !d -> a
+
 init
   a
 
 check
-  Uz.((a & (b & c)) | <>:z),
+  (a & (b & c)),
+  Uz.((a & c) | <>:z),
   Uz.(!b | <>:z),
   Vz.(d & []:z)
 

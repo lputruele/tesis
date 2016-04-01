@@ -21,11 +21,14 @@ eeval2 (Ident n) visited = (OBDD.unit (n++"'") True,[n] `union` visited)
 -}
 
 
---Generates OBDD and a list of new states/environments from one state/environment
+--Generates OBDD from a model of a program
 ceval :: Comm -> Env -> OBDD AP
 ceval (Seq c0 c1) env = let (x,y) = (ceval c0 env,ceval c1 env) in OBDD.or[x,y] 
-ceval (Rule (e0,e1)) env = let x = fill (fill env e0) e1 in 
-							  OBDD.and[mkAnd e0, mkAnd2 x] 
+ceval (Rule (e0,e1)) env = let xs = gentrans (filt env e0) [] in 
+							  if xs /= [] then 
+							    OBDD.or[OBDD.and[mkAnd x, mkAnd2 (fill x e1)]| x <- xs]
+							  else 
+                                OBDD.and[mkAnd e0, mkAnd2 (fill e0 e1)]
 
 mkAnd :: Env -> OBDD AP
 mkAnd [] = OBDD.constant True
@@ -41,6 +44,15 @@ fill :: Env -> Env -> Env
 fill [] ys = ys
 fill (x:xs) ys = if fst x `notElem` map fst ys then fill xs ([x] `union` ys)
 											 else fill xs ys
+
+filt :: Env -> Env -> Env
+filt [] ys = []
+filt (x:xs) ys = if fst x `notElem` map fst ys then [x] `union` filt xs ys
+											 else filt xs ys
+
+gentrans :: Env -> Env -> [Env]
+gentrans [] ys = [ys]
+gentrans (x:xs) ys = gentrans xs ((fst x,False):ys) ++ gentrans xs ((fst x,True):ys)
 
 --Declaration eval
 deval :: Decl -> Env -> Env

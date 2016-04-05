@@ -12,6 +12,8 @@ import System.Environment
 import Eval
 import OBDD
 import OBDD.Data
+import Data.Map.Strict ( Map )
+import qualified Data.Map.Strict as M
 
 pProg :: Parser (Env,[Form],OBDD AP)
 pProg = do {symbol "vars"; d <- pDecl; symbol "rules"; c <- pComm; symbol "init"; e <- pEnv; 
@@ -27,6 +29,10 @@ exec (v,[],obdd) = []
 exec (v,(f:fs), obdd) = if OBDD.null  (OBDD.not(inst v (check f v obdd assoc0 False))) then f : exec (v,fs,obdd) 
                         else exec (v,fs,obdd)
 
+globalexec :: (Env,[Form], OBDD AP) -> [(Form,[Map AP Bool])]
+globalexec (v,[],obdd) = []
+globalexec (v,(f:fs), obdd) = (f,OBDD.all_models (check f v obdd assoc0 False)) : globalexec (v,fs,obdd)
+
 exec2 :: (Env,[Form], OBDD AP) -> [OBDD AP]
 exec2 (v,[],obdd) = []
 exec2 (v,(f:fs), obdd) = ((check f v obdd assoc0 False)) : exec2 (v,fs,obdd) 
@@ -37,6 +43,12 @@ showResult [] = putStr ("\n")
 showResult (f:fs)  = do 
                         putStr ("program satisfies property: (" ++ show f ++ ") \n")
                         showResult fs
+
+showGResult :: [(Form,[Map AP Bool])] -> IO ()
+showGResult [] = putStr ("\n")
+showGResult (f:fs)  = do 
+                        putStr ("program satisfies property: (" ++ show (fst f) ++ ") \n in states: " ++ show (snd f) ++ "\n")
+                        showGResult fs
 
 showResult2 :: [OBDD AP] -> Int -> IO ()
 showResult2 [] n = putStr ("\n")
@@ -64,6 +76,7 @@ exec_from_file filename = do
                              writeFile "ok.dot" $ toDot (third e)
                              showResult2 (exec2 e) 1
                              showResult (exec e)
+                             --showGResult (globalexec e)
 
                         where third (a,b,c) = c
 

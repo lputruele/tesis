@@ -1,6 +1,21 @@
 \chapter{Verificación simbólica de modelos}
 
-\section{Modelos como fórmulas}
-\section{Arboles binarios de decisión}
+El algoritmo de verificación de modelos con estados explícitos para Cálculo-$\mu$ presentado anteriormente tiene un problema, es muy susceptible a que ocurra una explosión en el tamaño del modelo, especialmente si el grafo de transición de estados se extrae de un sistema concurrente con muchos componentes. En esta sección se describe un algoritmo de verificación de modelos simbólicos para Cálculo-$\mu$ que opera sobre estructuras de Kripke, esta vez representadas no de manera explícita, sino de manera simbólica a través de fórmulas lógicas.
+
+\section{Representación de fórmulas lógicas}
+
+Los árboles binarios de decisión ordenados (OBDDs) son formas canónicas de representación de fórmulas lógicas. Son considerablemente mas compactos que las formas normales tradicionales como la forma normal conjuntiva y la forma normal disyuntiva, y pueden ser manipulados eficientemente. Por esto, los OBDDs han sido utilizados ampliamente para una variedad de aplicaciones en el diseño asistido por computadoras, incluyendo simulacion simbólica, verificación de lógica combinatoria y, mas recientemente, verificación de sistemas concurrentes con estados finitos.
+
+Para entender la necesidad de usar OBDDs, consideremos primero los árboles binarios de decisión. Un arbol binario de decisión es un árbol dirigido con raiz que consiste en vertices terminales y no terminales. Cada vertice no terminal v esta etiquetado por una variable $var(v)$ y tiene dos hijos: $izq(v)$ corresponde al caso en que v tenga el valor 0 y $der(v)$ en caso contrario. Cada vértice terminal esta etiquetado por una constante $valor(v)$ la cual es 0 o 1. Un árbol binario de decisión para la fórmula $f(a,b,c) = (a \land b) \lor (a \land c)$ es mostrado en la figura {fig:kripke1}. Uno puede decidir si una asignación particular a las variables hace verdadera la fórmula o no al atravesar el árbol desde la raíz hasta un vertice terminal. Por ejemplo, la asignación ${ a = 1, b = 0, c = 0}$ lleva al vértice terminal 0, por lo tanto la fórmula es falsa para esta asignación.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics{Figures/kripke.png}
+  \caption{Estructura de Kripke para este ejemplo.}
+  \label{fig:kripke1}
+\end{figure}
+
+\section{Diagramas binarios de decisión}
+
 
 

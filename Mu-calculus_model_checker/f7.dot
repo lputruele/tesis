@@ -1,7 +1,7 @@
 digraph BDD {
 node[shape=oval];
 node[shape=rectangle];
-1[label=True];
+0[label=False];
 node[shape=oval];
 
 }

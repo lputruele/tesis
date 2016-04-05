@@ -1,6 +1,6 @@
 digraph BDD {
 node[shape=oval];
-2[label="g2"];
+2[label="b"];
 node[shape=rectangle];
 1[label=True];
 node[shape=oval];

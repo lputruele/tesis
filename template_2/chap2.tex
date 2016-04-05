@@ -6,17 +6,19 @@
 %% prompt when you run the file main.tex through LaTeX.
 \chapter{Conceptos preliminares}
 
-La verificación de modelos o model checking es una técnica automática de verificación de propiedades sobre sistemas con una cantidad finita de estados. Es una alternativa interesante con respecto al testing o las simulaciones ya que a diferencia de estas técnicas, el model checking hace una prueba exhaustiva del sistema, es decir, analiza todas las trazas posibles de la ejecución del sistema en cuestión. Sin embargo, esto trae un problema, esto es el problema de la explosión de estados. Esto ocurre en sistemas con muchas interacciones internas, y que pueden hacer crecer exponencialmente el espacio de estados posibles del sistema, ya que la prueba es exhaustiva no se puede ignorar ningún estado posible.
-En los últimos años se ha logrado un gran progreso en cómo lidiar con este problema mediante formas más compactas de representar al sistema, como por ejemplo, una representación simbólica.
+En el diseño de software y hardware para sistemas complejos, cada vez es más el tiempo y esfuerzo dedicado a la verificación en vez de la construcción. Se buscan técnicas para reducir y facilitar el trabajo de la verificación y a la vez incrementar su cobertura. Los métodos formales ofrecen un gran potencial para obtener una integración temprana de la verificación en el proceso de diseño, para proveer técnicas de verificación mas efectivas, y para reducir el tiempo de verificación en general.
 
-El proceso del model checking consta de varias tareas:
+La verificación de modelos o model checking es una técnica automática de verificación de propiedades sobre sistemas con una cantidad finita de estados. Es una alternativa interesante con respecto al testing o las simulaciones ya que a diferencia de estas técnicas, el model checking hace una prueba exhaustiva del sistema, es decir, analiza todas las trazas posibles de la ejecución del sistema en cuestión. Sin embargo, esto trae un problema, esto es el problema de la explosión de estados. Esto ocurre en sistemas con muchas interacciones internas, y que pueden hacer crecer exponencialmente el espacio de estados posibles del sistema, ya que la prueba es exhaustiva no se puede ignorar ningún estado posible. En los últimos años se ha logrado un gran progreso en cómo lidiar con este problema mediante formas más compactas de representar al sistema, como por ejemplo, una representación simbólica del modelo del sistema.
 
-Modelado: Lo primero es convertir el modelo de un sistema en un formalismo aceptado por la herramienta de verificación de modelos.
+El modelo del sistema generalmente es generado automaticamente desde una descripción del modelo en un un lenguaje similar a alguno de programación como C, Java, etc. Hay que notar que la especificación de la propiedad prescribe lo que el systema debe y no debe hacer, en cambio la descripción del modelo señala como se comporta el sistema. El verificador de modelos examina todos los estados relevantes del sistema para verificar si satisface o no la propiedad deseada.
 
-Especificación: Es necesario expresar de alguna forma las propiedades que necesitan ser verificadas en el modelo. En general estas propiedades se dan en alguna lógica formal, particularmente lógicas temporales ya que estas pueden expresar comportamientos futuros del sistema.
+El proceso del verificación de modelos consta de varias fases diferenciables:
 
-Verificación: Dado el modelo y la especificación, la tarea de verificar significa explorar exhaustivamente todos los estados posibles del sistema para llegar a la conclusión de que el mismo satisface la especificación o no, en este último caso se suele dar también una traza de error, lo cual ayuda al programador para encontrar fallas en el sistema. Sin embargo, la causa de que el modelo no haya pasado la verificación puede deberse a una especificación incorrecta.
+Modelado: Hay que modelar el sistema en cuestión usando el lenguaje de descripción de modelos del verificador, y formalizar la propiedad que se desea verificar usando el lenguaje de especificación de propiedades.
 
+Ejecución: Ejecutar el verificador para corroborar la validez de la propiedad en el modelo del sistema.
+
+Análisis: Si la propiedad fue satisfecha, verificar la próxima propiedad (si la hay), si en cambio, no fue satisfecha, hay que refinar el modelo y/o la propiedad y finalmente, repetir el proceso.
 
 \section{Modelado de sistemas}
 En esta sección veremos cómo representar un modelo explícitamente mediante una estructura de Kripke, más tarde veremos otra forma de representación llamada simbólica que representa el modelo mediante una fórmula lógica de primer orden.
@@ -61,15 +63,21 @@ Analizaremos a continuación una lógica temporal muy potente llamada Cálculo-$
 
 \section{Cálculo-$\mu$}
 
+El Cálculo-$\mu$ es un poderoso lenguaje para expresar propiedades de sistemas de transición de estados al usar operadores de punto fijo. El Cálculo-$\mu$ ha generado mucho interés entre investigadores en verificación asistida por computadoras. Este interés surge del hecho de que muchas lógicas temporales pueden ser codificadas por el Cálculo-$\mu$. Otra fuente de interés en el Cálculo-$\mu$ viene de la existencia de algoritmos eficientes de verificación de modelos para este formalismo. Como consecuencia, los procedimientos de verificación para muchas lógicas temporales y modales pueden ser descriptas al traducirse al Cálculo-$\mu$. Hay varias versiones del Cálculo-$\mu$, concretamente usaremos la versión proposicional de Kozen.
+
+\subsection{Sintaxis}
+
 Sea $M = (S, T, L)$ una estructura de Kripke y sea $VAR = {Q, Q1, Q2, …}$ un conjunto de variables relacionales, donde a cada variable relacional se le puede asignar un subconjunto de S, construimos una $\mu$-fórmula como sigue: \\
 
-Si $p$ pertenece a $AP$ entonces $p$ es una fórmula. \\
-Si $Q$ pertenece a $VAR$, $Q$ es una fórmula. \\
+Si $p \in AP$, entonces $p$ es una fórmula. \\
+Si $Q \in VAR$, entonces $Q$ es una fórmula. \\
 Si $f$ y $g$ son fórmulas, entonces $\neg f$, $f \lor g$, y $f \land g$ son fórmulas. \\
 Si $f$ es una fórmula, entonces $\Box f$ y $\Diamond f$ son fórmulas. \\
 Si $Q \in VAR$ y $f$ es una fórmula entonces $\mu Q.f$ y $\nu Q.f$ son fórmulas. \\
 
 Las variables pueden estar libres o ligadas en una fórmula a través de un operador de punto fijo. Una fórmula cerrada es una fórmula sin variables libres.
+
+\subsection{Semántica}
 
 El significado intuitivo de $\Diamond f$ es “Es posible realizar una transición a un estado donde f vale“, similarmente $\Box f$ significa “f vale en todos los estados alcanzables por medio de una transición“
 Los operadores $\mu$ y $\nu$ expresan puntos fijos menores y mayores respectivamente. El conjunto vacío de estados se denota con $False$ y el conjunto de todos los estados $S$ se denota con $True$.\\
@@ -93,3 +101,6 @@ Formalmente, una fórmula $f$ se interpreta como un conjunto de estados donde $f
 \end{align*}
 $[[[\mu Q. f]] \ M\ e\ $ es el menor punto fijo del predicado transformador $t:2^{S} \to 2^{S}$ definido como $t(W) = [[f]]\ M\ e[Q \gets W] $ \\
 $ [[\nu Q. f]] \ M\ e\ $ es el mayor punto fijo del predicado transformador $t:2^{S} \to 2^{S}$ definido como $t(W) = [[f]]\ M\ e[Q \gets W] $
+
+\subsection{Algoritmo de verificación de modelos explícitos}
+La semántica anterior es a su vez el algoritmo de verificación explicita de modelos para Cálculo-$\mu$.

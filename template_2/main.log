@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.1.12)  5 APR 2016 16:53
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.1.12)  6 APR 2016 00:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -468,7 +468,14 @@ Including all files.
 LaTeX Warning: Unused global option(s):
     [spanish].
 
-(./main.aux (./abstract.aux) (./chap1.aux) (./chap2.aux) (./chap3.aux))
+(./main.aux (./abstract.aux) (./chap1.aux) (./chap2.aux) (./chap3.aux
+
+LaTeX Warning: Label `fig:kripke1' multiply defined.
+
+
+LaTeX Warning: Label `fig:bdt1' multiply defined.
+
+) (./chap4.aux) (./biblio.aux) (./Anexos.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 141.
@@ -657,45 +664,45 @@ Chapter 2.
 
 
 ] [9]
-Overfull \hbox (1.87267pt too wide) in paragraph at lines 40--41
+Overfull \hbox (1.87267pt too wide) in paragraph at lines 44--45
 []\T1/lmr/m/n/12 Consideremos el sigu-iente ejem-plo, ten-emos $\OML/lmm/m/it/1
 2 V \OT1/lmr/m/n/12 = \OMS/lmsy/m/n/12 f\OML/lmm/m/it/12 x; y; z\OMS/lmsy/m/n/1
 2 g$ \T1/lmr/m/n/12 y $\OML/lmm/m/it/12 D \OT1/lmr/m/n/12 = \OMS/lmsy/m/n/12 f\
 OML/lmm/m/it/12 True; False\OMS/lmsy/m/n/12 g$\T1/lmr/m/n/12 ,
  []
 
-<Figures/kripke.png, id=48, 99.37125pt x 123.46124pt>
+<Figures/kripke.png, id=48, 109.40875pt x 155.58125pt>
 File: Figures/kripke.png Graphic file (type png)
- <use Figures/kripke.png>
-Package pdftex.def Info: Figures/kripke.png used on input line 52.
-(pdftex.def)             Requested size: 99.371pt x 123.46092pt.
 
-[10 <./Figures/kripke.png>]
+<use Figures/kripke.png>
+Package pdftex.def Info: Figures/kripke.png used on input line 56.
+(pdftex.def)             Requested size: 83.68927pt x 119.00975pt.
+ [10 <./Figures/kripke.png>]
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 70.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 74.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 70--71
+Underfull \hbox (badness 10000) in paragraph at lines 74--75
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 72--77
+Underfull \hbox (badness 10000) in paragraph at lines 76--81
 
  []
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 82--84
+Underfull \hbox (badness 10000) in paragraph at lines 86--88
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 85--86
+Underfull \hbox (badness 10000) in paragraph at lines 89--90
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 87--90
+Underfull \hbox (badness 10000) in paragraph at lines 91--94
 
  []
 
@@ -708,31 +715,32 @@ Chapter 3.
 
 
 
-]
-File: Figures/kripke.png Graphic file (type png)
- <use Figures/kripke.png>
-Package pdftex.def Info: Figures/kripke.png used on input line 13.
-(pdftex.def)             Requested size: 99.371pt x 123.46092pt.
-) [15]
+] <Figures/BDT.png, id=68, 757.83125pt x 412.54124pt>
+File: Figures/BDT.png Graphic file (type png)
+ <use Figures/BDT.png>
+Package pdftex.def Info: Figures/BDT.png used on input line 13.
+(pdftex.def)             Requested size: 418.45274pt x 227.79855pt.
+
+[15 <./Figures/BDT.png>]) [16]
 \openout2 = `chap4.aux'.
 
  (./chap4.tex
 Chapter 4.
-) [16
+) [17
 
 
 
 ]
 \openout2 = `biblio.aux'.
 
- (./biblio.tex (./main.bbl)) [17
+ (./biblio.tex (./main.bbl)) [18
 
 
 
 ]
 \openout2 = `Anexos.aux'.
 
- (./Anexos.tex [18
+ (./Anexos.tex [19
 
 
 
@@ -741,24 +749,24 @@ Appendix A.
 LaTeX Font Info:    Try loading font information for T1+lmtt on input line 15.
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)) [19
+)) [20
 
 ]
 No file main.ind.
 (./main.aux (./abstract.aux) (./chap1.aux) (./chap2.aux) (./chap3.aux)
 (./chap4.aux) (./biblio.aux) (./Anexos.aux))
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3678 strings out of 495028
- 46395 string characters out of 6181497
- 103447 words of memory out of 5000000
- 6678 multiletter control sequences out of 15000+600000
- 80941 words of font info for 84 fonts, out of 8000000 for 9000
+ 3696 strings out of 495028
+ 46619 string characters out of 6181497
+ 105072 words of memory out of 5000000
+ 6688 multiletter control sequences out of 15000+600000
+ 83939 words of font info for 85 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 38i,8n,43p,973b,236s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,8n,43p,976b,239s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/en
 c/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/s
 hare/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texlive/texmf-dist/fonts/ty
@@ -770,10 +778,10 @@ type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></us
 r/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/pu
 blic/lm/lmro12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/sha
 re/texmf/fonts/type1/public/lm/lmsy8.pfb>
-Output written on main.pdf (20 pages, 232757 bytes).
+Output written on main.pdf (21 pages, 260558 bytes).
 PDF statistics:
- 128 PDF objects out of 1000 (max. 8388607)
- 89 compressed objects within 1 object stream
+ 133 PDF objects out of 1000 (max. 8388607)
+ 91 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 14 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 19 words of extra memory for PDF output out of 10000 (max. 10000000)
 

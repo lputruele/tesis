@@ -13,9 +13,9 @@
 \contentsline {subsection}{\numberline {2.3.3}Algoritmo de verificaci\IeC {\'o}n de modelos expl\IeC {\'\i }citos}{13}
 \contentsline {chapter}{\numberline {3}Verificaci\IeC {\'o}n simb\IeC {\'o}lica de modelos}{14}
 \contentsline {section}{\numberline {3.1}Representaci\IeC {\'o}n de f\IeC {\'o}rmulas l\IeC {\'o}gicas}{14}
-\contentsline {section}{\numberline {3.2}Diagramas binarios de decisi\IeC {\'o}n}{15}
-\contentsline {chapter}{\numberline {4}Lenguaje MC2}{16}
-\contentsline {section}{\numberline {4.1}Tipos}{16}
-\contentsline {section}{\numberline {4.2}Sintaxis}{16}
-\contentsline {chapter}{Ap\IeC {\'e}ndices}{18}
-\contentsline {chapter}{\numberline {A}C\IeC {\'o}digo}{19}
+\contentsline {section}{\numberline {3.2}Diagramas binarios de decisi\IeC {\'o}n}{16}
+\contentsline {chapter}{\numberline {4}Lenguaje MC2}{17}
+\contentsline {section}{\numberline {4.1}Tipos}{17}
+\contentsline {section}{\numberline {4.2}Sintaxis}{17}
+\contentsline {chapter}{Ap\IeC {\'e}ndices}{19}
+\contentsline {chapter}{\numberline {A}C\IeC {\'o}digo}{20}

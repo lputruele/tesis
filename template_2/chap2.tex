@@ -23,11 +23,15 @@ Análisis: Si la propiedad fue satisfecha, verificar la próxima propiedad (si l
 \section{Modelado de sistemas}
 En esta sección veremos cómo representar un modelo explícitamente mediante una estructura de Kripke, más tarde veremos otra forma de representación llamada simbólica que representa el modelo mediante una fórmula lógica de primer orden.
 
-Sea $AP$ un conjunto de proposiciones atómicas, una estructura de Kripke $M$ sobre $AP$ es una cuatro-upla $M = (S, S_{0}, R, L)$ donde
-\newline1. $S$ es un conjunto finito de estados.
-\newline2. $S_{0} \in S$ es el conjunto de estados iniciales.
-\newline3. $R \in S \times S$ es una relación de transición total, es decir para cada estado $s \in S$ existe un estado $s' \in S$ tal que $R(s,s')$ vale.
-\newline4. $L \colon S \to 2^{AP}$ es una función que etiqueta a cada estado con el conjunto de proposiciones atómicas que son verdaderas en ese estado.
+Sea $AP$ un conjunto de proposiciones atómicas, una estructura de Kripke $M$ sobre $AP$ es una cuatro-upla $M = (S, S_{0}, R, L)$ donde:
+
+1. $S$ es un conjunto finito de estados.
+
+2. $S_{0} \in S$ es el conjunto de estados iniciales.
+
+3. $R \in S \times S$ es una relación de transición total, es decir para cada estado $s \in S$ existe un estado $s' \in S$ tal que $R(s,s')$ vale.
+
+4. $L \colon S \to 2^{AP}$ es una función que etiqueta a cada estado con el conjunto de proposiciones atómicas que son verdaderas en ese estado.
 Un camino en la estructura $M$ desde un estado $s$ es una secuencia infinita de estados $p = s_{0}, s_{1}, s_{2}, s_{3}, ...$, tal que $s = s_{0}$ y $R(s_{i},s_{i+1})$ vale para todo $i>0$.
 
 Sea $V = {v_{1}, v_{2}, ..., v_{n}}$ el conjunto de variables del sistema y sea $D$ el dominio, llamaremos una valuación de $V$ a una función que asocia a cada variable de $V$ un valor de $D$.
@@ -35,7 +39,7 @@ Sea $V = {v_{1}, v_{2}, ..., v_{n}}$ el conjunto de variables del sistema y sea 
 Un estado del sistema se puede representar como una valuación de las variables del sistema. Una proposición atómica de la forma $v = d$ donde $v \in V$ y $d \in D$ será verdadera en un estado $s$ si y solo si $s(v) = d$.
 Dada una valuación, podemos escribir una fórmula que sea verdadera precisamente para esa valuación, por ejemplo si tenemos $V = \{x,y,z\}$ y la valuación $(x \gets True, y \gets True, z \gets False)$ entonces derivamos la fórmula $(x \land y \land !z)$. En general, una fórmula puede ser verdadera para varias valuaciones. Si adoptamos la convención de que una fórmula representa el conjunto de todas las valuaciones que la hacen verdadera, entonces podremos describir ciertos conjuntos de estados como fórmulas de primer orden.
 En particular, el conjunto de los estados iniciales del sistema puede describirse como una fórmula de primer orden $S_{0}$ sobre las variables en $V$.
-Una transición del sistema se puede representar como un par ordenado de valuaciones, de forma similar podemos describir conjuntos de transiciones mediante una formula para ese par, pero para poder expresar la fórmula se necesita una copia $V'$ de $V$ para hablar del \emph siguiente estado, en V' todas las variables estan primadas. Por ejemplo si tenemos una transición $(x \gets True, y \gets True, z \gets False,(x \gets True, y \gets True, z \gets True))$, podemos derivar la fórmula $(x \land y \land !z \land x' \land y' \land z')$.
+Una transición del sistema se puede representar como un par ordenado de valuaciones, de forma similar podemos describir conjuntos de transiciones mediante una formula para ese par, pero para poder expresar la fórmula se necesita una copia $V'$ de $V$ para hablar de siguiente estado, en $V'$ todas las variables estan primadas. Por ejemplo si tenemos una transición $(x \gets True, y \gets True, z \gets False,(x \gets True, y \gets True, z \gets True))$, podemos derivar la fórmula $(x \land y \land !z \land x' \land y' \land z')$.
 
 Consideremos el siguiente ejemplo, tenemos $V = \{x,y,z\}$ y $D = \{True, False\}$, $S_{0} (x,y,z) = (x= True \land y = True \land z = False)$, y tenemos solo una transición: $z := x \land y$,consideremos False = 0 y True = 1 por una cuestión de facilidad de lectura. Definimos asi la estructura de kripke (\ref{fig:kripke1})  de la siguiente manera:
 
@@ -49,7 +53,7 @@ El único camino posible en esta estructura partiendo del estado inicial es: (1,
 
 \begin{figure}[h]
   \centering
-  \includegraphics{Figures/kripke.png}
+  \includegraphics[width=0.2\textwidth]{Figures/kripke.png}
   \caption{Estructura de Kripke para este ejemplo.}
   \label{fig:kripke1}
 \end{figure}
@@ -99,8 +103,8 @@ Formalmente, una fórmula $f$ se interpreta como un conjunto de estados donde $f
  [[\Diamond f]]\ M\ e &= \{s \mid \exists t : s \to t \land t \in [[f]]\ M\ e\} \\
  [[\Box f]]\ M\ e &= \{s \mid \forall t : s \to t  \rightarrow t \in [[f]]\ M\ e\} \\
 \end{align*}
-$[[[\mu Q. f]] \ M\ e\ $ es el menor punto fijo del predicado transformador $t:2^{S} \to 2^{S}$ definido como $t(W) = [[f]]\ M\ e[Q \gets W] $ \\
-$ [[\nu Q. f]] \ M\ e\ $ es el mayor punto fijo del predicado transformador $t:2^{S} \to 2^{S}$ definido como $t(W) = [[f]]\ M\ e[Q \gets W] $
+$[[\mu Q. f]] \ M\ e\ $ es el menor punto fijo del predicado transformador $t:2^{S} \to 2^{S}$ definido como $t(W) = [[f]]\ M\ e[Q \gets W] $ \\
+$[[\nu Q. f]] \ M\ e\ $ es el mayor punto fijo del predicado transformador $t:2^{S} \to 2^{S}$ definido como $t(W) = [[f]]\ M\ e[Q \gets W] $
 
 \subsection{Algoritmo de verificación de modelos explícitos}
 La semántica anterior es a su vez el algoritmo de verificación explicita de modelos para Cálculo-$\mu$.

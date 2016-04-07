@@ -1,0 +1,10 @@
+digraph Figure5 {
+node[shape=oval];
+1[label="x,y"];
+node[shape=oval];
+2[label="x,y,z"];
+1->2;
+2->2;
+2->1;
+1->1;
+}

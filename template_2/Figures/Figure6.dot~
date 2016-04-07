@@ -1,0 +1,15 @@
+digraph Figure6 {
+node[shape=oval];
+1[label="p,q,r"];
+node[shape=oval];
+2[label="p,q"];
+node[shape=oval];
+3[label="q,r"];
+node[shape=oval];
+4[label="r"];
+1->2;
+2->3;
+2->4;
+3->4;
+4->4;
+}

@@ -1,4 +1,4 @@
-digraph Figure1 {
+digraph Figure2 {
 node[shape=oval];
 1[label="a"];
 node[shape=oval];

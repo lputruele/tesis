@@ -1,7 +1,6 @@
 \chapter{Lenguaje MC2}
 
-MC2 es un lenguaje de modelado de sistemas basado en la noción de las estructuras de Kripke, es decir que con este lenguaje se puede establecer cómo se comportará una máquina de transición de estados en cuyos estados valen ciertas proposiciones atómicas.
-En esta sección describiremos la sintaxis de MC2, y luego la semántica.
+MC2 es el verificador de modelos desarrollado en esta tesis, el mismo toma modelos escritos en un lenguaje que tambien llamaremos MC2, el modelo incluye la descripción del sistema y las propiedades que debe satisfacer en C'alculo-$\mu$. El diseño del lenguaje de modelado se centra en la noción de estructuras de Kripke, es decir que con este lenguaje se puede describir el comportamiento del sistema en términos de transiciones de entre estados, y además especificar las propiedades que se desean verificar sobre el modelo. Primero analizaremos la sintaxis y semántica de la parte del lenguaje que se encarga de la descripción del sistema, y luego veremos la sintaxis y semántica de la parte de especificación de propiedades.
 
 \section{Tipos}
 

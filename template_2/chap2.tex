@@ -12,7 +12,7 @@ La verificación de modelos o model checking es una técnica automática de veri
 
 El modelo del sistema generalmente es generado automaticamente desde una descripción del modelo en un un lenguaje similar a alguno de programación como C, Java, etc. Hay que notar que la especificación de la propiedad prescribe lo que el systema debe y no debe hacer, en cambio la descripción del modelo señala como se comporta el sistema. El verificador de modelos examina todos los estados relevantes del sistema para verificar si satisface o no la propiedad deseada.
 
-El proceso del verificación de modelos consta de varias fases diferenciables:
+El proceso del verificación de modelos consta de varias fases diferenciables \cite{Baier:2}:
 
 Modelado: Hay que modelar el sistema en cuestión usando el lenguaje de descripción de modelos del verificador, y formalizar la propiedad que se desea verificar usando el lenguaje de especificación de propiedades.
 
@@ -23,7 +23,7 @@ Análisis: Si la propiedad fue satisfecha, verificar la próxima propiedad (si l
 \section{Modelado de sistemas}
 En esta sección veremos cómo representar un modelo explícitamente mediante una estructura de Kripke, más tarde veremos otra forma de representación llamada simbólica que representa el modelo mediante una fórmula lógica de primer orden.
 
-Sea $AP$ un conjunto de proposiciones atómicas, una estructura de Kripke $M$ sobre $AP$ es una cuatro-upla $M = (S, S_{0}, R, L)$ donde:
+Sea $AP$ un conjunto de proposiciones atómicas, una estructura de Kripke $M$ sobre $AP$ es una cuatro-upla $M = (S, S_{0}, R, L)$ donde \cite{Clarke:1}:
 
 1. $S$ es un conjunto finito de estados.
 
@@ -51,7 +51,7 @@ Consideremos el siguiente ejemplo, tenemos $V = \{x,y,z\}$ y $D = \{True, False\
 
 El único camino posible en esta estructura partiendo del estado inicial es: (1, 1, 0), (1, 1, 1), (1, 1, 1), (1, 1, 1) …
 
-\begin{figure}[h]
+\begin{figure}[h!]
   \centering
   \includegraphics[width=0.2\textwidth]{Figures/kripke.png}
   \caption{Estructura de Kripke para este ejemplo.}
@@ -67,7 +67,7 @@ Analizaremos a continuación una lógica temporal muy potente llamada Cálculo-$
 
 \section{Cálculo-$\mu$}
 
-El Cálculo-$\mu$ es un poderoso lenguaje para expresar propiedades de sistemas de transición de estados al usar operadores de punto fijo. El Cálculo-$\mu$ ha generado mucho interés entre investigadores en verificación asistida por computadoras. Este interés surge del hecho de que muchas lógicas temporales pueden ser codificadas por el Cálculo-$\mu$. Otra fuente de interés en el Cálculo-$\mu$ viene de la existencia de algoritmos eficientes de verificación de modelos para este formalismo. Como consecuencia, los procedimientos de verificación para muchas lógicas temporales y modales pueden ser descriptas al traducirse al Cálculo-$\mu$. Hay varias versiones del Cálculo-$\mu$, concretamente usaremos la versión proposicional de Kozen.
+El Cálculo-$\mu$ es un poderoso lenguaje para expresar propiedades de sistemas de transición de estados al usar operadores de punto fijo. El Cálculo-$\mu$ ha generado mucho interés entre investigadores en verificación asistida por computadoras. Este interés surge del hecho de que muchas lógicas temporales pueden ser codificadas por el Cálculo-$\mu$. Otra fuente de interés en el Cálculo-$\mu$ viene de la existencia de algoritmos eficientes de verificación de modelos para este formalismo. Como consecuencia, los procedimientos de verificación para muchas lógicas temporales y modales pueden ser descriptas al traducirse al Cálculo-$\mu$. Hay varias versiones del Cálculo-$\mu$, concretamente usaremos la versión proposicional de Kozen\cite{Kozen:3}.
 
 \subsection{Sintaxis}
 
@@ -98,13 +98,36 @@ Formalmente, una fórmula $f$ se interpreta como un conjunto de estados donde $f
  [[p]]\ M\ e &= \{s \mid p \in L(s)\}  \\
  [[Q]]\ M\ e &= e(Q) \\
  [[\neg f]]\ M\ e &= S \setminus [[f]]\ M\ e \\
- [[f \land g]]\ M\ e &= [[f]] M e \cap [[g]]\ M\ e \\
- [[f \lor g]]\ M\ e &= [[f]] M e \cup [[g]]\ M\ e \\
+ [[f \land g]]\ M\ e &= [[f]]\ M\ e \cap [[g]]\ M\ e \\
+ [[f \lor g]]\ M\ e &= [[f]]\ M\ e \cup [[g]]\ M\ e \\
  [[\Diamond f]]\ M\ e &= \{s \mid \exists t : s \to t \land t \in [[f]]\ M\ e\} \\
  [[\Box f]]\ M\ e &= \{s \mid \forall t : s \to t  \rightarrow t \in [[f]]\ M\ e\} \\
 \end{align*}
 $[[\mu Q. f]] \ M\ e\ $ es el menor punto fijo del predicado transformador $t:2^{S} \to 2^{S}$ definido como $t(W) = [[f]]\ M\ e[Q \gets W] $ \\
 $[[\nu Q. f]] \ M\ e\ $ es el mayor punto fijo del predicado transformador $t:2^{S} \to 2^{S}$ definido como $t(W) = [[f]]\ M\ e[Q \gets W] $
 
+Para entender cómo funcionan los operadores de punto fijo consideremos el siguiente ejemplo, supongamos que tenemos una estructura de Kripke $M = (S,T,L)$ como la de la figura \ref{fig:kripke3}, donde $L(s_{0}) = {p,q,r}$, $L(s_{1}) = {p,q}$, $L(s_{2}) = {q,r}$ y $L(s_{3}) = {r}$. Y consideremos la fórmula $\nu Q. (p \land \Box Q)$, es decir, queremos saber que estados cumplen con la propiedad de que p vale siempre en todo camino. Cada iteración del operador esta ilustrada en la figura \ref{fig:kripke3-gfp1}. Q se inicializa en True, luego en cada iteración se hace una aproximación al resultado verdadero, los resultados de cada iteración en este caso son, en orden, $S$, $\{s_{0},s_{1}\}$, $\{s_{0}\}$, $\oslash$. Como se puede apreciar en el resultado, no hay estado donde valga esta propiedad. El caso del punto fijo menor es análogo, solo que la variable se inicializaria en False, aunque no es dificil darse cuenta que no tiene mucho sentido verificar $\mu Q.(p \land \Box Q)$.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.2\textwidth]{Figures/kripke3.png}
+  \caption{Ejemplo de Estructura de Kripke.} 
+  \label{fig:kripke3}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{Figures/kripke3-gfp1.png}
+  \caption{Ejecución de operador de punto fijo mayor.} 
+  \label{fig:kripke3-gfp1}
+\end{figure}
+
 \subsection{Algoritmo de verificación de modelos explícitos}
-La semántica anterior es a su vez el algoritmo de verificación explicita de modelos para Cálculo-$\mu$.
+
+El algoritmo de verificación de modelos explícitos para Cálculo-$\mu$ que analizaremos es el más intuitivo (hay algoritmos mas eficientes), se basa en la semántica anterior, y calcula el subconjunto de estados de un modelo $M$ que cumplen con una formula $f$. El algoritmo trabaja en forma bottom-up a través de la fórmula, evaluandola a partir de los valores de sus subfórmulas. Este algoritmo requiere tiempo $O(n^{k})$, donde $n$ es la cantidad de estados del sistema y $k$ es el número de operadores de punto fijo anidados en la fórmula. Esto se debe a que cada operador de punto fijo hace $n+1$ iteraciones cómo máximo, ya que en cada iteración se hace una aproximación del resultado ya sea agregando o quitando al menos un estado(menor y mayor punto fijo respectivamente). En la figura \ref{fig:eval1} se puede ver el algoritmo \cite{Clarke:1}, donde $f$ es la fórmula y $e$ es el ambiente de variables relacionales.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{Figures/eval.png}
+  \caption{Algoritmo de verificación de modelos explícitos para Cálculo-$\mu$.} 
+  \label{fig:eval1}
+\end{figure}

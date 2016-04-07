@@ -1,7 +1,15 @@
 \begin{thebibliography}{1}
 
-\bibitem{DUMMY:1}
-J.~Doe, {\em The Book without Title}.
-\newblock Dummy Publisher, 2100.
+\bibitem{Baier:2}
+C.~Baier and J.-P. Katoen, {\em Principles of Model Checking}.
+\newblock The MIT Press, 2008.
+
+\bibitem{Clarke:1}
+O.~G. Edmund M.~Clarke, Jr. and D.~A.Peled, {\em Model Checking}.
+\newblock The MIT Press, 2000.
+
+\bibitem{Kozen:3}
+D.~Kozen, {\em Results on the prepositional mu-calculus}.
+\newblock Elsevier Science Publishers B.V., 1983.
 
 \end{thebibliography}

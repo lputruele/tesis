@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.1.12)  6 APR 2016 00:25
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.1.12)  7 APR 2016 16:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -448,13 +448,21 @@ File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 130.
 )
-\c@definition=\count105
-\c@ejemplo=\count106
-\c@caso=\count107
-\c@subcaso=\count108
-\c@theorem=\count109
-\c@lema=\count110
-\c@ruleAGcounter=\count111
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count105
+\float@exts=\toks28
+\float@box=\box31
+\@float@everytoks=\toks29
+\@floatcapt=\box32
+)
+\c@definition=\count106
+\c@ejemplo=\count107
+\c@caso=\count108
+\c@subcaso=\count109
+\c@theorem=\count110
+\c@lema=\count111
+\c@ruleAGcounter=\count112
 \@indexfile=\write3
 \openout3 = `main.idx'.
 
@@ -468,46 +476,40 @@ Including all files.
 LaTeX Warning: Unused global option(s):
     [spanish].
 
-(./main.aux (./abstract.aux) (./chap1.aux) (./chap2.aux) (./chap3.aux
-
-LaTeX Warning: Label `fig:kripke1' multiply defined.
-
-
-LaTeX Warning: Label `fig:bdt1' multiply defined.
-
-) (./chap4.aux) (./biblio.aux) (./Anexos.aux))
+(./main.aux (./abstract.aux) (./chap1.aux) (./chap2.aux) (./chap3.aux)
+(./chap4.aux) (./biblio.aux) (./Anexos.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 141.
-LaTeX Font Info:    ... okay on input line 141.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 141.
-LaTeX Font Info:    ... okay on input line 141.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 141.
-LaTeX Font Info:    ... okay on input line 141.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 141.
-LaTeX Font Info:    ... okay on input line 141.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 141.
-LaTeX Font Info:    ... okay on input line 141.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 141.
-LaTeX Font Info:    ... okay on input line 141.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 141.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 142.
+LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 142.
 
 (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count112
+\scratchcounter=\count113
 \scratchdimen=\dimen116
-\scratchbox=\box31
-\nofMPsegments=\count113
-\nofMParguments=\count114
-\everyMPshowfont=\toks28
-\MPscratchCnt=\count115
+\scratchbox=\box33
+\nofMPsegments=\count114
+\nofMParguments=\count115
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count116
 \MPscratchDim=\dimen117
-\MPnumerator=\count116
-\makeMPintoPDFobject=\count117
-\everyMPtoPDFconversion=\toks29
+\MPnumerator=\count117
+\makeMPintoPDFobject=\count118
+\everyMPtoPDFconversion=\toks31
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -556,63 +558,63 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 164.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 165.
 
 
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )<<ot1.cmap>>
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 164.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 165.
 
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 164
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 165
 .
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 164
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 165
 .
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <20.74> on input line 164.
+(Font)              <20.74> on input line 165.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 164.
+(Font)              <14.4> on input line 165.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 164.
-LaTeX Font Info:    Try loading font information for U+lasy on input line 164.
+(Font)              <12> on input line 165.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 165.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 164.
+LaTeX Font Info:    Try loading font information for U+msa on input line 165.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 164.
+LaTeX Font Info:    Try loading font information for U+msb on input line 165.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 164.
+(Font)              <10.95> on input line 165.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 164.
+(Font)              <8> on input line 165.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 164.
+(Font)              <6> on input line 165.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <17.28> on input line 164.
+(Font)              <17.28> on input line 165.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 164.
+(Font)              <10> on input line 165.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 164.
+(Font)              <7> on input line 165.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [1]
@@ -640,30 +642,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--34
  [4
 
 
-] (./main.toc)
+] (./main.toc [5
+
+])
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [5
-
-]
+ [6]
 \openout2 = `chap1.aux'.
 
  (./chap1.tex
 Chapter 1.
-[6
+[7
 
 
-]) [7]
+]) [8]
 \openout2 = `chap2.aux'.
 
  (./chap2.tex
 Chapter 2.
-[8
+[9
 
 
 
-] [9]
+] [10]
 Overfull \hbox (1.87267pt too wide) in paragraph at lines 44--45
 []\T1/lmr/m/n/12 Consideremos el sigu-iente ejem-plo, ten-emos $\OML/lmm/m/it/1
 2 V \OT1/lmr/m/n/12 = \OMS/lmsy/m/n/12 f\OML/lmm/m/it/12 x; y; z\OMS/lmsy/m/n/1
@@ -671,13 +673,13 @@ Overfull \hbox (1.87267pt too wide) in paragraph at lines 44--45
 OML/lmm/m/it/12 True; False\OMS/lmsy/m/n/12 g$\T1/lmr/m/n/12 ,
  []
 
-<Figures/kripke.png, id=48, 109.40875pt x 155.58125pt>
+<Figures/kripke.png, id=51, 109.40875pt x 155.58125pt>
 File: Figures/kripke.png Graphic file (type png)
 
 <use Figures/kripke.png>
 Package pdftex.def Info: Figures/kripke.png used on input line 56.
 (pdftex.def)             Requested size: 83.68927pt x 119.00975pt.
- [10 <./Figures/kripke.png>]
+ [11 <./Figures/kripke.png>]
 
 LaTeX Warning: Command \textellipsis invalid in math mode on input line 74.
 
@@ -691,7 +693,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 76--81
 
  []
 
-[11]
+[12]
 Underfull \hbox (badness 10000) in paragraph at lines 86--88
 
  []
@@ -706,41 +708,98 @@ Underfull \hbox (badness 10000) in paragraph at lines 91--94
 
  []
 
-[12]) [13]
+[13] <Figures/kripke3.png, id=65, 119.44624pt x 348.30125pt>
+File: Figures/kripke3.png Graphic file (type png)
+
+<use Figures/kripke3.png>
+Package pdftex.def Info: Figures/kripke3.png used on input line 113.
+(pdftex.def)             Requested size: 83.68927pt x 244.03242pt.
+
+<Figures/kripke3-gfp1.png, id=66, 580.41844pt x 277.78781pt>
+File: Figures/kripke3-gfp1.png Graphic file (type png)
+
+<use Figures/kripke3-gfp1.png>
+Package pdftex.def Info: Figures/kripke3-gfp1.png used on input line 119.
+(pdftex.def)             Requested size: 418.45274pt x 200.2741pt.
+ [14 <./Figures/kripke3.png>]
+<Figures/eval.png, id=71, 258.21469pt x 452.4403pt>
+File: Figures/eval.png Graphic file (type png)
+ <use Figures/eval.png>
+Package pdftex.def Info: Figures/eval.png used on input line 130.
+(pdftex.def)             Requested size: 292.91563pt x 513.29509pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) [15 <./Figures/kripke3-gfp1.png>] [16 <./Figures/eval.png>]
 \openout2 = `chap3.aux'.
 
  (./chap3.tex
 Chapter 3.
-[14
+[17
 
 
 
-] <Figures/BDT.png, id=68, 757.83125pt x 412.54124pt>
+] <Figures/BDT.png, id=83, 757.83125pt x 412.54124pt>
 File: Figures/BDT.png Graphic file (type png)
  <use Figures/BDT.png>
 Package pdftex.def Info: Figures/BDT.png used on input line 13.
 (pdftex.def)             Requested size: 418.45274pt x 227.79855pt.
 
-[15 <./Figures/BDT.png>]) [16]
+[18 <./Figures/BDT.png>]
+<Figures/goodorder.png, id=89, 185.69376pt x 412.54124pt>
+File: Figures/goodorder.png Graphic file (type png)
+
+<use Figures/goodorder.png>
+Package pdftex.def Info: Figures/goodorder.png used on input line 40.
+(pdftex.def)             Requested size: 83.68927pt x 185.9314pt.
+
+<Figures/badorder.png, id=90, 204.765pt x 412.54124pt>
+File: Figures/badorder.png Graphic file (type png)
+
+<use Figures/badorder.png>
+Package pdftex.def Info: Figures/badorder.png used on input line 46.
+(pdftex.def)             Requested size: 83.68927pt x 168.61423pt.
+ [19] [20 <./Figures/goodorder.png> <./Figures/badorder.png>] <Figures/kripke2.
+png, id=99, 109.40875pt x 155.58125pt>
+File: Figures/kripke2.png Graphic file (type png)
+
+<use Figures/kripke2.png>
+Package pdftex.def Info: Figures/kripke2.png used on input line 62.
+(pdftex.def)             Requested size: 83.68927pt x 119.00975pt.
+
+Overfull \hbox (2.4581pt too wide) in paragraph at lines 74--77
+[]\T1/lmr/m/n/12 -Los val-ores Falso y Ver-dadero es-tan rep-re-sen-ta-dos por 
+OBDD-FALSE y OBDD-
+ []
+
+[21 <./Figures/kripke2.png>]
+<Figures/fix.png, id=104, 249.18094pt x 140.77594pt>
+File: Figures/fix.png Graphic file (type png)
+ <use Figures/fix.png>
+Package pdftex.def Info: Figures/fix.png used on input line 95.
+(pdftex.def)             Requested size: 292.91563pt x 165.49979pt.
+)
+[22] [23 <./Figures/fix.png>]
 \openout2 = `chap4.aux'.
 
  (./chap4.tex
 Chapter 4.
-) [17
+) [24
 
 
 
-]
+] [25]
 \openout2 = `biblio.aux'.
 
- (./biblio.tex (./main.bbl)) [18
+ (./biblio.tex (./main.bbl)) [26
 
 
 
 ]
 \openout2 = `Anexos.aux'.
 
- (./Anexos.tex [19
+ (./Anexos.tex [27
 
 
 
@@ -749,39 +808,36 @@ Appendix A.
 LaTeX Font Info:    Try loading font information for T1+lmtt on input line 15.
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)) [20
+)) [28
 
 ]
 No file main.ind.
 (./main.aux (./abstract.aux) (./chap1.aux) (./chap2.aux) (./chap3.aux)
-(./chap4.aux) (./biblio.aux) (./Anexos.aux))
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+(./chap4.aux) (./biblio.aux) (./Anexos.aux)) ) 
 Here is how much of TeX's memory you used:
- 3696 strings out of 495028
- 46619 string characters out of 6181497
- 105072 words of memory out of 5000000
- 6688 multiletter control sequences out of 15000+600000
+ 3799 strings out of 495028
+ 48240 string characters out of 6181497
+ 106612 words of memory out of 5000000
+ 6780 multiletter control sequences out of 15000+600000
  83939 words of font info for 85 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 38i,8n,43p,976b,239s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/en
-c/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/s
-hare/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/latxfont/lasy10.pfb></usr/share/texmf/fonts/type1/public/lm
-/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texm
-f/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10
-.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/
-type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></us
-r/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/pu
-blic/lm/lmro12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/sha
-re/texmf/fonts/type1/public/lm/lmsy8.pfb>
-Output written on main.pdf (21 pages, 260558 bytes).
+ 38i,8n,43p,1042b,243s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips
+/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/shar
+e/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec
+.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxfont/lasy10
+.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts
+/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb><
+/usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/
+public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/sha
+re/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm
+/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmro12.pfb></usr/share/texm
+f/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy
+8.pfb>
+Output written on main.pdf (29 pages, 414439 bytes).
 PDF statistics:
- 133 PDF objects out of 1000 (max. 8388607)
- 91 compressed objects within 1 object stream
+ 173 PDF objects out of 1000 (max. 8388607)
+ 108 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 19 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 54 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,21 +1,22 @@
 \contentsline {chapter}{Resumen}{2}
 \contentsline {chapter}{Agradecimientos}{3}
 \contentsline {chapter}{Lista de figuras}{4}
-\contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n}{6}
-\contentsline {section}{\numberline {1.1}Objetivos}{6}
-\contentsline {section}{\numberline {1.2}Estructura}{7}
-\contentsline {chapter}{\numberline {2}Conceptos preliminares}{8}
-\contentsline {section}{\numberline {2.1}Modelado de sistemas}{9}
-\contentsline {section}{\numberline {2.2}Especificaci\IeC {\'o}n de propiedades}{11}
-\contentsline {section}{\numberline {2.3}C\IeC {\'a}lculo-$\mu $}{11}
-\contentsline {subsection}{\numberline {2.3.1}Sintaxis}{11}
-\contentsline {subsection}{\numberline {2.3.2}Sem\IeC {\'a}ntica}{12}
-\contentsline {subsection}{\numberline {2.3.3}Algoritmo de verificaci\IeC {\'o}n de modelos expl\IeC {\'\i }citos}{13}
-\contentsline {chapter}{\numberline {3}Verificaci\IeC {\'o}n simb\IeC {\'o}lica de modelos}{14}
-\contentsline {section}{\numberline {3.1}Representaci\IeC {\'o}n de f\IeC {\'o}rmulas l\IeC {\'o}gicas}{14}
-\contentsline {section}{\numberline {3.2}Diagramas binarios de decisi\IeC {\'o}n}{16}
-\contentsline {chapter}{\numberline {4}Lenguaje MC2}{17}
-\contentsline {section}{\numberline {4.1}Tipos}{17}
-\contentsline {section}{\numberline {4.2}Sintaxis}{17}
-\contentsline {chapter}{Ap\IeC {\'e}ndices}{19}
-\contentsline {chapter}{\numberline {A}C\IeC {\'o}digo}{20}
+\contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n}{7}
+\contentsline {section}{\numberline {1.1}Objetivos}{7}
+\contentsline {section}{\numberline {1.2}Estructura}{8}
+\contentsline {chapter}{\numberline {2}Conceptos preliminares}{9}
+\contentsline {section}{\numberline {2.1}Modelado de sistemas}{10}
+\contentsline {section}{\numberline {2.2}Especificaci\IeC {\'o}n de propiedades}{12}
+\contentsline {section}{\numberline {2.3}C\IeC {\'a}lculo-$\mu $}{12}
+\contentsline {subsection}{\numberline {2.3.1}Sintaxis}{12}
+\contentsline {subsection}{\numberline {2.3.2}Sem\IeC {\'a}ntica}{13}
+\contentsline {subsection}{\numberline {2.3.3}Algoritmo de verificaci\IeC {\'o}n de modelos expl\IeC {\'\i }citos}{15}
+\contentsline {chapter}{\numberline {3}Verificaci\IeC {\'o}n simb\IeC {\'o}lica de modelos}{17}
+\contentsline {section}{\numberline {3.1}Representaci\IeC {\'o}n de f\IeC {\'o}rmulas l\IeC {\'o}gicas}{17}
+\contentsline {section}{\numberline {3.2}Representaci\IeC {\'o}n de estructuras de Kripke}{20}
+\contentsline {section}{\numberline {3.3}Algoritmo de verificaci\IeC {\'o}n de modelos simb\IeC {\'o}licos}{21}
+\contentsline {chapter}{\numberline {4}Lenguaje MC2}{24}
+\contentsline {section}{\numberline {4.1}Tipos}{24}
+\contentsline {section}{\numberline {4.2}Sintaxis}{25}
+\contentsline {chapter}{Ap\IeC {\'e}ndices}{27}
+\contentsline {chapter}{\numberline {A}C\IeC {\'o}digo}{28}

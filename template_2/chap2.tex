@@ -62,7 +62,16 @@ El único camino posible en esta estructura partiendo del estado inicial es: (1,
 
 Ahora describiremos una lógica para especificar propiedades deseadas en una estructura de Kripke u otra máquina de transición de estados. La lógica utiliza proposiciones atómicas y operadores como la disyunción y la negación para construir expresiones más complicadas que describan propiedades sobre estados.
 La lógica temporal es un formalismo que permite describir secuencias de transiciones entre estados en un sistema reactivo, nos interesa saber si en algún momento se llega a un estado determinado o que nunca se llegue a un deadlock. Para esto introduce nuevos operadores especiales que permiten hablar sobre tiempo. Estos operadores pueden combinarse con los operadores lógicos conocidos.
-Analizaremos a continuación una lógica temporal muy potente llamada Cálculo-$\mu$.
+
+\subsection{CTL*}
+
+Con el propósito de familiarizarnos con las lógicas temporales, observaremos una lógica temporal muy popular llamada CTL* (Computational Tree Logic*).
+Las fórmulas de estado CTL* sobre el conjunto AP de proposiciones atómicas, están formadas de acuerdo a la siguiente gramática\cite{Baier:2}:
+\[\Phi ::= true | a | \Phi_{1} \land \Phi_{2} | \neg \Phi | \exists \varphi \]
+donde $a \in AP$ y $\varphi$ es una fórmula de camino. La sintaxis de fórmula de camino CTL* esta dada por la siguiente gramática:
+\[\varphi ::= \Phi | \varphi_{1} \land \varphi_{2} | \neg \varphi | \bigcirc \varphi | \varphi_{1} \cup \varphi_{2} \]
+donde $\Phi$ es una fórmula de estado, y $\varphi$, $\varphi_{1}$, $\varphi_{2}$ son fórmulas de camino.
+Analizaremos a continuación una lógica temporal muy potente llamada Cálculo-$\mu$, la cual es aun mas expresiva que CTL*.
 
 
 \section{Cálculo-$\mu$}
@@ -106,7 +115,7 @@ Formalmente, una fórmula $f$ se interpreta como un conjunto de estados donde $f
 $[[\mu Q. f]] \ M\ e\ $ es el menor punto fijo del predicado transformador $t:2^{S} \to 2^{S}$ definido como $t(W) = [[f]]\ M\ e[Q \gets W] $ \\
 $[[\nu Q. f]] \ M\ e\ $ es el mayor punto fijo del predicado transformador $t:2^{S} \to 2^{S}$ definido como $t(W) = [[f]]\ M\ e[Q \gets W] $
 
-Para entender cómo funcionan los operadores de punto fijo consideremos el siguiente ejemplo, supongamos que tenemos una estructura de Kripke $M = (S,T,L)$ como la de la figura \ref{fig:kripke3}, donde $L(s_{0}) = {p,q,r}$, $L(s_{1}) = {p,q}$, $L(s_{2}) = {q,r}$ y $L(s_{3}) = {r}$. Y consideremos la fórmula $\nu Q. (p \land \Box Q)$, es decir, queremos saber que estados cumplen con la propiedad de que p vale siempre en todo camino. Cada iteración del operador esta ilustrada en la figura \ref{fig:kripke3-gfp1}. Q se inicializa en True, luego en cada iteración se hace una aproximación al resultado verdadero, los resultados de cada iteración en este caso son, en orden, $S$, $\{s_{0},s_{1}\}$, $\{s_{0}\}$, $\oslash$. Como se puede apreciar en el resultado, no hay estado donde valga esta propiedad. El caso del punto fijo menor es análogo, solo que la variable se inicializaria en False, aunque no es dificil darse cuenta que no tiene mucho sentido verificar $\mu Q.(p \land \Box Q)$.
+Observemos algunos ejemplos, supongamos que tenemos una estructura de Kripke $M = (S,T,L)$ como la de la figura \ref{fig:kripke3}, donde $L(s_{0}) = \{p,q,r\}$, $L(s_{1}) = \{p,q\}$, $L(s_{2}) = \{q,r\}$ y $L(s_{3}) = \{r\}$. Algunos ejemplos de propiedades que uno podria querer verificar son $q \land r$, $\Diamond q$, $\Box r$, $\mu Q. (r \land \neg p \lor \Diamond Q)$, $\nu Q. (p \land \Box Q)$. $q \land r$ se cumple en $\{s_{2}\}$, $\Diamond q$ se cumple en $\{s_{0},s_{1},s_{3}\}$, $\Box r$ se cumple en $\{s_{1},s_{2},s_{3}\}$, $\mu Q. (r \land \neg p \lor \Diamond Q)$ se cumple en $S$, y $\nu Q. (p \land \Box Q)$ se cumple en $\oslash$. Para entender cómo funcionan los operadores de punto fijo consideremos la fórmula $\nu Q. (p \land \Box Q)$, es decir, queremos saber que estados cumplen con la propiedad de que p vale siempre en todo camino. Cada iteración del operador esta ilustrada en la figura \ref{fig:kripke3-gfp1}. Q se inicializa en True, luego en cada iteración se hace una aproximación al resultado verdadero, los resultados de cada iteración en este caso son, en orden, $S$, $\{s_{0},s_{1}\}$, $\{s_{0}\}$, $\oslash$. Como se puede apreciar en el resultado, no hay estado donde valga esta propiedad. Si, en vez de usar el mayor punto fijo usaramos el menor, el procedimiento es análogo, solo que la variable se inicializaria en False, aunque no es dificil darse cuenta que no tiene mucho sentido verificar $\mu Q.(p \land \Box Q)$.
 
 \begin{figure}[h!]
   \centering

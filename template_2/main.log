@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.1.12)  7 APR 2016 16:07
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.1.12)  11 APR 2016 01:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -679,32 +679,32 @@ File: Figures/kripke.png Graphic file (type png)
 <use Figures/kripke.png>
 Package pdftex.def Info: Figures/kripke.png used on input line 56.
 (pdftex.def)             Requested size: 83.68927pt x 119.00975pt.
- [11 <./Figures/kripke.png>]
+ [11 <./Figures/kripke.png>] [12]
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 74.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 74--75
-
- []
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 83.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 76--81
-
- []
-
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 86--88
+Underfull \hbox (badness 10000) in paragraph at lines 83--84
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 89--90
+Underfull \hbox (badness 10000) in paragraph at lines 85--90
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 91--94
+Underfull \hbox (badness 10000) in paragraph at lines 95--97
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--99
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--103
 
  []
 
@@ -712,56 +712,60 @@ Underfull \hbox (badness 10000) in paragraph at lines 91--94
 File: Figures/kripke3.png Graphic file (type png)
 
 <use Figures/kripke3.png>
-Package pdftex.def Info: Figures/kripke3.png used on input line 113.
+Package pdftex.def Info: Figures/kripke3.png used on input line 122.
 (pdftex.def)             Requested size: 83.68927pt x 244.03242pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 <Figures/kripke3-gfp1.png, id=66, 580.41844pt x 277.78781pt>
 File: Figures/kripke3-gfp1.png Graphic file (type png)
 
 <use Figures/kripke3-gfp1.png>
-Package pdftex.def Info: Figures/kripke3-gfp1.png used on input line 119.
+Package pdftex.def Info: Figures/kripke3-gfp1.png used on input line 128.
 (pdftex.def)             Requested size: 418.45274pt x 200.2741pt.
- [14 <./Figures/kripke3.png>]
-<Figures/eval.png, id=71, 258.21469pt x 452.4403pt>
+ [14] [15 <./Figures/kripke3.png> <./Figures/kripke3-gfp1.png>] <Figures/eval.p
+ng, id=75, 258.21469pt x 452.4403pt>
 File: Figures/eval.png Graphic file (type png)
- <use Figures/eval.png>
-Package pdftex.def Info: Figures/eval.png used on input line 130.
+
+<use Figures/eval.png>
+Package pdftex.def Info: Figures/eval.png used on input line 139.
 (pdftex.def)             Requested size: 292.91563pt x 513.29509pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [15 <./Figures/kripke3-gfp1.png>] [16 <./Figures/eval.png>]
+) [16] [17 <./Figures/eval.png>]
 \openout2 = `chap3.aux'.
 
  (./chap3.tex
 Chapter 3.
-[17
+[18
 
 
 
-] <Figures/BDT.png, id=83, 757.83125pt x 412.54124pt>
+] <Figures/BDT.png, id=87, 757.83125pt x 412.54124pt>
 File: Figures/BDT.png Graphic file (type png)
  <use Figures/BDT.png>
 Package pdftex.def Info: Figures/BDT.png used on input line 13.
 (pdftex.def)             Requested size: 418.45274pt x 227.79855pt.
 
-[18 <./Figures/BDT.png>]
-<Figures/goodorder.png, id=89, 185.69376pt x 412.54124pt>
+[19 <./Figures/BDT.png>]
+<Figures/goodorder.png, id=92, 185.69376pt x 412.54124pt>
 File: Figures/goodorder.png Graphic file (type png)
 
 <use Figures/goodorder.png>
 Package pdftex.def Info: Figures/goodorder.png used on input line 40.
 (pdftex.def)             Requested size: 83.68927pt x 185.9314pt.
 
-<Figures/badorder.png, id=90, 204.765pt x 412.54124pt>
+<Figures/badorder.png, id=93, 204.765pt x 412.54124pt>
 File: Figures/badorder.png Graphic file (type png)
 
 <use Figures/badorder.png>
 Package pdftex.def Info: Figures/badorder.png used on input line 46.
 (pdftex.def)             Requested size: 83.68927pt x 168.61423pt.
- [19] [20 <./Figures/goodorder.png> <./Figures/badorder.png>] <Figures/kripke2.
-png, id=99, 109.40875pt x 155.58125pt>
+ [20] [21 <./Figures/goodorder.png> <./Figures/badorder.png>] <Figures/kripke2.
+png, id=102, 109.40875pt x 155.58125pt>
 File: Figures/kripke2.png Graphic file (type png)
 
 <use Figures/kripke2.png>
@@ -773,33 +777,38 @@ Overfull \hbox (2.4581pt too wide) in paragraph at lines 74--77
 OBDD-FALSE y OBDD-
  []
 
-[21 <./Figures/kripke2.png>]
-<Figures/fix.png, id=104, 249.18094pt x 140.77594pt>
+[22 <./Figures/kripke2.png>]
+<Figures/fix.png, id=107, 249.18094pt x 140.77594pt>
 File: Figures/fix.png Graphic file (type png)
  <use Figures/fix.png>
 Package pdftex.def Info: Figures/fix.png used on input line 95.
 (pdftex.def)             Requested size: 292.91563pt x 165.49979pt.
-)
-[22] [23 <./Figures/fix.png>]
+
+[23]) [24 <./Figures/fix.png>]
 \openout2 = `chap4.aux'.
 
  (./chap4.tex
 Chapter 4.
-) [24
+[25
 
 
 
-] [25]
+]
+Overfull \hbox (96.27727pt too wide) in paragraph at lines 59--59
+[] 
+ []
+
+[26]) [27]
 \openout2 = `biblio.aux'.
 
- (./biblio.tex (./main.bbl)) [26
+ (./biblio.tex (./main.bbl)) [28
 
 
 
 ]
 \openout2 = `Anexos.aux'.
 
- (./Anexos.tex [27
+ (./Anexos.tex [29
 
 
 
@@ -808,7 +817,7 @@ Appendix A.
 LaTeX Font Info:    Try loading font information for T1+lmtt on input line 15.
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)) [28
+)) [30
 
 ]
 No file main.ind.
@@ -817,11 +826,11 @@ No file main.ind.
 Here is how much of TeX's memory you used:
  3799 strings out of 495028
  48240 string characters out of 6181497
- 106612 words of memory out of 5000000
+ 113612 words of memory out of 5000000
  6780 multiletter control sequences out of 15000+600000
  83939 words of font info for 85 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 38i,8n,43p,1042b,243s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,8n,43p,1511b,243s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips
 /lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/shar
 e/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec
@@ -834,10 +843,10 @@ re/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm
 /lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmro12.pfb></usr/share/texm
 f/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy
 8.pfb>
-Output written on main.pdf (29 pages, 414439 bytes).
+Output written on main.pdf (31 pages, 419883 bytes).
 PDF statistics:
- 173 PDF objects out of 1000 (max. 8388607)
- 108 compressed objects within 2 object streams
+ 180 PDF objects out of 1000 (max. 8388607)
+ 113 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  54 words of extra memory for PDF output out of 10000 (max. 10000000)
 

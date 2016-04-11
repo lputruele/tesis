@@ -5,15 +5,15 @@ import ParseLib
 import Types
 
 --syntax
-data Form = Var Name
+data Form = Var VName
          | Prop AP
          | And Form Form
          | Or Form Form
          | Not Form
          | Box Form 
          | Diamond Form 
-         | Gfp Name Form --Greater fix-point operator
-         | Lfp Name Form --Lower fix-point operator
+         | Gfp Name Form --Greatest fix-point operator
+         | Lfp Name Form --Lowest fix-point operator
          deriving Eq
 
 --printer
@@ -25,8 +25,8 @@ instance Show Form where
   show (Not f) = "!" ++ show f
   show (Box f) = "[]" ++ show f
   show (Diamond f) = "<>" ++ show f
-  show (Gfp n f) = "V" ++ n ++ "." ++ show f
-  show (Lfp n f) = "U" ++ n ++ "." ++ show f
+  show (Gfp n f) = "$" ++ n ++ "." ++ show f
+  show (Lfp n f) = "%" ++ n ++ "." ++ show f
 
 sshowList :: [Form] -> String
 sshowList [] = ""
@@ -60,10 +60,10 @@ pDiamond :: Parser Form
 pDiamond = do {symbol "<>"; f <- pForm; return (Diamond f)}
 
 pGfp :: Parser Form
-pGfp = do {symbol "V"; n <- identifier[]; symbol "."; f <- pForm; return (Gfp n f)}
+pGfp = do {symbol "$"; n <- identifier[]; symbol "."; f <- pForm; return (Gfp n f)}
 
 pLfp :: Parser Form
-pLfp = do {symbol "U"; n <- identifier[]; symbol "."; f <- pForm; return (Lfp n f)}
+pLfp = do {symbol "%"; n <- identifier[]; symbol "."; f <- pForm; return (Lfp n f)}
 
 pForms :: Parser [Form]
 pForms = pForm `sepby1` symbol ","

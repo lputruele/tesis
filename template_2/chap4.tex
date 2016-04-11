@@ -1,18 +1,63 @@
 \chapter{Lenguaje MC2}
 
-MC2 es el verificador de modelos desarrollado en esta tesis, el mismo toma modelos escritos en un lenguaje que tambien llamaremos MC2, el modelo incluye la descripción del sistema y las propiedades que debe satisfacer en C'alculo-$\mu$. El diseño del lenguaje de modelado se centra en la noción de estructuras de Kripke, es decir que con este lenguaje se puede describir el comportamiento del sistema en términos de transiciones de entre estados, y además especificar las propiedades que se desean verificar sobre el modelo. Primero analizaremos la sintaxis y semántica de la parte del lenguaje que se encarga de la descripción del sistema, y luego veremos la sintaxis y semántica de la parte de especificación de propiedades.
+MC2 es el verificador de modelos desarrollado en esta tesis, el mismo toma modelos escritos en un lenguaje que tambien llamaremos MC2, el modelo incluye la descripción del sistema y las propiedades que debe satisfacer en Cálculo-$\mu$. El diseño del lenguaje de modelado se centra en la noción de estructuras de Kripke, es decir que con este lenguaje se puede describir el comportamiento del sistema en términos de transiciones de entre estados, y además especificar las propiedades que se desean verificar sobre el modelo. Primero analizaremos la sintaxis y semántica de la parte del lenguaje que se encarga de la descripción del sistema, y luego veremos la sintaxis y semántica de la parte de especificación de propiedades.
+%%\section{Tipos}
+%%En MC2 tenemos proposiciones atómicas (AP) representadas por cadenas, cada una tiene asociada un valor lógico (True o False), para lo cual existe un tipo Env (environment) que consta de una lista de pares de proposiciones atómicas y sus valores lógicos asociados. Un valor de tipo Env representa el estado del sistema en un momento dado.
 
-\section{Tipos}
+%%$type VName = String
+%%type AP = String
+%%type Env = [(AP,Bool)]
+%%type Assoc = Name -> OBDD AP$
 
-En MC2 tenemos proposiciones atómicas (AP) representadas por cadenas, cada una tiene asociada un valor lógico (True o False), para lo cual existe un tipo Env (environment) que consta de una lista de pares de proposiciones atómicas y sus valores lógicos asociados. Un valor de tipo Env representa el estado del sistema en un momento dado.
-
-$type Name = String
-type AP = String
-type Env = [(AP,Bool)]
-type Assoc = Name -> OBDD AP$
-
-Assoc es un tipo que se utiliza en la semántica de las fórmulas de cálculo mu, este representa una función que toma el nombre de una variable y devuelve el valor asociado (representado por un OBDD).
-
+%Assoc es un tipo que se utiliza en la semántica de las fórmulas de cálculo mu, este representa una función que toma el nombre de una variable y devuelve el valor asociado (representado por un OBDD).
 \section{Sintaxis}
+Sean $p \in AP$,$X \in VName$, entonces la sintaxis de MC2 se define con la siguiente gramática:
 
-Una especificación MC2 se divide en cuatro partes bien diferenciadas: Una sección donde se declaran las variables (proposiciones atómicas), otra donde se describen las reglas de transición, luego una sección donde se establece el estado inicial, y por último una parte donde se detalla la/s propiedades a verificar en el modelo.
+\begin{align*}
+D &:=\ p \\
+   &|\ D;D \\
+\\
+C &:=\ E->E \\
+   &|\ C;C \\
+\\
+E &:=\ p \\
+   &|\ !p \\
+   &|\ E,E \\
+\\
+P &:= F \\
+   &|\ P,P \\
+\\
+F &:=\ p \\
+   &|\ :X \\
+   &|\ !F \\
+   &|\ (F & F) \\
+   &|\ (F | F) \\
+   &|\ <>F \\
+   &|\ []F \\
+   &|\ \%X.F \\
+   &|\ \$X.F \\ 
+\\
+M &:=\ vars\ D\ rules\ C\ init\ E\ check\ P \\
+\end{align*}
+
+Usamos la coma $','$ para separar elementos de una lista de expresiones, y , punto y coma $';'$ para separar elementos de una lista de comandos o de declaraciones. La diferencia es sutil pero es importante destacarla para evitar confusión.
+
+\section{Semántica}
+
+\begin{align*}
+[[\ vars\ D\ rules\ C\ init\ E\ check\ P ]]_{m} &= (hd P,[[hd P]]_{f}) ++ [[[[\ vars\ D\ rules\ C\ init\ E\ check\ tl P ]]_{m}]] \\
+\\
+[[p]]_{f} &= OBDD_{p} \\
+[[:X]]_{f} &= assoc[:X] \\
+[[!F]]_{f} &= NOT [[F]]_{f} \\
+[[F \& G]]_{f} &= [[F]]_{f} AND  [[G]]_{f} \\
+[[F | G]]_{f} &= [[F]]_{f} OR  [[G]]_{f} \\
+[[<>F]]_{f} &= EXISTS x' : OBDD_{m} AND [[F]]_{f}(x') \\
+[[[]F]]_{f} &= [[!<>!F]]_{f} \\
+[[\%X.F]]_{f} &= FIX OBDD-FALSE \\
+[[\$X.F]]_{f} &= FIX OBDD-TRUE \\
+\end{align*}
+
+
+
+\section{Diseño}

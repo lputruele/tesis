@@ -1,4 +1,4 @@
-module Eval where
+module MuEval where
 
 import Mu
 import OBDD
@@ -36,7 +36,7 @@ check (Gfp n f) v m e x =  let res = (OBDD.constant True) in fix n f v m (update
 --check (Lfp n f) v m e x = fix n f v m e x (OBDD.constant False) (check f v m e x)
 --check (Gfp n f) v m e x = fix n f v m e x (OBDD.constant True) (check f v m e x)
 
-fix :: Name -> Form -> Env -> OBDD AP -> Assoc -> Bool -> OBDD AP -> OBDD AP -> OBDD AP
+fix :: VName -> Form -> Env -> OBDD AP -> Assoc -> Bool -> OBDD AP -> OBDD AP -> OBDD AP
 fix n f v m e x res old = let tmp = OBDD.and[OBDD.or[OBDD.not old,res],OBDD.or[OBDD.not res,old]] in
                           if OBDD.null(OBDD.not tmp) --Si no hay una valuacion que haga falsa la equivalencia entre res y old
                           	then res

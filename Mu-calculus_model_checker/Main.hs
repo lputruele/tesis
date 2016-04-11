@@ -1,19 +1,20 @@
 #!/usr/bin/runghc
 module Main where
 
-import ParseLib
-import Mu
 import Data.List
-import Types
-import LangSyntax
-import LangEval
 import System.IO
 import System.Environment
-import Eval
 import OBDD
 import OBDD.Data
 import Data.Map.Strict ( Map )
 import qualified Data.Map.Strict as M
+import ParseLib
+import Mu
+import MuEval
+import Types
+import Model
+import ModelEval
+
 
 pProg :: Parser (Env,[Form],OBDD AP)
 pProg = do {symbol "vars"; d <- pDecl; symbol "rules"; c <- pComm; symbol "init"; e <- pEnv; 

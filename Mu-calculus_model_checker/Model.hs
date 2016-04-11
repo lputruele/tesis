@@ -1,9 +1,9 @@
-module LangSyntax where
+module Model where
 
 import Types
 import ParseLib
 
-data Decl =  DVar Name
+data Decl =  DVar VName
             | DSeq Decl Decl
           deriving Show
 
@@ -36,7 +36,7 @@ pVarDecl = do {n <- myident; return (DVar n)}
 
 pDSemi = symbol ";" >> return DSeq
 
--- Env parsers
+-- Environment parsers
 
 pEnv :: Parser Env
 pEnv = pFactor `chainl1` pAndOperator
@@ -48,8 +48,8 @@ pFactor = do {v <- myident; return [(v,True)]} +++
           do {symbol "!"; v <- myident; return [(v,False)]} +++ 
           do {return []}
 
-reserved_words :: [Name]
+reserved_words :: [String]
 reserved_words = ["true", "false", "vars", "rules", "init", "check"]
 
-myident :: Parser Name
+myident :: Parser String
 myident = identifier reserved_words

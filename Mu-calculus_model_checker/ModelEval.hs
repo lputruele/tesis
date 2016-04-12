@@ -10,19 +10,19 @@ ceval :: Comm -> Env -> OBDD AP
 ceval (Seq c0 c1) env = let (x,y) = (ceval c0 env,ceval c1 env) in OBDD.or[x,y] 
 ceval (Rule (e0,e1)) env = let xs = gentrans (filt env e0) [] in 
 							  if xs /= [] then 
-							    OBDD.or[OBDD.and[mkAnd x, mkAnd2 (fill x e1)]| x <- xs]
+							    OBDD.or[OBDD.and[eeval x, eeval2 (fill x e1)]| x <- xs]
 							  else 
-                                OBDD.and[mkAnd e0, mkAnd2 (fill e0 e1)]
+                                OBDD.and[eeval e0, eeval2 (fill e0 e1)]
 
-mkAnd :: Env -> OBDD AP
-mkAnd [] = OBDD.constant True
-mkAnd (x:xs) = if snd x then OBDD.and[OBDD.unit (fst x) True, mkAnd xs]
-					  else OBDD.and[OBDD.unit (fst x) False, mkAnd xs]
+eeval :: Env -> OBDD AP
+eeval [] = OBDD.constant True
+eeval (x:xs) = if snd x then OBDD.and[OBDD.unit (fst x) True, eeval xs]
+					  else OBDD.and[OBDD.unit (fst x) False, eeval xs]
 
-mkAnd2 :: Env -> OBDD AP
-mkAnd2 [] = OBDD.constant True
-mkAnd2 (x:xs) = if snd x then OBDD.and[OBDD.unit (fst x++"'") True, mkAnd2 xs]
-					   else OBDD.and[OBDD.unit (fst x++"'") False, mkAnd2 xs]
+eeval2 :: Env -> OBDD AP
+eeval2 [] = OBDD.constant True
+eeval2 (x:xs) = if snd x then OBDD.and[OBDD.unit (fst x++"'") True, eeval2 xs]
+					   else OBDD.and[OBDD.unit (fst x++"'") False, eeval2 xs]
 
 fill :: Env -> Env -> Env
 fill [] ys = ys

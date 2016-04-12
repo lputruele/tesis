@@ -2,27 +2,15 @@ vars
   a;b
 
 rules
-  a,b -> !b;
-  a,!b -> b;
-  a,!b -> 
+  a,b -> a,!b;
+  a,!b -> a,b;
+  a,!b -> a,!b
+
 init
   a,b
   
 check
-  b,
-  !b,
-  (a & b),
-  a,
-  !a,
-  <>a,
-  []a,
-  <>b,
   <>(!a & !b),
-  []b,
-  Uz.(b | <>:z),
-  Uz.(a | <>:z),
-  Uz.(!b | <>:z),
-  !Uz.(!a | <>:z),
-  Vz.(b & []:z),
-  Vz.(a & []:z),
-  Vx.(a | !a)
+  %z.(b | <>:z),
+  $z.(b & []:z),
+  $z.(a & []:z)

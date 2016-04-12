@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.1.12)  11 APR 2016 01:22
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.1.12)  11 APR 2016 23:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -793,22 +793,57 @@ Chapter 4.
 
 
 
-]
-Overfull \hbox (96.27727pt too wide) in paragraph at lines 59--59
-[] 
+] [26] <Figures/kripke4.png, id=122, 107.40125pt x 155.58125pt>
+File: Figures/kripke4.png Graphic file (type png)
+
+<use Figures/kripke4.png>
+Package pdftex.def Info: Figures/kripke4.png used on input line 45.
+(pdftex.def)             Requested size: 83.68927pt x 121.23418pt.
+
+<Figures/modeloMC2-1.png, id=123, 138.5175pt x 216.81pt>
+File: Figures/modeloMC2-1.png Graphic file (type png)
+
+<use Figures/modeloMC2-1.png>
+Package pdftex.def Info: Figures/modeloMC2-1.png used on input line 52.
+(pdftex.def)             Requested size: 146.46101pt x 229.24516pt.
+ [27 <./Figures/kripke4.png>]
+<Figures/modeloMC2-2.png, id=128, 132.495pt x 215.30438pt>
+File: Figures/modeloMC2-2.png Graphic file (type png)
+
+<use Figures/modeloMC2-2.png>
+Package pdftex.def Info: Figures/modeloMC2-2.png used on input line 61.
+(pdftex.def)             Requested size: 138.09016pt x 224.41391pt.
+ [28 <./Figures/modeloMC2-1.png>]
+<Figures/kripke5.png, id=133, 227.85126pt x 155.58125pt>
+File: Figures/kripke5.png Graphic file (type png)
+
+<use Figures/kripke5.png>
+Package pdftex.def Info: Figures/kripke5.png used on input line 68.
+(pdftex.def)             Requested size: 167.37854pt x 114.29266pt.
+
+<Figures/modeloMC2-3.png, id=134, 127.22531pt x 216.05719pt>
+File: Figures/modeloMC2-3.png Graphic file (type png)
+
+<use Figures/modeloMC2-3.png>
+Package pdftex.def Info: Figures/modeloMC2-3.png used on input line 75.
+(pdftex.def)             Requested size: 138.09016pt x 234.51851pt.
+ [29 <./Figures/modeloMC2-2.png> <./Figures/kripke5.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 82--83
+
  []
 
-[26]) [27]
+[30 <./Figures/modeloMC2-3.png>] [31]) [32]
 \openout2 = `biblio.aux'.
 
- (./biblio.tex (./main.bbl)) [28
+ (./biblio.tex (./main.bbl))
+[33
 
 
 
 ]
 \openout2 = `Anexos.aux'.
 
- (./Anexos.tex [29
+ (./Anexos.tex [34
 
 
 
@@ -817,36 +852,40 @@ Appendix A.
 LaTeX Font Info:    Try loading font information for T1+lmtt on input line 15.
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)) [30
+)) [35
 
 ]
 No file main.ind.
 (./main.aux (./abstract.aux) (./chap1.aux) (./chap2.aux) (./chap3.aux)
-(./chap4.aux) (./biblio.aux) (./Anexos.aux)) ) 
+(./chap4.aux) (./biblio.aux) (./Anexos.aux))
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 3799 strings out of 495028
- 48240 string characters out of 6181497
- 113612 words of memory out of 5000000
- 6780 multiletter control sequences out of 15000+600000
+ 3829 strings out of 495028
+ 48889 string characters out of 6181497
+ 107669 words of memory out of 5000000
+ 6805 multiletter control sequences out of 15000+600000
  83939 words of font info for 85 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 38i,8n,43p,1511b,243s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips
-/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/shar
-e/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec
-.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxfont/lasy10
-.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts
-/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb><
-/usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/
-public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/sha
-re/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm
-/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmro12.pfb></usr/share/texm
-f/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy
-8.pfb>
-Output written on main.pdf (31 pages, 419883 bytes).
+ 38i,9n,43p,1511b,243s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/en
+c/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/s
+hare/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/latxfont/lasy10.pfb></usr/share/texmf/fonts/type1/public/lm
+/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texm
+f/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10
+.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/
+type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></us
+r/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/pu
+blic/lm/lmro12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/sha
+re/texmf/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public/l
+m/lmsy8.pfb>
+Output written on main.pdf (36 pages, 474806 bytes).
 PDF statistics:
- 180 PDF objects out of 1000 (max. 8388607)
- 113 compressed objects within 2 object streams
+ 209 PDF objects out of 1000 (max. 8388607)
+ 126 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 54 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 79 words of extra memory for PDF output out of 10000 (max. 10000000)
 

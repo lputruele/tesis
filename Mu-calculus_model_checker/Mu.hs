@@ -12,8 +12,8 @@ data Form = Var VName
          | Not Form
          | Box Form 
          | Diamond Form 
-         | Gfp Name Form --Greatest fix-point operator
-         | Lfp Name Form --Lowest fix-point operator
+         | Gfp VName Form --Greatest fix-point operator
+         | Lfp VName Form --Lowest fix-point operator
          deriving Eq
 
 --printer

@@ -1,15 +1,7 @@
 \chapter{Lenguaje MC2}
 
 MC2 es el verificador de modelos desarrollado en esta tesis, el mismo toma modelos escritos en un lenguaje que tambien llamaremos MC2, el modelo incluye la descripción del sistema y las propiedades que debe satisfacer en Cálculo-$\mu$. El diseño del lenguaje de modelado se centra en la noción de estructuras de Kripke, es decir que con este lenguaje se puede describir el comportamiento del sistema en términos de transiciones de entre estados, y además especificar las propiedades que se desean verificar sobre el modelo. Primero analizaremos la sintaxis y semántica de la parte del lenguaje que se encarga de la descripción del sistema, y luego veremos la sintaxis y semántica de la parte de especificación de propiedades.
-%%\section{Tipos}
-%%En MC2 tenemos proposiciones atómicas (AP) representadas por cadenas, cada una tiene asociada un valor lógico (True o False), para lo cual existe un tipo Env (environment) que consta de una lista de pares de proposiciones atómicas y sus valores lógicos asociados. Un valor de tipo Env representa el estado del sistema en un momento dado.
 
-%%$type VName = String
-%%type AP = String
-%%type Env = [(AP,Bool)]
-%%type Assoc = Name -> OBDD AP$
-
-%Assoc es un tipo que se utiliza en la semántica de las fórmulas de cálculo mu, este representa una función que toma el nombre de una variable y devuelve el valor asociado (representado por un OBDD).
 \section{Sintaxis}
 Sean $p \in AP$,$X \in VName$, entonces la sintaxis de MC2 se define con la siguiente gramática:
 
@@ -30,7 +22,7 @@ P &:= F \\
 F &:=\ p \\
    &|\ :X \\
    &|\ !F \\
-   &|\ (F & F) \\
+   &|\ (F \& F) \\
    &|\ (F | F) \\
    &|\ <>F \\
    &|\ []F \\
@@ -42,22 +34,98 @@ M &:=\ vars\ D\ rules\ C\ init\ E\ check\ P \\
 
 Usamos la coma $','$ para separar elementos de una lista de expresiones, y , punto y coma $';'$ para separar elementos de una lista de comandos o de declaraciones. La diferencia es sutil pero es importante destacarla para evitar confusión.
 
-\section{Semántica}
+\section{Semántica} 
+
+\subsection{Semántica informal}
+
+La figura \ref{fig:MC2-1} muestra un ejemplo de una descripción MC2. Aqui representamos una estructura de Kripke con dos estados $s_{0}$,$s_{1}$ donde $L(s_{0}) = \{a,b\}$, $L(s_{1}) = \{a\}$, y $T = \{(s_{0},s_{1}),(s_{1},s_{0}),(s_{1},s_{1})\}$ como el de la figura \ref{fig:kripke4}. En la sección $vars$ se declara el conjunto de proposiciones atómicas del modelo. La sección $rules$ describe las transiciones del sistema. La sección $init$ es donde se señala el valor inicial de las proposiciones atómicas. En la sección $check$ se especifican las propiedades que se desean verificar sobre el modelo en el estado $init$.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.2\textwidth]{Figures/kripke4.png}
+  \caption{Estructura de Kripke del modelo.}
+  \label{fig:kripke4}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.35\textwidth]{Figures/modeloMC2-1.png}
+  \caption{Ejemplo de descripción MC2.}
+  \label{fig:MC2-1}
+\end{figure}
+
+Se puede ver que las reglas describen precisamente las tres transiciones del sistema. Aquellas proposiciones que no varian su valor de un estado al siguiente, se las puede obviar en la parte derecha de la regla como se ve en la figura \ref{fig:MC2-2}. Esta descripción es equivalente a la anterior. Intuitivamente podemos pensar la parte izquierda de la regla como el estado corriente y la parte derecha como el siguiente estado, pero en realidad podemos representar mas de una transición con una sola regla. Por ejemplo, la descripción de la figura \ref{fig:MC2-3} modela el sistema de la figura \ref{fig:kripke5}. Al omitir $a$ en la parte izquierda de las reglas, estamos diciendo que las mismas se cumplen tanto si vale como si no vale $a$.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.33\textwidth]{Figures/modeloMC2-2.png}
+  \caption{Ejemplo de descripción MC2 usando azucar sintáctico.}
+  \label{fig:MC2-2}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.4\textwidth]{Figures/kripke5.png}
+  \caption{Estructura de Kripke del nuevo modelo.}
+  \label{fig:kripke5}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.33\textwidth]{Figures/modeloMC2-3.png}
+  \caption{Ejemplo de descripción MC2 con más de una transición por regla.}
+  \label{fig:MC2-3}
+\end{figure}
+
+\subsection{Semántica formal}
+
+$[[\ vars\ D\ rules\ C\ init\ E\ check\ P ]]_{m}\ =\ [(F,inst\ E\ ([[F]]_{f}\ [[C]]_{c}\ assoc-init))\ |\ F \in P]$ \\
 
 \begin{align*}
-[[\ vars\ D\ rules\ C\ init\ E\ check\ P ]]_{m} &= (hd P,[[hd P]]_{f}) ++ [[[[\ vars\ D\ rules\ C\ init\ E\ check\ tl P ]]_{m}]] \\
-\\
-[[p]]_{f} &= OBDD_{p} \\
-[[:X]]_{f} &= assoc[:X] \\
-[[!F]]_{f} &= NOT [[F]]_{f} \\
-[[F \& G]]_{f} &= [[F]]_{f} AND  [[G]]_{f} \\
-[[F | G]]_{f} &= [[F]]_{f} OR  [[G]]_{f} \\
-[[<>F]]_{f} &= EXISTS x' : OBDD_{m} AND [[F]]_{f}(x') \\
-[[[]F]]_{f} &= [[!<>!F]]_{f} \\
-[[\%X.F]]_{f} &= FIX OBDD-FALSE \\
-[[\$X.F]]_{f} &= FIX OBDD-TRUE \\
+[[p]]_{d}\ &=\ (p,False) \\
+[[D0;D1]]_{d}\ &=\ [[D0]]\ ++\ [[D1]] \\
+\end{align*}
+
+\begin{align*}
+[[C;D]]_{c}\ &=\ [[C]]_{c}\ OR\ [[D]]_{c} \\
+[[E0->E1]]_{c}\ &=\ [[E0]]_{e}\ AND\ [[E1]]_{e'} \\
+\end{align*}
+
+\begin{align*}
+[[p]]_{e}\ &=\ OBDD_{p} \\
+[[!p]]_{e}\ &=\ NOT\ OBDD_{p} \\
+[[E0,E1]]_{e}\ &=\ [[E0]]_{e}\ AND\ [[E1]]_{e} \\
+\end{align*}
+
+\begin{align*}
+[[p]]_{e'}\ &=\ OBDD_{p'} \\
+[[!p]]_{e'}\ &=\ NOT\ OBDD_{p'} \\
+[[E0,E1]]_{e'}\ &=\ [[E0]]_{e'}\ AND\ [[E1]]_{e'} \\
+\end{align*}
+
+\begin{align*}
+[[p]]_{f}\ M\ assoc\ &=\ OBDD_{p} \\
+[[:X]]_{f}\ M\ assoc\ &=\ assoc(:X) \\
+[[!F]]_{f}\ M\ assoc\ &=\ NOT\ ([[F]]_{f}\ M\ assoc)\\
+[[F \& G]]_{f}\ M\ assoc\ &=\ ([[F]]_{f}\ M\ assoc)\ AND\ ([[G]]_{f}\ M\ assoc)\\
+[[F | G]]_{f}\ M\ assoc\ &=\ ([[F]]_{f}\ M\ assoc)\ OR\ ([[G]]_{f}\ M\ assoc)\\
+[[<>F]]_{f}\ M\ assoc\ &=\ EXISTS\ x'\ :\ M\ AND\ ([[F]]_{f}(x')\ M\ assoc) \\
+[[[]F]]_{f}\ M\ assoc\ &=\ [[!<>!F]]_{f}\ M\ assoc \\
+[[\%X.F]]_{f}\ M\ assoc\ &=\ FIX\ F\ assoc\ OBDD-FALSE \\
+[[\$X.F]]_{f}\ M\ assoc\ &=\ FIX\ F\ assoc\ OBDD-TRUE \\
 \end{align*}
 
 
 
-\section{Diseño}
+
+\section{Diseño e implementación}
+
+\subsection{Tipos}
+En MC2 tenemos proposiciones atómicas (AP) representadas por cadenas, cada una tiene asociada un valor lógico (True o False), para lo cual existe un tipo Env (environment) que consta de una lista de pares de proposiciones atómicas y sus valores lógicos asociados. Un valor de tipo Env representa el estado del sistema en un momento dado.
+
+$type VName = String
+type AP = String
+type Env = [(AP,Bool)]
+type Assoc = Name -> OBDD AP$
+
+Assoc es un tipo que se utiliza en la semántica de las fórmulas de cálculo mu, este representa una función que toma el nombre de una variable y devuelve el valor asociado (representado por un OBDD).

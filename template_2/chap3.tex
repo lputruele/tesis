@@ -1,6 +1,6 @@
 \chapter{Verificación simbólica de modelos}
 
-El algoritmo de verificación de modelos con estados explícitos para Cálculo-$\mu$ presentado anteriormente tiene un problema, es muy susceptible a que ocurra una explosión en el tamaño del modelo, especialmente si el grafo de transición de estados se extrae de un sistema concurrente con muchos componentes. En esta sección se describe un algoritmo de verificación de modelos simbólicos para Cálculo-$\mu$ que opera sobre estructuras de Kripke, esta vez representadas no de manera explícita, sino de manera simbólica a través de fórmulas lógicas.
+El algoritmo de verificación de modelos con estados explícitos para Cálculo-$\mu$ presentado anteriormente tiene un problema, es muy susceptible a que ocurra una explosión en el tamaño del modelo, especialmente si el grafo de transición de estados se extrae de un sistema concurrente con muchos componentes. En muchos casos, la “complejidad” del espacio de estados es mucho menor que lo que el número de estados indica. A menudo, los sistemas con un gran número de componentes tienen una estructura regular que sugeriria una regularidad correspondiente en el grafo de estados. En consecuencia, existen representaciones mas sofisticadas que explotan esta regularidad. Un buen candidato para tal representación simbólica es el diagrama de decisión binario (BDD) \cite{Burch:4}. En esta sección se describe un algoritmo de verificación de modelos simbólicos para Cálculo-$\mu$ que opera sobre estructuras de Kripke, esta vez representadas no de manera explícita, sino de manera simbólica a través de fórmulas lógicas (que internamente operan como BDDs).
 
 \section{Representación de fórmulas lógicas}
 
@@ -24,7 +24,7 @@ Los árboles binarios de decisión no proveen una representación muy concisa pa
 2. Si $v$ es un vértice no terminal con $var(v) = x_{i}$ entonces $f_{v}$ es la función 
 \[f_{v}(x_{1},...,x_{n}) = (\neg x_{i} \land f_{izq(v)}(x_{1},...,x_{n})) \lor (x_{i} \land f_{der(v)}(x_{1},...,x_{n}))\]
 
-Bryant demostró como obtener una representación canónica para funciones lógicas al poner dos restricciones sobre los BDDs. Primero, las variables deberian aparecer en el mismo orden a lo largo de cada camino desde la raiz a un terminal. Segundo, no deberia haber subárboles isomórficos o vertices redundantes en el diagrama. El primer requisito se logra al imponer un ordenamiento total $<$ sobre las variables que etiquetan los vertices en el BDD y requiriendo eso para cada vertice $u$ en el diagrama, si $u$ tiene un sucesor no terminal, entonces $var(u) < var(v)$. El segundo requisito se logra al aplicar repetidamente tres reglas de transformación que no alteran la función representada por el diagrama
+Bryant \cite{Bryant:8} demostró como obtener una representación canónica para funciones lógicas al poner dos restricciones sobre los BDDs. Primero, las variables deberian aparecer en el mismo orden a lo largo de cada camino desde la raiz a un terminal. Segundo, no deberia haber subárboles isomórficos o vertices redundantes en el diagrama. El primer requisito se logra al imponer un ordenamiento total $<$ sobre las variables que etiquetan los vertices en el BDD y requiriendo eso para cada vertice $u$ en el diagrama, si $u$ tiene un sucesor no terminal, entonces $var(u) < var(v)$. El segundo requisito se logra al aplicar repetidamente tres reglas de transformación que no alteran la función representada por el diagrama
 
 Eliminar terminales duplicados: Dejar solo un terminal para cada valor y redirigir todos los arcos a los eliminados hacia este.
 
@@ -96,6 +96,12 @@ Donde $B(f,assoc)(x')$ reemplaza cada aparición de $x$ por $x'$, y FIX es la si
   \caption{Pseudocódigo e la función FIX.}
   \label{fig:fix}
 \end{figure}
+
+Las operaciones lógicas que ocurren del lado derecho de las ecuaciones son operaciones de BDDs. El significado de la cuantificación existencial de una variable l'ogica esta dada por la siguiente ecuación \cite{Andersen:7} :
+
+\[ \exists x . t = t[0/x] \lor t[1/x]\] 
+
+Donde $t[v/x]$ es t pero donde x toma el valor v.
 
 \subsection{Complejidad}
 

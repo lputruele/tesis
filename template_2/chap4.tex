@@ -33,6 +33,15 @@ M &:=\ vars\ D\ rules\ C\ init\ E\ check\ P \\
 \end{align*}
 
 Usamos la coma $','$ para separar elementos de una lista de expresiones, y , punto y coma $';'$ para separar elementos de una lista de comandos o de declaraciones. La diferencia es sutil pero es importante destacarla para evitar confusión.
+Un detalle de implementación muy importante que hace falta destacar es que el parsing de $E$ retorna un ambiente, el cual es una lista de pares $(p,v)$, donde $p \in AP$ y $v \in Bool$. Se puede decir que hay una semántica intermedia para E:
+
+\begin{align*}
+[[p]]\ &=\ (p,True)\\
+[[!p]]\ &=\ (p,False) \\
+[[E0,E1]]\ &=\ [[E0]]\ ++\ [[E1]] \\
+\end{align*}
+
+De ahora en mas cuando hablemos de E, hacemos referencia a la lista generada anteriormente.
 
 \section{Semántica} 
 
@@ -77,35 +86,47 @@ Se puede ver que las reglas describen precisamente las tres transiciones del sis
   \label{fig:MC2-3}
 \end{figure}
 
+En la sección $check$ se puede ver que hay cuatro propiedades descritas en cálculo-$\mu$, que son las siguientes: $\Diamond (\neg a \land \neg b)$, $\mu z. (b \lor \Diamond z)$, $\nu z. (b \land \Box z)$, y $\nu z. (a \land \Box z)$. Al ejecutar el verificador con la descripción de la figura \ref{fig:MC2-1}, el resultado va a ser el conjunto de propiedades que el modelo haya satisfecho, en este caso $\mu z. (b \lor \Diamond : z)$ y $\nu z. (a \land \Box : z)$, ya que existe un camino en donde $b$ vale en algun momento, y $a$ vale siempre en todo camino. Evidentemente $'\$'$ representa a $\nu$ y $'\%'$ representa a $\nu$. Cabe destacar también que al anteponer $':'$ a una cadena estamos haciendo referencia a una variable y no a una proposición.
+
 \subsection{Semántica formal}
 
-$[[\ vars\ D\ rules\ C\ init\ E\ check\ P ]]_{m}\ =\ [(F,inst\ E\ ([[F]]_{f}\ [[C]]_{c}\ assoc-init))\ |\ F \in P]$ \\
+En esta sección vamos a formalizar las nociones descriptas en la sección anterior. Vamos a necesitar usar operaciones de OBDDs, para lo cual tenemos NOT, AND, OR, NULL(True si no hay modelos para este OBDD \cite{Waldmann:6} ), EXISTS, OBDD-TRUE y OBDD-FALSE. La semántica de una descripción MC2 es la siguiente:\\
+\\
+$[[\ vars\ D\ rules\ C\ init\ E\ check\ P ]]_{m}\ =\ [F\ |\ F \in P\ \land\ NULL\ (NOT\ inst\ E\ ([[F]]_{f}\ [[C]]_{c}\ assoc-init))]$ \\
 
+Es decir, de todas las fórmulas en $P$ solo nos quedamos con aquellas que al instanciarlas con los valores de $init$ siempre da como resultado $True$. La semántica de una declaración está dada por la siguiente función: \\
+\\
 \begin{align*}
 [[p]]_{d}\ &=\ (p,False) \\
 [[D0;D1]]_{d}\ &=\ [[D0]]\ ++\ [[D1]] \\
 \end{align*}
+
+Una declaración da como resultado un ambiente, es decir, una lista de proposiciones con sus valores asociados ($False$ en principio). A continuación tenemos la función que denota la semántica de los modelos, un modelo es la disyunción de una o más reglas, a su vez, una regla es una disyunción de todas las transiciones que genera, donde una transición es una conjunción de los OBDDs generados por la evaluación de los ambientes del estado corriente y el siguiente (en el siguiente estado todas las proposiciones deben estar primadas).
 
 \begin{align*}
 [[C;D]]_{c}\ &=\ [[C]]_{c}\ OR\ [[D]]_{c} \\
 [[E0->E1]]_{c}\ &=\ [[E0]]_{e}\ AND\ [[E1]]_{e'} \\
 \end{align*}
 
+La evaluación de un ambiente esta dada por las funciones $[[E]]_{e}$ y $[[E]]_{e'}$, donde la única diferencia entre estas funciones es que la segunda prima a las proposiciones. La semántica de un ambiente da como resultado la conjunción de las proposiciones del mismo con paridad acorde a sus valores asociados.
+
 \begin{align*}
-[[p]]_{e}\ &=\ OBDD_{p} \\
-[[!p]]_{e}\ &=\ NOT\ OBDD_{p} \\
-[[E0,E1]]_{e}\ &=\ [[E0]]_{e}\ AND\ [[E1]]_{e} \\
+[[(p,True)]]_{e}\ &=\ OBDD_{p} \\
+[[(p,False)]]_{e}\ &=\ NOT\ OBDD_{p} \\
+[[E0++E1]]_{e}\ &=\ [[E0]]_{e}\ AND\ [[E1]]_{e} \\
 \end{align*}
 
 \begin{align*}
-[[p]]_{e'}\ &=\ OBDD_{p'} \\
-[[!p]]_{e'}\ &=\ NOT\ OBDD_{p'} \\
-[[E0,E1]]_{e'}\ &=\ [[E0]]_{e'}\ AND\ [[E1]]_{e'} \\
+[[(p,True)]]_{e'}\ &=\ OBDD_{p'} \\
+[[(p,False)]]_{e'}\ &=\ NOT\ OBDD_{p'} \\
+[[E0++E1]]_{e'}\ &=\ [[E0]]_{e'}\ AND\ [[E1]]_{e'} \\
 \end{align*}
+
+Por ultimo, la semántica de las fórmulas, es la vista en el capítulo 3. M es el modelo del sistema (un OBDD). Assoc es una función que asocia cada variable relacional con un OBDD. La operación EXISTS de los OBDD toma un conjunto de variables y las elimina existencialmente de un OBDD.
 
 \begin{align*}
 [[p]]_{f}\ M\ assoc\ &=\ OBDD_{p} \\
-[[:X]]_{f}\ M\ assoc\ &=\ assoc(:X) \\
+[[:X]]_{f}\ M\ assoc\ &=\ assoc(X) \\
 [[!F]]_{f}\ M\ assoc\ &=\ NOT\ ([[F]]_{f}\ M\ assoc)\\
 [[F \& G]]_{f}\ M\ assoc\ &=\ ([[F]]_{f}\ M\ assoc)\ AND\ ([[G]]_{f}\ M\ assoc)\\
 [[F | G]]_{f}\ M\ assoc\ &=\ ([[F]]_{f}\ M\ assoc)\ OR\ ([[G]]_{f}\ M\ assoc)\\
@@ -114,9 +135,6 @@ $[[\ vars\ D\ rules\ C\ init\ E\ check\ P ]]_{m}\ =\ [(F,inst\ E\ ([[F]]_{f}\ [[
 [[\%X.F]]_{f}\ M\ assoc\ &=\ FIX\ F\ assoc\ OBDD-FALSE \\
 [[\$X.F]]_{f}\ M\ assoc\ &=\ FIX\ F\ assoc\ OBDD-TRUE \\
 \end{align*}
-
-
-
 
 \section{Diseño e implementación}
 

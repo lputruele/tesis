@@ -22,7 +22,7 @@
 \contentsline {section}{\numberline {4.2}Sem\IeC {\'a}ntica}{27}
 \contentsline {subsection}{\numberline {4.2.1}Sem\IeC {\'a}ntica informal}{27}
 \contentsline {subsection}{\numberline {4.2.2}Sem\IeC {\'a}ntica formal}{30}
-\contentsline {section}{\numberline {4.3}Dise\IeC {\~n}o e implementaci\IeC {\'o}n}{31}
-\contentsline {subsection}{\numberline {4.3.1}Tipos}{31}
+\contentsline {section}{\numberline {4.3}Dise\IeC {\~n}o e implementaci\IeC {\'o}n}{32}
+\contentsline {subsection}{\numberline {4.3.1}Tipos}{32}
 \contentsline {chapter}{Ap\IeC {\'e}ndices}{34}
 \contentsline {chapter}{\numberline {A}C\IeC {\'o}digo}{35}

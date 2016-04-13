@@ -10,47 +10,48 @@ A level-1 auxiliary file: biblio.aux
 The style file: ieeetr.bst
 A level-1 auxiliary file: Anexos.aux
 Database file #1: main.bib
-Name 1 in "Edmund M. Clarke, Jr., Orna Grumberg, and Doron A.Peled" has a comma at the end for entry Clarke:1
-while executing---line 969 of file ieeetr.bst
-You've used 3 entries,
+Warning--empty publisher in Clarke:5
+Warning--empty year in Clarke:5
+Warning--empty year in Waldmann:6
+You've used 8 entries,
             1876 wiz_defined-function locations,
-            500 strings with 3810 characters,
-and the built_in function-call counts, 496 in all, are:
-= -- 44
-> -- 20
+            526 strings with 4333 characters,
+and the built_in function-call counts, 1294 in all, are:
+= -- 111
+> -- 57
 < -- 0
-+ -- 8
-- -- 5
-* -- 21
-:= -- 80
-add.period$ -- 6
-call.type$ -- 3
++ -- 23
+- -- 15
+* -- 65
+:= -- 196
+add.period$ -- 15
+call.type$ -- 8
 change.case$ -- 0
 chr.to.int$ -- 0
-cite$ -- 3
-duplicate$ -- 27
-empty$ -- 61
-format.name$ -- 5
-if$ -- 123
+cite$ -- 11
+duplicate$ -- 72
+empty$ -- 160
+format.name$ -- 15
+if$ -- 321
 int.to.chr$ -- 0
-int.to.str$ -- 3
-missing$ -- 6
-newline$ -- 15
-num.names$ -- 3
-pop$ -- 18
+int.to.str$ -- 8
+missing$ -- 16
+newline$ -- 34
+num.names$ -- 8
+pop$ -- 51
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 5
+skip$ -- 9
 stack$ -- 0
 substring$ -- 0
-swap$ -- 3
+swap$ -- 8
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 0
-while$ -- 3
-width$ -- 4
-write$ -- 29
-(There was 1 error message)
+warning$ -- 3
+while$ -- 8
+width$ -- 9
+write$ -- 70
+(There were 3 warnings)

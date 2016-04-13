@@ -1,15 +1,36 @@
 \begin{thebibliography}{1}
 
+\bibitem{Clarke:5}
+E.~Clarke, O.~Grumberg, and D.~Long, {\em Model Checking}.
+
 \bibitem{Baier:2}
 C.~Baier and J.-P. Katoen, {\em Principles of Model Checking}.
 \newblock The MIT Press, 2008.
 
 \bibitem{Clarke:1}
-O.~G. Edmund M.~Clarke, Jr. and D.~A.Peled, {\em Model Checking}.
+E.~M. Clarke, O.~Grumberg, and D.~A. Peled, {\em Model Checking}.
 \newblock The MIT Press, 2000.
 
 \bibitem{Kozen:3}
 D.~Kozen, {\em Results on the prepositional mu-calculus}.
 \newblock Elsevier Science Publishers B.V., 1983.
+
+\bibitem{Burch:4}
+J.~Burch, E.~M. Clarke, and K.~L. McMillan, {\em Symbolic Model Checking
+  $10^{20}$ States and Beyond*}.
+\newblock LICS, 1990.
+
+\bibitem{Bryant:8}
+R.~E. Bryant, {\em Symbolic Boolean Manipulation with Ordered Binary Decision
+  Diagrams}.
+\newblock Fujitsu Laboratories, Ltd., 1992.
+
+\bibitem{Andersen:7}
+H.~R. Andersen, {\em An Introduction to Binary Decision Diagrams}.
+\newblock Lecture Notes, IT University of Copenhagen, 1999.
+
+\bibitem{Waldmann:6}
+J.~Waldmann, {\em The OBDD package}.
+\newblock https://github.com/jwaldmann/haskell-obdd.
 
 \end{thebibliography}

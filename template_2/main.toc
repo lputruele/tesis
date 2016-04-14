@@ -23,6 +23,9 @@
 \contentsline {subsection}{\numberline {4.2.1}Sem\IeC {\'a}ntica informal}{27}
 \contentsline {subsection}{\numberline {4.2.2}Sem\IeC {\'a}ntica formal}{30}
 \contentsline {section}{\numberline {4.3}Dise\IeC {\~n}o e implementaci\IeC {\'o}n}{32}
-\contentsline {subsection}{\numberline {4.3.1}Tipos}{32}
-\contentsline {chapter}{Ap\IeC {\'e}ndices}{34}
-\contentsline {chapter}{\numberline {A}C\IeC {\'o}digo}{35}
+\contentsline {subsection}{\numberline {4.3.1}Tipos en MC2}{32}
+\contentsline {subsection}{\numberline {4.3.2}Descripci\IeC {\'o}n del modelo en MC2}{33}
+\contentsline {subsection}{\numberline {4.3.3}C\IeC {\'a}lculo-$\mu $ en MC2}{33}
+\contentsline {subsection}{\numberline {4.3.4}M\IeC {\'o}dulo principal}{33}
+\contentsline {chapter}{Ap\IeC {\'e}ndices}{35}
+\contentsline {chapter}{\numberline {A}C\IeC {\'o}digo}{36}

@@ -138,12 +138,20 @@ Por ultimo, la semántica de las fórmulas, es la vista en el capítulo 3. M es 
 
 \section{Diseño e implementación}
 
-\subsection{Tipos}
-En MC2 tenemos proposiciones atómicas (AP) representadas por cadenas, cada una tiene asociada un valor lógico (True o False), para lo cual existe un tipo Env (environment) que consta de una lista de pares de proposiciones atómicas y sus valores lógicos asociados. Un valor de tipo Env representa el estado del sistema en un momento dado.
+En esta sección vamos a aclarar detalles del diseño y la implementación del verificador de modelos MC2. La herramienta esta implementada en el lenguaje funcional Haskell, y se interpreta con ghc. La misma está compuesta por los módulos $Types$, $Mu$, $MuEval$, $Model$, $ModelEval$, $Main$, y usa dos modulos externos, $OBDD$ (provee la estructura con sus operaciones) y $ParseLib$ (tiene utilidades de parsing).
 
-$type VName = String
-type AP = String
-type Env = [(AP,Bool)]
-type Assoc = Name -> OBDD AP$
+\subsection{Tipos en MC2}
 
-Assoc es un tipo que se utiliza en la semántica de las fórmulas de cálculo mu, este representa una función que toma el nombre de una variable y devuelve el valor asociado (representado por un OBDD).
+En $MC2$ tenemos proposiciones atómicas ($AP$) representadas por cadenas, cada una tiene asociada un valor lógico ($True$ o $False$), para lo cual existe un tipo $Env$ (ambiente) que consta de una lista de pares de proposiciones atómicas y sus valores lógicos asociados. Un valor de tipo $Env$ representa el estado del sistema en un momento dado. Tambien definimos el tipo $VName$ como sinónimo de cadenas, pero este tipo lo usamos para hacer referencia a variables relacionales. También hemos definido en este modulo el tipo $Assoc$ como una función Assoc: $VName -> OBDD AP$. $OBDD AP$ hace referencia al tipo de OBDDs donde las variables de sus nodos estan representadas con cadenas (AP). Assoc es un tipo que se utiliza en la semántica de las fórmulas de cálculo-$\mu$, este representa una función que toma el nombre de una variable y devuelve el valor asociado (representado por un OBDD).
+
+\subsection{Descripción del modelo en MC2}
+
+Hay dos modulos dedicados a la descripción del modelo. Uno es $Model$, el cuál contiene la definición de la sintaxis de las declaraciones y comandos, y  sus correspondientes $parsers$. El otro módulo es $ModelEval$, este contiene las funciones $ceval$, $deval$ y $eeval$ correspondientes a los evaluadores de comandos, declaraciones y ambientes respectivamente, además de algunas funciones auxiliares. La función $deval$ toma una declaración y un ambiente con proposiciones a inicializar (se usa en la sección $init$ unicamente), y a partir de estos genera el ambiente inicial del sistema. $eeval$ transforma un ambiente en una OBDD-conjunción como se vió en la semántica de ambientes.
+
+\subsection{Cálculo-$\mu$ en MC2}
+
+Similarmente tenemos dos modulos dedicados al Cálculo-$\mu$. Uno es $Mu$, el cuál contiene la definición de la sintaxis, y adicionalmente también contiene el $parser$, y un $printer$. El otro módulo es $MuEval$, este contiene la función $check$ que, dada una fórmula, un modelo (OBDD) y la función $Assoc$, evalua la fórmula y devuelve el OBDD correspondiente a su semántica. Al ser funcional la implementación, toda la información necesaria para computar un resultado debe ser pasada como parámetro, por lo que la función $check$ también toma dos parámetros extra, necesarios para reescribir los nombres de las proposiciones atómicas del OBDD por sus respectivas versiones primas (cuando es necesario verificar algo sobre el siguiente estado). Además $MuEval$ contiene algunas funciones auxiliares como $fix$, la cual se utiliza en el cálculo de puntos fijos.
+
+\subsection{Módulo principal}
+
+El módulo $Main$ contiene el $parser$ de descripciones MC2, su evaluador y varias funciones auxiliares para la lectura de archivos.

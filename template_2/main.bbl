@@ -1,7 +1,12 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{Clarke:5}
 E.~Clarke, O.~Grumberg, and D.~Long, {\em Model Checking}.
+
+\bibitem{Castro:9}
+P.~F. Castro, C.~Kilmurray, A.~Acosta, and N.~Aguirre, {\em dCTL: A Branching
+  Time Temporal Logic for Fault-Tolerant System Verification}.
+\newblock 2011.
 
 \bibitem{Baier:2}
 C.~Baier and J.-P. Katoen, {\em Principles of Model Checking}.
@@ -32,5 +37,11 @@ H.~R. Andersen, {\em An Introduction to Binary Decision Diagrams}.
 \bibitem{Waldmann:6}
 J.~Waldmann, {\em The OBDD package}.
 \newblock https://github.com/jwaldmann/haskell-obdd.
+
+\bibitem{Hutton:10}
+G.~Hutton and E.~Meijer, {\em A LIBRARY OF MONADIC PARSER COMBINATORS}.
+\newblock
+  http://www.informatik.uni-bremen.de/cofi/CASL-CD/Tools/Hets/src/Haskell/Hatchet/ParseLib.hs,
+  2008.
 
 \end{thebibliography}

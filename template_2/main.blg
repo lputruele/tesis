@@ -12,46 +12,47 @@ A level-1 auxiliary file: Anexos.aux
 Database file #1: main.bib
 Warning--empty publisher in Clarke:5
 Warning--empty year in Clarke:5
+Warning--empty publisher in Castro:9
 Warning--empty year in Waldmann:6
-You've used 8 entries,
+You've used 10 entries,
             1876 wiz_defined-function locations,
-            526 strings with 4333 characters,
-and the built_in function-call counts, 1294 in all, are:
-= -- 111
-> -- 57
+            536 strings with 4683 characters,
+and the built_in function-call counts, 1648 in all, are:
+= -- 140
+> -- 79
 < -- 0
-+ -- 23
-- -- 15
-* -- 65
-:= -- 196
-add.period$ -- 15
-call.type$ -- 8
++ -- 31
+- -- 21
+* -- 85
+:= -- 251
+add.period$ -- 19
+call.type$ -- 10
 change.case$ -- 0
 chr.to.int$ -- 0
-cite$ -- 11
-duplicate$ -- 72
-empty$ -- 160
-format.name$ -- 15
-if$ -- 321
+cite$ -- 14
+duplicate$ -- 90
+empty$ -- 199
+format.name$ -- 21
+if$ -- 407
 int.to.chr$ -- 0
-int.to.str$ -- 8
-missing$ -- 16
-newline$ -- 34
-num.names$ -- 8
-pop$ -- 51
+int.to.str$ -- 10
+missing$ -- 20
+newline$ -- 42
+num.names$ -- 10
+pop$ -- 64
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 9
+skip$ -- 11
 stack$ -- 0
 substring$ -- 0
-swap$ -- 8
+swap$ -- 10
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 3
-while$ -- 8
-width$ -- 9
-write$ -- 70
-(There were 3 warnings)
+warning$ -- 4
+while$ -- 10
+width$ -- 12
+write$ -- 87
+(There were 4 warnings)

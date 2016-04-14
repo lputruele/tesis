@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.1.12)  13 APR 2016 23:12
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.1.12)  14 APR 2016 12:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -860,8 +860,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 97--99
 [30 <./Figures/modeloMC2-3.png>] [31] [32]) [33]
 \openout2 = `biblio.aux'.
 
- (./biblio.tex (./main.bbl))
-[34
+ (./biblio.tex (./main.bbl
+Underfull \hbox (badness 3471) in paragraph at lines 42--46
+[]\T1/lmr/m/n/12 G. Hut-ton and E. Mei-jer, \T1/lmr/m/it/12 A LI-BRARY OF MONAD
+IC PARSER
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 42--46
+\T1/lmr/m/it/12 COM-BI-NA-TORS\T1/lmr/m/n/12 .  http://www.informatik.uni-breme
+n.de/cofi/CASL-
+ []
+
+)) [34
 
 
 
@@ -882,32 +893,28 @@ File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ]
 No file main.ind.
 (./main.aux (./abstract.aux) (./chap1.aux) (./chap2.aux) (./chap3.aux)
-(./chap4.aux) (./biblio.aux) (./Anexos.aux))
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+(./chap4.aux) (./biblio.aux) (./Anexos.aux)) ) 
 Here is how much of TeX's memory you used:
- 3834 strings out of 495028
- 48942 string characters out of 6181497
- 107684 words of memory out of 5000000
- 6810 multiletter control sequences out of 15000+600000
+ 3836 strings out of 495028
+ 48963 string characters out of 6181497
+ 107693 words of memory out of 5000000
+ 6812 multiletter control sequences out of 15000+600000
  83939 words of font info for 85 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  38i,9n,43p,1511b,241s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/en
-c/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/s
-hare/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/latxfont/lasy10.pfb></usr/share/texmf/fonts/type1/public/lm
-/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texm
-f/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10
-.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/
-type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></us
-r/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/pu
-blic/lm/lmro12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/sha
-re/texmf/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public/l
-m/lmsy8.pfb>
-Output written on main.pdf (37 pages, 485271 bytes).
+{/usr/share/texmf/fonts/enc/dvips
+/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/shar
+e/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec
+.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxfont/lasy10
+.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts
+/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb><
+/usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/
+public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/sha
+re/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm
+/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmro12.pfb></usr/share/texm
+f/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy
+6.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb>
+Output written on main.pdf (37 pages, 488074 bytes).
 PDF statistics:
  215 PDF objects out of 1000 (max. 8388607)
  131 compressed objects within 2 object streams

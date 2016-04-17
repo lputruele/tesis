@@ -44,4 +44,11 @@ G.~Hutton and E.~Meijer, {\em A LIBRARY OF MONADIC PARSER COMBINATORS}.
   http://www.informatik.uni-bremen.de/cofi/CASL-CD/Tools/Hets/src/Haskell/Hatchet/ParseLib.hs,
   2008.
 
+\bibitem{Hadley:12}
+J.~Hadley and D.~Singmaster, {\em Problems to Sharpen the Young}.
+\newblock The Mathematical Gazette, 1992.
+
+\bibitem{Juegos:11}
+http://juegosdelogica.net/juegosdeestrategia/.
+
 \end{thebibliography}

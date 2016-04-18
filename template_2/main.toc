@@ -31,7 +31,7 @@
 \contentsline {subsection}{\numberline {4.3.4}M\IeC {\'o}dulo principal}{33}
 \contentsline {chapter}{\numberline {5}Casos de estudio}{34}
 \contentsline {section}{\numberline {5.1}Cruce del rio}{34}
-\contentsline {section}{\numberline {5.2}1,2,3, Coloca otra vez}{34}
-\contentsline {section}{\numberline {5.3}Ranas saltarinas}{35}
-\contentsline {chapter}{Ap\IeC {\'e}ndices}{39}
-\contentsline {chapter}{\numberline {A}C\IeC {\'o}digo}{40}
+\contentsline {section}{\numberline {5.2}1,2,3, Coloca otra vez}{36}
+\contentsline {section}{\numberline {5.3}Ranas saltarinas}{38}
+\contentsline {chapter}{Ap\IeC {\'e}ndices}{44}
+\contentsline {chapter}{\numberline {A}C\IeC {\'o}digo}{45}

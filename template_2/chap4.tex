@@ -146,7 +146,7 @@ En $MC2$ tenemos proposiciones atómicas ($AP$) representadas por cadenas, cada 
 
 \subsection{Descripción del modelo en MC2}
 
-Hay dos modulos dedicados a la descripción del modelo. Uno es $Model$, el cuál contiene la definición de la sintaxis de las declaraciones y comandos, y  sus correspondientes $parsers$. El otro módulo es $ModelEval$, este contiene las funciones $ceval$, $deval$ y $eeval$ correspondientes a los evaluadores de comandos, declaraciones y ambientes respectivamente, además de algunas funciones auxiliares. La función $deval$ toma una declaración y un ambiente con proposiciones a inicializar (se usa en la sección $init$ unicamente), y a partir de estos genera el ambiente inicial del sistema. $eeval$ transforma un ambiente en una OBDD-conjunción como se vió en la semántica de ambientes.
+Hay dos modulos dedicados a la descripción del modelo. Uno es $Model$, el cuál contiene la definición de la sintaxis de las declaraciones y comandos, y  sus correspondientes $parsers$. El otro módulo es $ModelEval$, este contiene las funciones $ceval$, $deval$ y $eeval$ correspondientes a los evaluadores de comandos, declaraciones y ambientes respectivamente, además de algunas funciones auxiliares. La función $deval$ toma una declaración y un ambiente con proposiciones a inicializar (se usa en la sección $init$ unicamente), y a partir de estos genera el ambiente inicial del sistema. La función $eeval$ transforma un ambiente en una OBDD-conjunción como se vió en la semántica de ambientes.
 
 \subsection{Cálculo-$\mu$ en MC2}
 

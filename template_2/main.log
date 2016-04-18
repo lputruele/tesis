@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.1.12)  17 APR 2016 12:02
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.1.12)  18 APR 2016 00:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -866,12 +866,47 @@ Chapter 5.
 
 
 
-] [35]) [36
+] <Figures/rivercross.png, id=158, 240.9pt x 311.66437pt>
+File: Figures/rivercross.png Graphic file (type png)
+
+<use Figures/rivercross.png>
+Package pdftex.def Info: Figures/rivercross.png used on input line 13.
+(pdftex.def)             Requested size: 251.07419pt x 324.83664pt.
+
+<Figures/riverobdd.png, id=159, 4396.425pt x 1606.0pt>
+File: Figures/riverobdd.png Graphic file (type png)
+
+<use Figures/riverobdd.png>
+Package pdftex.def Info: Figures/riverobdd.png used on input line 20.
+(pdftex.def)             Requested size: 376.6049pt x 137.54968pt.
+ [35 <./Figures/rivercross.png>]
+<Figures/pentagram.png, id=164, 82.8696pt x 79.2561pt>
+File: Figures/pentagram.png Graphic file (type png)
+
+<use Figures/pentagram.png>
+Package pdftex.def Info: Figures/pentagram.png used on input line 35.
+(pdftex.def)             Requested size: 209.22636pt x 200.12671pt.
+ [36 <./Figures/riverobdd.png>]
+<Figures/estrella.png, id=169, 511.15968pt x 407.27156pt>
+File: Figures/estrella.png Graphic file (type png)
+
+<use Figures/estrella.png>
+Package pdftex.def Info: Figures/estrella.png used on input line 42.
+(pdftex.def)             Requested size: 418.45274pt x 333.40553pt.
+ [37 <./Figures/pentagram.png>] [38 <./Figures/estrella.png>] <Figures/ranas.pn
+g, id=178, 368.87813pt x 855.94781pt>
+File: Figures/ranas.png Graphic file (type png)
+
+<use Figures/ranas.png>
+Package pdftex.def Info: Figures/ranas.png used on input line 63.
+(pdftex.def)             Requested size: 209.22636pt x 485.49216pt.
+ [39] [40 <./Figures/ranas.png>]) [41
 
 ]
 \openout2 = `biblio.aux'.
 
- (./biblio.tex (./main.bbl
+ (./biblio.tex
+(./main.bbl
 Underfull \hbox (badness 3471) in paragraph at lines 42--46
 []\T1/lmr/m/n/12 G. Hut-ton and E. Mei-jer, \T1/lmr/m/it/12 A LI-BRARY OF MONAD
 IC PARSER
@@ -883,14 +918,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 42--46
 n.de/cofi/CASL-
  []
 
-[37
+[42
 
 
 
-])) [38]
+])) [43]
 \openout2 = `Anexos.aux'.
 
- (./Anexos.tex [39
+ (./Anexos.tex [44
 
 
 
@@ -899,36 +934,40 @@ Appendix A.
 LaTeX Font Info:    Try loading font information for T1+lmtt on input line 15.
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)) [40
+)) [45
 
 ]
 No file main.ind.
 (./main.aux (./abstract.aux) (./chap1.aux) (./chap2.aux) (./chap3.aux)
-(./chap4.aux) (./chap5.aux) (./biblio.aux) (./Anexos.aux)) ) 
+(./chap4.aux) (./chap5.aux) (./biblio.aux) (./Anexos.aux))
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 3846 strings out of 495028
- 49058 string characters out of 6181497
- 108104 words of memory out of 5000000
- 6815 multiletter control sequences out of 15000+600000
+ 3876 strings out of 495028
+ 49685 string characters out of 6181497
+ 108159 words of memory out of 5000000
+ 6840 multiletter control sequences out of 15000+600000
  83939 words of font info for 85 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  38i,9n,43p,1511b,261s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/f
-onts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.
-enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/
-dvips/lm/lm-ec.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/l
-atxfont/lasy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/sha
-re/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/
-lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texm
-f/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17
-.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/t
-ype1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmro12.pfb></
-usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/
-public/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb>
-Output written on main.pdf (41 pages, 491932 bytes).
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/en
+c/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/s
+hare/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/latxfont/lasy10.pfb></usr/share/texmf/fonts/type1/public/lm
+/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texm
+f/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10
+.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/
+type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></us
+r/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/pu
+blic/lm/lmro12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/sha
+re/texmf/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public/l
+m/lmsy8.pfb>
+Output written on main.pdf (46 pages, 1499436 bytes).
 PDF statistics:
- 227 PDF objects out of 1000 (max. 8388607)
- 139 compressed objects within 2 object streams
+ 252 PDF objects out of 1000 (max. 8388607)
+ 150 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 79 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 104 words of extra memory for PDF output out of 10000 (max. 10000000)
 

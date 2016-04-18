@@ -6,7 +6,7 @@ Ya hemos presentado el verificador de modelos MC2 y el lenguaje de descripción 
 
 Existen muchas versiones de este problema, nosotros modelaremos una de las versiones mas conocidas \cite{Hadley:12}. El problema es el siguiente, un granjero va a comprar un zorro, un ganso y una bolsa de frijoles. Mientras vuelve a su casa, se encuentra con que debe cruzar un rio, para lo cuál alquila un bote. El granjero solo puede llevar una de sus compras en el barco. Si se deja al zorro con el ganso, el zorro se lo va a comer, y si se deja al ganso con la bolsa de frijoles, este se va a comer los frijoles. El desafio del granjero es el de llevar todas sus compras intactas al otro lado del rio. El problema consiste entonces en elegir sabiamente que compras trasladar en cada viaje.
 
-La descripción MC2 para el modelo de este problema esta en la figura \ref{fig:river}.Para modelarlo declaramos cuatro pares de proposiciones atómicas, uno para cada compra y otro para el barco/granjero, las proposiciones marcadas con $1$ hacen referencia a que estan del lado $origen$ del rio, y las marcadas con $2$ hacen referencia a que estan del lado $destino$ del rio. En cuanto a las reglas, hay dos grupos de reglas a tener en cuenta para describir el comportamiento del sistema, por un lado se describe lo que pasa cuando se dejan juntos objetos incompatibles (por ejemplo, zorro y ganso), por otro lado tenemos las reglas que definen la acción de viajar de un lado del rio al otro (se puede viajar solo o acompañado por un solo objeto). En este caso, en el estado inicial queremos que valga que tanto el granjero/bote como el zorro, el ganso y los frijoles estan del lado $origen$ del rio. Por último, la propiedad que queremos verificar es si existe alguna forma de que, siguiendo las reglas, puedan estar el zorro, el ganso y los frijoles en el lado $destino$ del rio. En la figura \ref{fig:riverobdd} está el OBDD que representa al modelo.
+La descripción MC2 para el modelo de este problema esta en la figura \ref{fig:river}. Para modelarlo declaramos cuatro pares de proposiciones atómicas, uno para cada compra y otro para el barco/granjero, las proposiciones marcadas con $1$ hacen referencia a que estan del lado $origen$ del rio, y las marcadas con $2$ hacen referencia a que estan del lado $destino$ del rio. En cuanto a las reglas, hay dos grupos de reglas a tener en cuenta para describir el comportamiento del sistema, por un lado se describe lo que pasa cuando se dejan juntos objetos incompatibles (por ejemplo, zorro y ganso), por otro lado tenemos las reglas que definen la acción de viajar de un lado del rio al otro (se puede viajar solo o acompañado por un solo objeto). Hay que destacar que, por ejemplo, si $f1$ y $f2$ son falsas significa que los frijoles se han comido, y ninguna regla puede cambiar estos valores. En este caso, en el estado inicial queremos que valga que tanto el granjero/bote como el zorro, el ganso y los frijoles estan del lado $origen$ del rio. Por último, la propiedad que queremos verificar es si existe alguna forma de que, siguiendo las reglas, puedan estar el zorro, el ganso y los frijoles en el lado $destino$ del rio. En la figura \ref{fig:riverobdd} está el OBDD que representa al modelo.
 
 \begin{figure}[H]
   \centering
@@ -24,11 +24,7 @@ La descripción MC2 para el modelo de este problema esta en la figura \ref{fig:r
 
 \section{1,2,3, Coloca otra vez}
 
-Se trata de un juego de tipo solitario.
-Se parte de una estrella de 5 puntas.
-Partiendo de uno de los huecos en los que no haya una ficha previamente colocada, contaremos tres posiciones consecutivas sobre una de las aristas que contienen la posición de partida. Tras ello, colocaremos una ficha en la tercera posición (la última del conteo).
-El conteo puede pasar por una posición en la que haya ficha, pero no puede iniciarse en una posición con ficha.
-El juego estará resuelto cuando se hayan colocado 9 fichas. \cite{Juegos:11} \ref{fig:pentagrama} \ref{fig:estrella}
+Se parte de una estrella de 5 puntas, ademas de estas, se forman 5 puntos en su interior. Partiendo de uno de los 10 puntos donde no haya una ficha previamente colocada, se cuenta tres posiciones consecutivas sobre una de las aristas que contienen el punto de partida. Tras ello, se coloca una ficha en la tercera posición. En la figura \ref{fig:pentagrama} podemos ver la estrella, hemos nombrado los puntos externos como $o1, ..., o5$ y los internos como $i1, ..., i5$. Por ejemplo partiendo de $o1$ podemos poner una ficha en $i3$ o $i5$. El conteo puede pasar por una posición en la que haya ficha, pero no puede iniciarse en una posición con ficha. El juego estará resuelto cuando se hayan colocado 9 fichas \cite{Juegos:11}. 
 
 \begin{figure}[H]
   \centering
@@ -36,6 +32,8 @@ El juego estará resuelto cuando se hayan colocado 9 fichas. \cite{Juegos:11} \r
   \caption{Pentagrama de 1,2,3 Coloca otra vez.}
   \label{fig:pentagrama}
 \end{figure}
+
+En la figura \ref{fig:estrella} se puede ver la descripción MC2 para el modelo de este problema. Para este modelo, declaramos una proposición para cada uno de los diez puntos de la estrella, donde cada proposición es verdadera o falsa dependiendo de si hay o no una ficha en ese punto. Las reglas en este caso representan las jugadas posibles a partir de cada punto. En el estado inicial no hace falta describir nada, ya que inicialmente queremos que no haya ficha en ningun punto de la estrella (todas las proposiciones estan inicializadas en $False$). Por último, la propiedad que queremos verificar es si es posible poner nueve fichas en la estrella, a modo de ejemplo, la formula pide que haya una ficha en todos los puntos excepto $i5$.
 
 \begin{figure}[H]
   \centering
@@ -46,17 +44,20 @@ El juego estará resuelto cuando se hayan colocado 9 fichas. \cite{Juegos:11} \r
 
 \section{Ranas saltarinas}
 
-Se trata de un juego de tipo solitario. Para un sólo jugador.
-Se parte de una tira de papel dividida en siete casillas.
-La posición inicial es la indicada con tres fichas azules y tres rojas colocadas como en la figura de abajo.
+En este juego se tiene una tira de papel dividida en siete casillas \cite{Juegos:11}. La posición inicial es la indicada con tres fichas azules (blancas) y tres rojas (grises) colocadas como en la figura \ref{fig:ranasjuego}.
 El objetivo del juego consiste en permutar las posiciones de las fichas azules y rojas. Es decir, las azules han de pasar a ocupar las posiciones de las rojas y viceversa. Para ello son válidos los siguientes movimientos:
-a) Una ficha puede moverse a un lugar contiguo, si éste está vacío.
-b) Una ficha junto a otra de distinto color puede saltar por encima de ella si el salto (por encima de una sola ficha) le lleva a una casilla vacía.
-c) Son válidos tanto los movimientos hacia atrás como hacia adelante.
-¿Cuál es el mínimo número de movimientos necesarios para resolverlo?.
-Si jugamos con n fichas de cada color, dejando una casilla vacía, ¿cuál será ahora ese número mínimo de movimientos?.
-¿Y si jugamos con n fichas de cada color, pero dejando m casillas vacías en el centro?.
-¿Puedes demostrar los resultados obtenidos? \cite{Juegos:11} \ref{fig:ranas}
+- Una ficha puede moverse a un lugar contiguo, si éste está vacío.
+- Una ficha junto a otra de distinto color puede saltar por encima de ella si el salto (por encima de una sola ficha) le lleva a una casilla vacía.
+- Son válidos tanto los movimientos hacia atrás como hacia adelante.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{Figures/ranasjuego.png}
+  \caption{Juego de las ranas saltarinas.}
+  \label{fig:ranasjuego}
+\end{figure}
+
+La descrición MC2 del modelo para este juego esta en la figura \ref{fig:ranas}. En este caso, tenemos siete proposiciones que representan la ocupación de cada casilla por una ficha roja, y siete más para las fichas azules, es de imaginar que una casilla $i$ esta vacia si $ri$ y $bi$ son falsas, donde $ri$ significa que hay una ficha roja en la casilla $i$, y $bi$ significa que hay una azul en la misma casilla. Las reglas estan divididas en cuatro bloques, dos para cada dirección en la que se puede mover una ficha. Los dos bloques de una dirección representan las primeras dos reglas del juego. Por su puesto, los bloques de la otra dirección son análogos. Como estado inicial tenemos las fichas azules colocadas del lado izquierdo de la tira de casillas, y las rojas del lado derecho, dejando vacia la casilla del medio. Por último, la propiedad que deseamos verificar es si es posible permutar las posiciones de las fichas rojas con las azules y viceversa. 
 
 \begin{figure}[H]
   \centering
@@ -65,4 +66,4 @@ Si jugamos con n fichas de cada color, dejando una casilla vacía, ¿cuál será
   \label{fig:ranas}
 \end{figure}
 
-\chapter*{Conclusion}
+\chapter*{Conclusión}

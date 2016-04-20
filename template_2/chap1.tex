@@ -5,7 +5,7 @@
 %% \files=
 %% prompt when you run the file main.tex through LaTeX.
 \chapter{Introducción}
-
+\pagenumbering{arabic}
 La verificación de modelos o comunmente \emph{model checking} es una técnica automática para verificar sistemas reactivos con una cantidad finita de estados, por ejemplo protocolos de comunicación y diseños de circuitos. Las especificaciones de las propiedades a verificar son expresadas en una lógica temporal proposicional, y el sistema esta modelado como un grafo. Se utiliza una busqueda eficiente para determinar automáticamente si las especificaciones son satisfechas por el grafo \cite{Clarke:5}. Esta técnica fue desarrollada originalmente en 1981 por Clarke y Emerson. Quielle y Sifakis descubrieron independientemente una técnica similar de verificación poco después.
 Esta técnica tiene varias ventajas importantes sobre probadores de teoremas para verificación de circuitos y protocolos. La mas importante es que es automática. Normalmente, el usuario provee una representación de alto nivel del modelo y una especificación de la propiedad que se desea verificar. El model checker terminará devolviendo la respuesta True indicando que el modelo satisface la especificación o dará una traza de ejecución a modo de contraejemplo si el modelo no satisface la propiedad. Esta es una propiedad muy importante a la hora de encontrar bugs sutiles.
 

@@ -55,7 +55,9 @@
 \usepackage{color}
 \usepackage{float}
 
-
+\renewcommand{\chaptername}{Capítulo}
+\renewcommand{\contentsname}{Contenidos}
+\renewcommand{\listfigurename}{Lista de figuras}
 \addtolength{\textwidth}{1cm} % Ancho del texto
 
 % traducción de algunos nombres del paquete algorithm
@@ -173,13 +175,15 @@ $\;$\\$\;$\\
 %Incluye el abstact y los Agradecimientos.
 
 \include{abstract}
-
+%\thispagestyle{empty} 
 \listoffigures
+%\thispagestyle{empty} 
 \addcontentsline{toc}{chapter}{Lista de figuras} % para que aparezca en el indice de contenidos
-
+%\thispagestyle{empty} 
 %Las siguintes 3 lineas es para sacarle la numeracion de paginas al Indice
 %\addtocontents{toc}{\protect\thispagestyle{empty}}
 \tableofcontents %put toc in
+%\thispagestyle{empty} 
 %\cleardoublepage %start new page
 
 

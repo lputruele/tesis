@@ -66,4 +66,13 @@ La descrición MC2 del modelo para este juego esta en la figura \ref{fig:ranas}.
   \label{fig:ranas}
 \end{figure}
 
+Nos podemos preguntar como seria la descripción MC2 del modelo si la tira tuviera mas de siete casillas, esta claro que cada vez se vuelve más humanamente inviable a medida que se incrementa el tamaño de casillas. Esto es debido a que la herramienta es de bajo nivel y no cuenta con abstracciones estructurales como los arreglos. Pero es fácil escribir un programa en un lenguaje de alto nivel que genere automáticamente una descripción MC2 para un sistema determinado. En la figura \ref{fig:parser} se puede ver un pseudocódigo para un $parser$ de el problema de las ranas saltarinas para $N$ casillas.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1.1\textwidth]{Figures/parser1.png}
+  \caption{Pseudocódigo de $parser$ de alto nivel.}
+  \label{fig:parser}
+\end{figure}
+
 \chapter*{Conclusión}

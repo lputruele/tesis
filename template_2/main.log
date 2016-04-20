@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.1.12)  18 APR 2016 19:25
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.1.12)  20 APR 2016 16:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -620,20 +620,16 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [1]
 \openout2 = `abstract.aux'.
 
- (./abstract.tex [2
-
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 31--32
-
+ (./abstract.tex
+Overfull \hbox (43.7698pt too wide) in paragraph at lines 16--17
+\T1/lmr/m/n/12 En esta tesis de-sar-rol-lare-mos una her-ramienta de ver-i-fi-c
+ación de mod-e-los ($\OML/lmm/m/it/12 ModelChecking$\T1/lmr/m/n/12 ),
  []
 
+[2
 
-Underfull \hbox (badness 10000) in paragraph at lines 33--34
 
- []
-
-) [3
+]) [3
 
 ] (./main.lof)
 \tf@lof=\write4
@@ -665,107 +661,131 @@ Chapter 2.
 
 
 
-] [10]
-Overfull \hbox (1.87267pt too wide) in paragraph at lines 44--45
+]
+Underfull \hbox (badness 10000) in paragraph at lines 24--33
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--33
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--44
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--44
+
+ []
+
+[10] [11]
+Overfull \hbox (1.87267pt too wide) in paragraph at lines 66--67
 []\T1/lmr/m/n/12 Consideremos el sigu-iente ejem-plo, ten-emos $\OML/lmm/m/it/1
 2 V \OT1/lmr/m/n/12 = \OMS/lmsy/m/n/12 f\OML/lmm/m/it/12 x; y; z\OMS/lmsy/m/n/1
 2 g$ \T1/lmr/m/n/12 y $\OML/lmm/m/it/12 D \OT1/lmr/m/n/12 = \OMS/lmsy/m/n/12 f\
 OML/lmm/m/it/12 True; False\OMS/lmsy/m/n/12 g$\T1/lmr/m/n/12 ,
  []
 
-<Figures/kripke.png, id=51, 109.40875pt x 155.58125pt>
+<Figures/kripke.png, id=54, 109.40875pt x 155.58125pt>
 File: Figures/kripke.png Graphic file (type png)
 
 <use Figures/kripke.png>
-Package pdftex.def Info: Figures/kripke.png used on input line 56.
+Package pdftex.def Info: Figures/kripke.png used on input line 78.
 (pdftex.def)             Requested size: 83.68927pt x 119.00975pt.
- [11 <./Figures/kripke.png>] [12]
-
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 83.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 83--84
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
- []
+[12] [13 <./Figures/kripke.png>]
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 85--90
-
- []
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 105.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 95--97
+Underfull \hbox (badness 10000) in paragraph at lines 105--106
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--99
+Underfull \hbox (badness 10000) in paragraph at lines 107--112
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 100--103
+Underfull \hbox (badness 10000) in paragraph at lines 117--119
 
  []
 
-[13] <Figures/kripke3.png, id=65, 119.44624pt x 348.30125pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--121
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 122--125
+
+ []
+
+[14] <Figures/kripke3.png, id=68, 119.44624pt x 348.30125pt>
 File: Figures/kripke3.png Graphic file (type png)
 
 <use Figures/kripke3.png>
-Package pdftex.def Info: Figures/kripke3.png used on input line 122.
+Package pdftex.def Info: Figures/kripke3.png used on input line 144.
 (pdftex.def)             Requested size: 83.68927pt x 244.03242pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Figures/kripke3-gfp1.png, id=66, 580.41844pt x 277.78781pt>
+<Figures/kripke3-gfp1.png, id=69, 580.41844pt x 277.78781pt>
 File: Figures/kripke3-gfp1.png Graphic file (type png)
 
 <use Figures/kripke3-gfp1.png>
-Package pdftex.def Info: Figures/kripke3-gfp1.png used on input line 128.
+Package pdftex.def Info: Figures/kripke3-gfp1.png used on input line 150.
 (pdftex.def)             Requested size: 418.45274pt x 200.2741pt.
- [14] [15 <./Figures/kripke3.png> <./Figures/kripke3-gfp1.png>] <Figures/eval.p
-ng, id=75, 258.21469pt x 452.4403pt>
+ [15] [16 <./Figures/kripke3.png> <./Figures/kripke3-gfp1.png>] <Figures/eval.p
+ng, id=78, 258.21469pt x 452.4403pt>
 File: Figures/eval.png Graphic file (type png)
 
 <use Figures/eval.png>
-Package pdftex.def Info: Figures/eval.png used on input line 139.
+Package pdftex.def Info: Figures/eval.png used on input line 161.
 (pdftex.def)             Requested size: 292.91563pt x 513.29509pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [16] [17 <./Figures/eval.png>]
+) [17] [18 <./Figures/eval.png>]
 \openout2 = `chap3.aux'.
 
  (./chap3.tex
 Chapter 3.
-[18
+[19
 
 
 
-] <Figures/BDT.png, id=87, 757.83125pt x 412.54124pt>
+] <Figures/BDT.png, id=90, 757.83125pt x 412.54124pt>
 File: Figures/BDT.png Graphic file (type png)
  <use Figures/BDT.png>
 Package pdftex.def Info: Figures/BDT.png used on input line 13.
 (pdftex.def)             Requested size: 418.45274pt x 227.79855pt.
 
-[19 <./Figures/BDT.png>]
-<Figures/goodorder.png, id=92, 185.69376pt x 412.54124pt>
+[20 <./Figures/BDT.png>]
+<Figures/goodorder.png, id=95, 185.69376pt x 412.54124pt>
 File: Figures/goodorder.png Graphic file (type png)
 
 <use Figures/goodorder.png>
 Package pdftex.def Info: Figures/goodorder.png used on input line 40.
 (pdftex.def)             Requested size: 83.68927pt x 185.9314pt.
 
-<Figures/badorder.png, id=93, 204.765pt x 412.54124pt>
+<Figures/badorder.png, id=96, 204.765pt x 412.54124pt>
 File: Figures/badorder.png Graphic file (type png)
 
 <use Figures/badorder.png>
 Package pdftex.def Info: Figures/badorder.png used on input line 46.
 (pdftex.def)             Requested size: 83.68927pt x 168.61423pt.
- [20] [21 <./Figures/goodorder.png> <./Figures/badorder.png>] <Figures/kripke2.
-png, id=102, 109.40875pt x 155.58125pt>
+ [21] [22 <./Figures/goodorder.png> <./Figures/badorder.png>] <Figures/kripke2.
+png, id=105, 109.40875pt x 155.58125pt>
 File: Figures/kripke2.png Graphic file (type png)
 
 <use Figures/kripke2.png>
@@ -777,57 +797,57 @@ Overfull \hbox (2.4581pt too wide) in paragraph at lines 74--77
 OBDD-FALSE y OBDD-
  []
 
-[22 <./Figures/kripke2.png>]
-<Figures/fix.png, id=107, 249.18094pt x 140.77594pt>
+[23 <./Figures/kripke2.png>]
+<Figures/fix.png, id=110, 249.18094pt x 140.77594pt>
 File: Figures/fix.png Graphic file (type png)
  <use Figures/fix.png>
 Package pdftex.def Info: Figures/fix.png used on input line 95.
 (pdftex.def)             Requested size: 292.91563pt x 165.49979pt.
 
-[23]) [24 <./Figures/fix.png>]
+[24]) [25 <./Figures/fix.png>]
 \openout2 = `chap4.aux'.
 
  (./chap4.tex
 Chapter 4.
-[25
+[26
 
 
 
-] [26] <Figures/kripke4.png, id=122, 107.40125pt x 155.58125pt>
+] [27] <Figures/kripke4.png, id=125, 107.40125pt x 155.58125pt>
 File: Figures/kripke4.png Graphic file (type png)
 
 <use Figures/kripke4.png>
 Package pdftex.def Info: Figures/kripke4.png used on input line 54.
 (pdftex.def)             Requested size: 83.68927pt x 121.23418pt.
 
-<Figures/modeloMC2-1.png, id=123, 138.5175pt x 216.81pt>
+<Figures/modeloMC2-1.png, id=126, 138.5175pt x 216.81pt>
 File: Figures/modeloMC2-1.png Graphic file (type png)
 
 <use Figures/modeloMC2-1.png>
 Package pdftex.def Info: Figures/modeloMC2-1.png used on input line 61.
 (pdftex.def)             Requested size: 146.46101pt x 229.24516pt.
- [27 <./Figures/kripke4.png>]
-<Figures/modeloMC2-2.png, id=128, 132.495pt x 215.30438pt>
+ [28 <./Figures/kripke4.png>]
+<Figures/modeloMC2-2.png, id=131, 132.495pt x 215.30438pt>
 File: Figures/modeloMC2-2.png Graphic file (type png)
 
 <use Figures/modeloMC2-2.png>
 Package pdftex.def Info: Figures/modeloMC2-2.png used on input line 70.
 (pdftex.def)             Requested size: 138.09016pt x 224.41391pt.
- [28 <./Figures/modeloMC2-1.png>]
-<Figures/kripke5.png, id=133, 227.85126pt x 155.58125pt>
+ [29 <./Figures/modeloMC2-1.png>]
+<Figures/kripke5.png, id=136, 227.85126pt x 155.58125pt>
 File: Figures/kripke5.png Graphic file (type png)
 
 <use Figures/kripke5.png>
 Package pdftex.def Info: Figures/kripke5.png used on input line 77.
 (pdftex.def)             Requested size: 167.37854pt x 114.29266pt.
 
-<Figures/modeloMC2-3.png, id=134, 127.22531pt x 216.05719pt>
+<Figures/modeloMC2-3.png, id=137, 127.22531pt x 216.05719pt>
 File: Figures/modeloMC2-3.png Graphic file (type png)
 
 <use Figures/modeloMC2-3.png>
 Package pdftex.def Info: Figures/modeloMC2-3.png used on input line 84.
 (pdftex.def)             Requested size: 138.09016pt x 234.51851pt.
- [29 <./Figures/modeloMC2-2.png> <./Figures/kripke5.png>]
+ [30 <./Figures/modeloMC2-2.png> <./Figures/kripke5.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 93--96
 
  []
@@ -857,63 +877,74 @@ Underfull \hbox (badness 10000) in paragraph at lines 97--99
 
  []
 
-[30 <./Figures/modeloMC2-3.png>] [31] [32]) [33]
+[31 <./Figures/modeloMC2-3.png>] [32] [33]) [34]
 \openout2 = `chap5.aux'.
 
  (./chap5.tex
 Chapter 5.
-[34
+[35
 
 
 
-] <Figures/rivercross.png, id=158, 240.9pt x 311.66437pt>
+] <Figures/rivercross.png, id=161, 240.9pt x 311.66437pt>
 File: Figures/rivercross.png Graphic file (type png)
 
 <use Figures/rivercross.png>
 Package pdftex.def Info: Figures/rivercross.png used on input line 13.
 (pdftex.def)             Requested size: 251.07419pt x 324.83664pt.
 
-<Figures/riverobdd.png, id=159, 4396.425pt x 1606.0pt>
+<Figures/riverobdd.png, id=162, 4396.425pt x 1606.0pt>
 File: Figures/riverobdd.png Graphic file (type png)
 
 <use Figures/riverobdd.png>
 Package pdftex.def Info: Figures/riverobdd.png used on input line 20.
 (pdftex.def)             Requested size: 376.6049pt x 137.54968pt.
- [35 <./Figures/rivercross.png>]
-<Figures/pentagram.png, id=164, 82.8696pt x 79.2561pt>
+ [36 <./Figures/rivercross.png>]
+<Figures/pentagram.png, id=168, 82.8696pt x 79.2561pt>
 File: Figures/pentagram.png Graphic file (type png)
 
 <use Figures/pentagram.png>
 Package pdftex.def Info: Figures/pentagram.png used on input line 31.
 (pdftex.def)             Requested size: 209.22636pt x 200.12671pt.
- [36 <./Figures/riverobdd.png>]
-<Figures/estrella.png, id=169, 511.15968pt x 407.27156pt>
+ [37 <./Figures/riverobdd.png>]
+<Figures/estrella.png, id=172, 511.15968pt x 407.27156pt>
 File: Figures/estrella.png Graphic file (type png)
 
 <use Figures/estrella.png>
 Package pdftex.def Info: Figures/estrella.png used on input line 40.
 (pdftex.def)             Requested size: 418.45274pt x 333.40553pt.
- [37 <./Figures/pentagram.png>]
-<Figures/ranasjuego.png, id=174, 365.86688pt x 70.01157pt>
+ [38 <./Figures/pentagram.png>]
+<Figures/ranasjuego.png, id=177, 365.86688pt x 70.01157pt>
 File: Figures/ranasjuego.png Graphic file (type png)
 
 <use Figures/ranasjuego.png>
 Package pdftex.def Info: Figures/ranasjuego.png used on input line 55.
 (pdftex.def)             Requested size: 334.76346pt x 64.06314pt.
- [38 <./Figures/estrella.png>]
-<Figures/ranas.png, id=179, 368.87813pt x 855.94781pt>
+ [39 <./Figures/estrella.png>]
+<Figures/ranas.png, id=182, 368.87813pt x 855.94781pt>
 File: Figures/ranas.png Graphic file (type png)
  <use Figures/ranas.png>
 Package pdftex.def Info: Figures/ranas.png used on input line 64.
 (pdftex.def)             Requested size: 209.22636pt x 485.49216pt.
 
-[39 <./Figures/ranasjuego.png>] [40 <./Figures/ranas.png>]) [41
+[40 <./Figures/ranasjuego.png>] [41 <./Figures/ranas.png>]
+<Figures/parser1.png, id=191, 983.17313pt x 758.835pt>
+File: Figures/parser1.png Graphic file (type png)
+
+<use Figures/parser1.png>
+Package pdftex.def Info: Figures/parser1.png used on input line 73.
+(pdftex.def)             Requested size: 460.30057pt x 355.27461pt.
+
+Overfull \hbox (41.84782pt too wide) in paragraph at lines 73--74
+ [][] 
+ []
+
+[42 <./Figures/parser1.png>]) [43
 
 ]
 \openout2 = `biblio.aux'.
 
- (./biblio.tex
-(./main.bbl
+ (./biblio.tex (./main.bbl
 Underfull \hbox (badness 3471) in paragraph at lines 42--46
 []\T1/lmr/m/n/12 G. Hut-ton and E. Mei-jer, \T1/lmr/m/it/12 A LI-BRARY OF MONAD
 IC PARSER
@@ -925,14 +956,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 42--46
 n.de/cofi/CASL-
  []
 
-[42
+[44
 
 
 
-])) [43]
+])) [45]
 \openout2 = `Anexos.aux'.
 
- (./Anexos.tex [44
+ (./Anexos.tex [46
 
 
 
@@ -941,17 +972,17 @@ Appendix A.
 LaTeX Font Info:    Try loading font information for T1+lmtt on input line 15.
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)) [45
+)) [47
 
 ]
 No file main.ind.
 (./main.aux (./abstract.aux) (./chap1.aux) (./chap2.aux) (./chap3.aux)
 (./chap4.aux) (./chap5.aux) (./biblio.aux) (./Anexos.aux)) ) 
 Here is how much of TeX's memory you used:
- 3882 strings out of 495028
- 49822 string characters out of 6181497
- 108170 words of memory out of 5000000
- 6845 multiletter control sequences out of 15000+600000
+ 3888 strings out of 495028
+ 49940 string characters out of 6181497
+ 108181 words of memory out of 5000000
+ 6850 multiletter control sequences out of 15000+600000
  83939 words of font info for 85 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  38i,9n,43p,1511b,261s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -967,10 +998,10 @@ f/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17
 ype1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmro12.pfb></
 usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/
 public/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb>
-Output written on main.pdf (46 pages, 1502478 bytes).
+Output written on main.pdf (48 pages, 1609369 bytes).
 PDF statistics:
- 254 PDF objects out of 1000 (max. 8388607)
- 150 compressed objects within 2 object streams
+ 262 PDF objects out of 1000 (max. 8388607)
+ 154 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 109 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 114 words of extra memory for PDF output out of 10000 (max. 10000000)
 

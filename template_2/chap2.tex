@@ -20,6 +20,28 @@ Ejecución: Ejecutar el verificador para corroborar la validez de la propiedad e
 
 Análisis: Si la propiedad fue satisfecha, verificar la próxima propiedad (si la hay), si en cambio, no fue satisfecha, hay que refinar el modelo y/o la propiedad y finalmente, repetir el proceso.
 
+\section{Ventajas y desventajas de la verificación de modelos}
+Ventajas de la verificación de modelos \cite{Baier:2}:\\
+\\
+- Es un enfoque general de verificación que es aplicable a una gran variedad de areas, como sistemas embebidos, ingenieria de software, y diseño de hardware.\\
+- Soporta verificación parcial, por lo tanto permite enfocarse en las propiedades escenciales primero.\\
+- No es vulnerable a la probabilidad de que un error sea expuesto, en contraste con el testing y la simulación que son técnicas que apuntan a escenarios particulares de error.\\
+- Provee información en caso de que una propiedad sea inválida, lo çuál es útil para el $debugging$.\\
+- La utilización de un verificador necesita poca interacción con el usuario.\\
+- Esta creciendo en popularidad debido a su facilidad de uso.\\
+- Tiene una base matemática, se basa en teoria de grafos, estructuras de datos y lógica, lo cuál la hace confiable.\\
+
+Desventajas de la verificación de modelos \cite{Baier:2}:\\
+\\
+- Es principalmente apropiada para aplicaciones dirigidas por control y menos apropiada para aplicaciones dirigidas por datos ya que los datos suelen pertenecer a dominios infinitos.\\
+- Su aplicación esta sujeta a problemas de decidibilidad; para sistemas de estados infinitos, la verificación de modelos en general no es efectivamente computable.\\
+- Verifica un modelo del sistema, en vez del sistema real mismo, cualquier resultado obtenido es tan bueno como el modelo del sistema.\\
+- Solo verifica los requisitos que se hayan descripto, es decir, no hay garantia de completitud.\\
+- Sufre del problema de la explosión de estados, ya que la cantidad de estados necesarios para modelar el sistema puede facilmente exceder la memoria disponible de la computadora. Si bien hay formas de combatir este problema (ver capítulo 4), los modelos de sistemas reales aun asi suelen ser demasiado grandes.\\
+- Su utilización requiere conocimiento sobre como abstraer un sistema para obtener un modelo adecuado, ademas de conocimientos sobre la lógica utilizada para la especifición de propiedades.\\
+- No garantiza resultados correctos, como cualquier herramienta, el verificador puede contener errores de software.\\
+- En general, verificar sistemas con una cantidad arbitraria de componentes, o sistemas parametrizados, no es posible.\\
+
 \section{Modelado de sistemas}
 En esta sección veremos cómo representar un modelo explícitamente mediante una estructura de Kripke, más tarde veremos otra forma de representación llamada simbólica que representa el modelo mediante una fórmula lógica de primer orden.
 

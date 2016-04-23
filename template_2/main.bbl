@@ -51,4 +51,17 @@ J.~Hadley and D.~Singmaster, {\em Problems to Sharpen the Young}.
 \bibitem{Juegos:11}
 http://juegosdelogica.net/juegosdeestrategia/.
 
+\bibitem{Groote:14}
+J.~Groote and M.~Mousavi, {\em Modeling and analysis of communicating systems}.
+\newblock The MIT press, 2014.
+
+\bibitem{Calzolai:15}
+F.~Calzolai, R.~D. Nicola, M.~Loreti, and F.~Tiezzi., {\em TAPAs: a Tool for
+  the Analysis of Process Algebras}.
+\newblock LNCS, Springer-Verlag, 2008.
+
+\bibitem{Moller:13}
+F.~Moller, {\em The Edinburgh Concurrency Workbench}.
+\newblock http://homepages.inf.ed.ac.uk/perdita/cwb/.
+
 \end{thebibliography}

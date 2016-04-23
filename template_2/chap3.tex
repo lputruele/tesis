@@ -69,11 +69,11 @@ En muchos casos, construir una representación explicita de la estructura de Kri
 
 \section{Algoritmo de verificación de modelos simbólicos}
 
-En la sección anterior vimos como codificar una estructura de Kripke como un OBDD, ahora mostraremos una adaptación del algoritmo de verificación con estados explicitos, ahora con un modelo simbolico en forma de OBDD. En este caso transformaremos las fórmulas del Cálculo-$\mu$ de la siguiente manera\cite{Clarke:1}:
-
--Los valores Falso y Verdadero estan representados por OBDD-FALSE y OBDD-TRUE que son constantes(hojas).
-- Cada proposición atómica $p$ tiene un OBDD asociado con el mismo. Lo denotaremos como $OBDD_{p}(x)$, donde x es un estado del sistema, este OBDD cumple la propiedad de que $x$ satisface $OBDD_{p}$ si y solo si $x \in L(p)$.
-- El sistema de transiciones tiene un diagrama ordenado de decisión $OBDD_{m}(x,x')$ asociado al mismo. Un par $(x,x') \in S \times S$ satisface $OBDD_{m}$ si y solo si $(x,x') \in T$
+En la sección anterior vimos como codificar una estructura de Kripke como un OBDD, ahora mostraremos una adaptación del algoritmo de verificación con estados explicitos, ahora con un modelo simbolico en forma de OBDD. En este caso transformaremos las fórmulas del Cálculo-$\mu$ de la siguiente manera\cite{Clarke:1}: \\
+\\
+- Los valores Falso y Verdadero estan representados por OBDD-FALSE y OBDD-TRUE que son constantes(hojas).\\
+- Cada proposición atómica $p$ tiene un OBDD asociado con el mismo. Lo denotaremos como $OBDD_{p}(x)$, donde x es un estado del sistema, este OBDD cumple la propiedad de que $x$ satisface $OBDD_{p}$ si y solo si $x \in L(p)$. \\
+- El sistema de transiciones tiene un diagrama ordenado de decisión $OBDD_{m}(x,x')$ asociado al mismo. Un par $(x,x') \in S \times S$ satisface $OBDD_{m}$ si y solo si $(x,x') \in T$ \\
 
 Asumamos que tenemos una fórmula $f$ de cáluclo-$\mu$ con las variables relacionales libres $Q_{1},...,Q_{k}$. La función $assoc[Q_{i}]$ asigna a cada variable relacional el OBDD correspondiente al conjunto de estados asociados a esa variable. La notación $assoc(Q \gets B_{Q})$ significa que a $Q$ se le da el valor $B_{Q}$, se puede ver a $assoc$ como un ambiente de OBDDs. A continuación se da el procedimiento $B$ que, apartir de una fórmula $f$ y una función $assoc$, retorna el OBDD correspondiente a la semántica de $f$.
 

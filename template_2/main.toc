@@ -34,5 +34,3 @@
 \contentsline {section}{\numberline {5.1}Cruce del rio}{29}
 \contentsline {section}{\numberline {5.2}1,2,3, Coloca otra vez}{31}
 \contentsline {section}{\numberline {5.3}Ranas saltarinas}{33}
-\contentsline {chapter}{Ap\IeC {\'e}ndices}{40}
-\contentsline {chapter}{\numberline {A}C\IeC {\'o}digo}{41}

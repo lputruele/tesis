@@ -16,6 +16,10 @@ C.~Baier and J.-P. Katoen, {\em Principles of Model Checking}.
 E.~M. Clarke, O.~Grumberg, and D.~A. Peled, {\em Model Checking}.
 \newblock The MIT Press, 2000.
 
+\bibitem{Emerson:16}
+E.~A. Emerson, {\em Temporal and modal logic}.
+\newblock 1995.
+
 \bibitem{Kozen:3}
 D.~Kozen, {\em Results on the prepositional mu-calculus}.
 \newblock Elsevier Science Publishers B.V., 1983.

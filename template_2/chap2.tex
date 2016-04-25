@@ -84,16 +84,53 @@ El único camino posible en esta estructura partiendo del estado inicial es: (1,
 
 Ahora describiremos una lógica para especificar propiedades deseadas en una estructura de Kripke u otra máquina de transición de estados. La lógica utiliza proposiciones atómicas y operadores como la disyunción y la negación para construir expresiones más complicadas que describan propiedades sobre estados.
 La lógica temporal es un formalismo que permite describir secuencias de transiciones entre estados en un sistema reactivo, nos interesa saber si en algún momento se llega a un estado determinado o que nunca se llegue a un deadlock. Para esto introduce nuevos operadores especiales que permiten hablar sobre tiempo. Estos operadores pueden combinarse con los operadores lógicos conocidos.
+Con el propósito de familiarizarnos con las lógicas temporales, introduciremos ahora las lógicas LTL (Linear Temporal Logic), CTL (Computational Tree Logic), y CTL*. 
+
+\subsection{CTL}
+
+CTL tiene dos clases de fórmulas, fórmulas de estado y fórmulas de camino. Las primeras son aserciones respecto de las proposiciones atómicas en los estados y de su estructura de ramificación, mientras que las formulas de camino expresan propiedades temporales de caminos.
+Las fórmulas de estado CTL sobre el conjunto AP de proposiciones atómicas, están formadas de acuerdo a la siguiente gramática\cite{Baier:2}:
+\[\Phi ::= true | a | \Phi_{1} \land \Phi_{2} | \neg \Phi | \exists \varphi | \forall \varphi  \]
+donde $a \in AP$ y $\varphi$ es una fórmula de camino. La sintaxis de fórmula de camino CTL esta dada por la siguiente gramática:
+\[\varphi ::= \bigcirc \Phi | \Phi_{1} \cup \Phi_{2} \]
+donde $\varphi$ es una fórmula de camino, y $\Phi$, $\Phi_{1}$, $\Phi_{2}$ son fórmulas de estado.
+
+Intuitivamente $\exists f$ vale en un estado $s$, ssi a partir del mismo existe un camino donde vale f (notar que f solo puede ser una formula de estado). Naturalmente $\forall f$ significa que en todos los caminos vale f. En cuanto a $\bigcirc f$, esto vale en el camino $p$ ssi en el próximo estado (en un camino, existe un único próximo estado) vale f, y $ f\  \cup \ g$ vale en $p$ solo ssi $f$ vale siempre hasta que valga $g$. Los operadores de camino solo toman fórmulas de estado.
+
+Los operadores booleanos $false$, $\lor$ y $\to$ se definen de la manera usual. Las modalidades temporales “eventualmente” y “siempre” pueden ser derivadas de la siguiente manera:\\
+\\
+eventualmente:\\
+\\
+$\exists \Diamond \Phi \ = \ \exists(true\ \cup \ \Phi)$\\
+$\forall \Diamond \Phi \ = \ \forall(true\ \cup \ \Phi)$\\
+\\
+siempre:\\
+\\
+$\exists \Box \Phi \ = \ \neg \forall \Diamond \neg \Phi$\\
+$\forall \Box \Phi \ = \ \neg \exists \Diamond \neg \Phi$\\
+\\
+Ejemplos de fórmulas CTL:\\
+\\
+$\forall \Box (\neg crit_{1} \lor \neg crit_{2})$ (exclusión mutua).\\
+$\forall \Box (amarillo \lor \forall \bigcirc \neg rojo)$ (cada fase de luz roja es precedida por una fase de luz amarilla”).
 
 \subsection{CTL*}
 
-Con el propósito de familiarizarnos con las lógicas temporales, observaremos una lógica temporal muy popular llamada CTL* (Computational Tree Logic*).
+CTL* es una lógica que permite combinar libremente los operadores de CTL, por lo cuál CTL* incluye a CTL.
 Las fórmulas de estado CTL* sobre el conjunto AP de proposiciones atómicas, están formadas de acuerdo a la siguiente gramática\cite{Baier:2}:
 \[\Phi ::= true | a | \Phi_{1} \land \Phi_{2} | \neg \Phi | \exists \varphi \]
 donde $a \in AP$ y $\varphi$ es una fórmula de camino. La sintaxis de fórmula de camino CTL* esta dada por la siguiente gramática:
 \[\varphi ::= \Phi | \varphi_{1} \land \varphi_{2} | \neg \varphi | \bigcirc \varphi | \varphi_{1} \cup \varphi_{2} \]
 donde $\Phi$ es una fórmula de estado, y $\varphi$, $\varphi_{1}$, $\varphi_{2}$ son fórmulas de camino.
-Analizaremos a continuación una lógica temporal muy potente llamada Cálculo-$\mu$, la cual es aun mas expresiva que CTL*.
+
+Analizaremos a continuación una lógica temporal llamada cálculo-$\mu$, este puede codificar (y de hecho incluye) a CTL y CTL* \cite{Emerson:16}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{Figures/inclusiontemplogic.png}
+  \caption{Inclusión de lógicas temporales.} 
+  \label{fig:templogics}
+\end{figure}
 
 
 \section{Cálculo-$\mu$}

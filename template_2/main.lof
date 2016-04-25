@@ -1,26 +1,27 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Estructura de Kripke para este ejemplo.}}{7}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Ejemplo de Estructura de Kripke.}}{10}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Ejecuci\IeC {\'o}n de operador de punto fijo mayor.}}{10}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Algoritmo de verificaci\IeC {\'o}n de modelos expl\IeC {\'\i }citos para C\IeC {\'a}lculo-$\mu $.}}{12}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Inclusi\IeC {\'o}n de l\IeC {\'o}gicas temporales.}}{9}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Ejemplo de Estructura de Kripke.}}{12}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Ejecuci\IeC {\'o}n de operador de punto fijo mayor.}}{12}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Algoritmo de verificaci\IeC {\'o}n de modelos expl\IeC {\'\i }citos para C\IeC {\'a}lculo-$\mu $.}}{14}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces \IeC {\'A}rbol binario de decisi\IeC {\'o}n para este ejemplo.}}{14}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces OBDD con ordenamiento a < b < c para el ejemplo dado.}}{16}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces OBDD con ordenamiento b < a < c para el ejemplo dado.}}{16}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Estructura de Kripke con dos estados.}}{17}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Pseudoc\IeC {\'o}digo e la funci\IeC {\'o}n FIX.}}{19}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces \IeC {\'A}rbol binario de decisi\IeC {\'o}n para este ejemplo.}}{16}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces OBDD con ordenamiento a < b < c para el ejemplo dado.}}{18}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces OBDD con ordenamiento b < a < c para el ejemplo dado.}}{18}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Estructura de Kripke con dos estados.}}{19}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Pseudoc\IeC {\'o}digo e la funci\IeC {\'o}n FIX.}}{21}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Estructura de Kripke del modelo.}}{22}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Ejemplo de descripci\IeC {\'o}n MC2.}}{23}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Ejemplo de descripci\IeC {\'o}n MC2 usando azucar sint\IeC {\'a}ctico.}}{24}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Estructura de Kripke del nuevo modelo.}}{24}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Ejemplo de descripci\IeC {\'o}n MC2 con m\IeC {\'a}s de una transici\IeC {\'o}n por regla.}}{25}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Estructura de Kripke del modelo.}}{24}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Ejemplo de descripci\IeC {\'o}n MC2.}}{25}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Ejemplo de descripci\IeC {\'o}n MC2 usando azucar sint\IeC {\'a}ctico.}}{26}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Estructura de Kripke del nuevo modelo.}}{26}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Ejemplo de descripci\IeC {\'o}n MC2 con m\IeC {\'a}s de una transici\IeC {\'o}n por regla.}}{27}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Descripci\IeC {\'o}n de modelo del problema del cruce del rio.}}{30}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces OBDD para el modelo del cruce del rio.}}{31}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Pentagrama de 1,2,3 Coloca otra vez.}}{32}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Descripci\IeC {\'o}n de modelo del problema de 1,2,3 Coloca otra vez.}}{33}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Juego de las ranas saltarinas.}}{34}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Descripci\IeC {\'o}n de modelo del problema de las ranas saltarinas.}}{35}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Pseudoc\IeC {\'o}digo de $parser$ de alto nivel.}}{36}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Descripci\IeC {\'o}n de modelo del problema del cruce del rio.}}{32}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces OBDD para el modelo del cruce del rio.}}{33}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Pentagrama de 1,2,3 Coloca otra vez.}}{34}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Descripci\IeC {\'o}n de modelo del problema de 1,2,3 Coloca otra vez.}}{35}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Juego de las ranas saltarinas.}}{36}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Descripci\IeC {\'o}n de modelo del problema de las ranas saltarinas.}}{37}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Pseudoc\IeC {\'o}digo de $parser$ de alto nivel.}}{38}

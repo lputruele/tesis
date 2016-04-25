@@ -24,15 +24,15 @@ Los árboles binarios de decisión no proveen una representación muy concisa pa
 2. Si $v$ es un vértice no terminal con $var(v) = x_{i}$ entonces $f_{v}$ es la función 
 \[f_{v}(x_{1},...,x_{n}) = (\neg x_{i} \land f_{izq(v)}(x_{1},...,x_{n})) \lor (x_{i} \land f_{der(v)}(x_{1},...,x_{n}))\]
 
-Bryant \cite{Bryant:8} demostró como obtener una representación canónica para funciones lógicas al poner dos restricciones sobre los BDDs. Primero, las variables deberian aparecer en el mismo orden a lo largo de cada camino desde la raiz a un terminal. Segundo, no deberia haber subárboles isomórficos o vertices redundantes en el diagrama. El primer requisito se logra al imponer un ordenamiento total $<$ sobre las variables que etiquetan los vertices en el BDD y requiriendo eso para cada vertice $u$ en el diagrama, si $u$ tiene un sucesor no terminal, entonces $var(u) < var(v)$. El segundo requisito se logra al aplicar repetidamente tres reglas de transformación que no alteran la función representada por el diagrama
+Bryant \cite{Bryant:8} demostró como obtener una representación canónica para funciones lógicas al poner dos restricciones sobre los BDDs. Primero, las variables deberian aparecer en el mismo orden a lo largo de cada camino desde la raiz a un terminal. Segundo, no deberia haber subárboles isomórficos o vertices redundantes en el diagrama. El primer requisito se logra al imponer un ordenamiento total $<$ sobre las variables que etiquetan los vertices en el BDD y requiriendo eso para cada vertice $u$ en el diagrama, si $u$ tiene un sucesor no terminal, entonces $var(u) < var(v)$. El segundo requisito se logra al aplicar repetidamente tres reglas de transformación que no alteran la función representada por el diagrama, \\
+\\
+- Eliminar terminales duplicados: Dejar solo un terminal para cada valor y redirigir todos los arcos a los eliminados hacia este.\\
 
-Eliminar terminales duplicados: Dejar solo un terminal para cada valor y redirigir todos los arcos a los eliminados hacia este.
+- Eliminar no terminales duplicados: Si dos no terminales $u$ y $v$ tienen $var(u) = var(v), izq(u) = izq(v) y der(u) = der(v)$, entonces eliminar $u$ o $v$ y redirigir todos los arcos que iban al vertice eliminado hacia el otro.\\
 
-Eliminar no terminales duplicados: Si dos no terminales $u$ y $v$ tienen $var(u) = var(v), izq(u) = izq(v) y der(u) = der(v)$, entonces eliminar $u$ o $v$ y redirigir todos los arcos que iban al vertice eliminado hacia el otro.
+- Eliminar tests redundantes: Si el no terminal $v$ tiene $izq(v) = der(v)$, entonces eliminar $v$ y redirigir todos los arcos a $izq(v)$.\\
 
-Eliminar tests redundantes: Si el no terminal $v$ tiene $izq(v) = der(v)$, entonces eliminar $v$ y redirigir todos los arcos a $izq(v)$.
-
-Empezando por un BDD satisfaciendo la propiedad de ordenamiento, la forma canónica se obtiene aplicando las reglas de transformación hasta que el tamaño del diagrama no pueda ser reducido. Al resultado lo vamos a llamar OBDD.
+Empezando por un BDD satisfaciendo la propiedad de ordenamiento, la forma canónica se obtiene aplicando las reglas de transformación hasta que el tamaño del diagrama no pueda ser reducido. Al resultado lo vamos a llamar OBDD.\\
 
 Hay que destacar que el tamaño del OBDD depende fuertemente del ordenamiento de las variables. Esto se puede ver en las figuras \ref{fig:gord1} y \ref{fig:bord1}
 \begin{figure}[H]

@@ -1,6 +1,6 @@
 \chapter{Lenguaje MC2}
 
-MC2 es el verificador de modelos desarrollado en esta tesis, el mismo toma modelos escritos en un lenguaje que tambien llamaremos MC2, el modelo incluye la descripción del sistema y las propiedades que debe satisfacer en Cálculo-$\mu$. El diseño del lenguaje de modelado se centra en la noción de estructuras de Kripke, es decir que con este lenguaje se puede describir el comportamiento del sistema en términos de transiciones de entre estados, y además especificar las propiedades que se desean verificar sobre el modelo. Primero analizaremos la sintaxis y semántica de la parte del lenguaje que se encarga de la descripción del sistema, y luego veremos la sintaxis y semántica de la parte de especificación de propiedades.
+MC2 es el verificador de modelos desarrollado en esta tesis, el mismo toma modelos escritos en un lenguaje que tambien llamaremos MC2, el modelo incluye la descripción del sistema y las propiedades que debe satisfacer en Cálculo-$\mu$. El diseño del lenguaje de modelado se centra en la noción de estructuras de Kripke, es decir que con este lenguaje se puede describir el comportamiento del sistema en términos de transiciones de entre estados, y además especificar las propiedades que se desean verificar sobre el modelo. En este capítulo analizaremos la sintaxis y semántica del lenguaje de modelado y el lenguaje de especificación de propiedades, además observaremos algunos detalles relevantes sobre la implementación concreta.
 
 \section{Sintaxis}
 Sean $p \in AP$,$X \in VName$, entonces la sintaxis de MC2 se define con la siguiente gramática:
@@ -43,7 +43,9 @@ Un detalle de implementación muy importante que hace falta destacar es que el p
 
 De ahora en mas cuando hablemos de E, hacemos referencia a la lista generada anteriormente.
 
-\section{Semántica} 
+\section{Semántica}
+
+Ya definimos la sintaxis del lenguaje, ahora vamos a definir el significado asociado a esta sintaxis. Primero daremos una semántica informal para que sea mas fácil entender como se usa y como funciona el lenguaje MC2, y después entraremos en detalle con la semántica formal.
 
 \subsection{Semántica informal}
 
@@ -154,4 +156,4 @@ Similarmente tenemos dos modulos dedicados al Cálculo-$\mu$. Uno es $Mu$, el cu
 
 \subsection{Módulo principal}
 
-El módulo $Main$ contiene el $parser$ de descripciones MC2, su evaluador y varias funciones auxiliares para la lectura de archivos.
+El módulo $Main$ contiene el $parser$ de descripciones MC2, su evaluador y varias funciones auxiliares para la lectura de archivos. El $parser$ utiliza los $parsers$ de las declaraciones, comandos (reglas) y propiedades (fórmulas de cálculo-$\mu$). Para el el estado inicial también se usa el $parser$ de declaraciones, solo que en vez de inicializarse todas las proposiciones atómicas en $False$, se inicializan como se halla descripto en la sección $init$ de la descripción del modelo.

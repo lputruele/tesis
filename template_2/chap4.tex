@@ -65,7 +65,7 @@ La figura \ref{fig:MC2-1} muestra un ejemplo de una descripción MC2. Aqui repre
   \label{fig:MC2-1}
 \end{figure}
 
-Se puede ver que las reglas describen precisamente las tres transiciones del sistema. Aquellas proposiciones que no varian su valor de un estado al siguiente, se las puede obviar en la parte derecha de la regla como se ve en la figura \ref{fig:MC2-2}. Esta descripción es equivalente a la anterior. Intuitivamente podemos pensar la parte izquierda de la regla como el estado corriente y la parte derecha como el siguiente estado, pero en realidad podemos representar mas de una transición con una sola regla. Por ejemplo, la descripción de la figura \ref{fig:MC2-3} modela el sistema de la figura \ref{fig:kripke5}. Al omitir $a$ en la parte izquierda de las reglas, estamos diciendo que las mismas se cumplen tanto si vale como si no vale $a$.
+\noindent Se puede ver que las reglas describen precisamente las tres transiciones del sistema. Aquellas proposiciones que no varian su valor de un estado al siguiente, se las puede obviar en la parte derecha de la regla como se ve en la figura \ref{fig:MC2-2}. Esta descripción es equivalente a la anterior. Intuitivamente podemos pensar la parte izquierda de la regla como el estado corriente y la parte derecha como el siguiente estado, pero en realidad podemos representar mas de una transición con una sola regla. Por ejemplo, la descripción de la figura \ref{fig:MC2-3} modela el sistema de la figura \ref{fig:kripke5}. Al omitir $a$ en la parte izquierda de las reglas, estamos diciendo que las mismas se cumplen tanto si vale como si no vale $a$.
 
 \begin{figure}[H]
   \centering
@@ -88,7 +88,7 @@ Se puede ver que las reglas describen precisamente las tres transiciones del sis
   \label{fig:MC2-3}
 \end{figure}
 
-En la sección $check$ se puede ver que hay cuatro propiedades descritas en cálculo-$\mu$, que son las siguientes: $\Diamond (\neg a \land \neg b)$, $\mu z. (b \lor \Diamond z)$, $\nu z. (b \land \Box z)$, y $\nu z. (a \land \Box z)$. Al ejecutar el verificador con la descripción de la figura \ref{fig:MC2-1}, el resultado va a ser el conjunto de propiedades que el modelo haya satisfecho, en este caso $\mu z. (b \lor \Diamond : z)$ y $\nu z. (a \land \Box : z)$, ya que existe un camino en donde $b$ vale en algun momento, y $a$ vale siempre en todo camino. Evidentemente $'\$'$ representa a $\nu$ y $'\%'$ representa a $\nu$. Cabe destacar también que al anteponer $':'$ a una cadena estamos haciendo referencia a una variable y no a una proposición.
+\noindent En la sección $check$ se puede ver que hay cuatro propiedades descritas en cálculo-$\mu$, que son las siguientes: $\Diamond (\neg a \land \neg b)$, $\mu z. (b \lor \Diamond z)$, $\nu z. (b \land \Box z)$, y $\nu z. (a \land \Box z)$. Al ejecutar el verificador con la descripción de la figura \ref{fig:MC2-1}, el resultado va a ser el conjunto de propiedades que el modelo haya satisfecho, en este caso $\mu z. (b \lor \Diamond : z)$ y $\nu z. (a \land \Box : z)$, ya que existe un camino en donde $b$ vale en algun momento, y $a$ vale siempre en todo camino. Evidentemente $'\$'$ representa a $\nu$ y $'\%'$ representa a $\nu$. Cabe destacar también que al anteponer $':'$ a una cadena estamos haciendo referencia a una variable y no a una proposición.
 
 \subsection{Semántica formal}
 
@@ -96,21 +96,21 @@ En esta sección vamos a formalizar las nociones descriptas en la sección anter
 \\
 $[[\ vars\ D\ rules\ C\ init\ E\ check\ P ]]_{m}\ =\ [F\ |\ F \in P\ \land\ NULL\ (NOT\ inst\ E\ ([[F]]_{f}\ [[C]]_{c}\ assoc-init))]$ \\
 
-Es decir, de todas las fórmulas en $P$ solo nos quedamos con aquellas que al instanciarlas con los valores de $init$ siempre da como resultado $True$. La semántica de una declaración está dada por la siguiente función: \\
+\noindent Es decir, de todas las fórmulas en $P$ solo nos quedamos con aquellas que al instanciarlas con los valores de $init$ siempre da como resultado $True$. La semántica de una declaración está dada por la siguiente función: \\
 \\
 \begin{align*}
 [[p]]_{d}\ &=\ (p,False) \\
 [[D0;D1]]_{d}\ &=\ [[D0]]\ ++\ [[D1]] \\
 \end{align*}
 
-Una declaración da como resultado un ambiente, es decir, una lista de proposiciones con sus valores asociados ($False$ en principio). A continuación tenemos la función que denota la semántica de los modelos, un modelo es la disyunción de una o más reglas, a su vez, una regla es una disyunción de todas las transiciones que genera, donde una transición es una conjunción de los OBDDs generados por la evaluación de los ambientes del estado corriente y el siguiente (en el siguiente estado todas las proposiciones deben estar primadas).
+\noindent Una declaración da como resultado un ambiente, es decir, una lista de proposiciones con sus valores asociados ($False$ en principio). A continuación tenemos la función que denota la semántica de los modelos, un modelo es la disyunción de una o más reglas, a su vez, una regla es una disyunción de todas las transiciones que genera, donde una transición es una conjunción de los OBDDs generados por la evaluación de los ambientes del estado corriente y el siguiente (en el siguiente estado todas las proposiciones deben estar primadas).
 
 \begin{align*}
 [[C;D]]_{c}\ &=\ [[C]]_{c}\ OR\ [[D]]_{c} \\
 [[E0->E1]]_{c}\ &=\ [[E0]]_{e}\ AND\ [[E1]]_{e'} \\
 \end{align*}
 
-La evaluación de un ambiente esta dada por las funciones $[[E]]_{e}$ y $[[E]]_{e'}$, donde la única diferencia entre estas funciones es que la segunda prima a las proposiciones. La semántica de un ambiente da como resultado la conjunción de las proposiciones del mismo con paridad acorde a sus valores asociados.
+\noindent La evaluación de un ambiente esta dada por las funciones $[[E]]_{e}$ y $[[E]]_{e'}$, donde la única diferencia entre estas funciones es que la segunda prima a las proposiciones. La semántica de un ambiente da como resultado la conjunción de las proposiciones del mismo con paridad acorde a sus valores asociados.
 
 \begin{align*}
 [[(p,True)]]_{e}\ &=\ OBDD_{p} \\
@@ -124,7 +124,7 @@ La evaluación de un ambiente esta dada por las funciones $[[E]]_{e}$ y $[[E]]_{
 [[E0++E1]]_{e'}\ &=\ [[E0]]_{e'}\ AND\ [[E1]]_{e'} \\
 \end{align*}
 
-Por ultimo, la semántica de las fórmulas, es la vista en el capítulo 3. M es el modelo del sistema (un OBDD). Assoc es una función que asocia cada variable relacional con un OBDD. La operación EXISTS de los OBDD toma un conjunto de variables y las elimina existencialmente de un OBDD.
+\noindent Por ultimo, la semántica de las fórmulas, es la vista en el capítulo 3. M es el modelo del sistema (un OBDD). Assoc es una función que asocia cada variable relacional con un OBDD. La operación EXISTS de los OBDD toma un conjunto de variables y las elimina existencialmente de un OBDD.
 
 \begin{align*}
 [[p]]_{f}\ M\ assoc\ &=\ OBDD_{p} \\

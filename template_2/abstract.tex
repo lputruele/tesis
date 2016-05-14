@@ -14,15 +14,11 @@
 \pagenumbering{roman}
 \addcontentsline{toc}{chapter}{Resumen} % si queremos que aparezca en el índice
 
-En esta tesis desarrollaremos una herramienta de verificación de modelos (\emph Model \emph Checking), llamada MC2 (Mu Cálculus Model Checker, o MCMC, de ahi MC2), sobre modelos de sistemas formalizados en un lenguaje de descripción simple que también será desarrollado en este trabajo. La herramienta de verificación se encargará de, valga la redundancia, verificar propiedades, caracterizadas en la forma de la lógica temporal Cálculo-$\mu$ (o cálculo-Mu), sobre algún modelo descripto. Cabe destacar que tanto el lenguaje de descripción de modelos como el verificador forman parte de la misma herramienta, incluso las propiedades a verificar se deben especificar en la descripción.
+\noindent En esta tesis desarrollaremos una herramienta puramente funcional para la verificación de sistemas, llamada MC2 (Mu-Calculus Model Checker), la cual utiliza la técnica llamada model checking (o verificación de modelos) para determinar la verdad de propiedades lógicas sobre descripciones de sistemas. Este verificador trabaja sobre modelos de sistemas formalizados en un lenguaje de descripción simple que también será desarrollado en este trabajo, y utiliza el {\mucalculo} como formalismo de especificación de propiedades. El model checker se encargará de verificar estas propiedades sobre algún modelo descripto. Cabe destacar que el lenguaje de descripción de modelos como el verificador forman parte de la misma herramienta.
 
-Adicionalmente, los descripciones MC2 se basan en la definición de reglas de transición usando proposiciones lógicas atómicas con lo cual es transparente ver la estructura del modelo como una máquina de transición de estados más allá de que internamente se los trata simbólicamente como fórmulas para mejorar el rendimiento.
+\noindent El lenguaje de descripción de modelos MC2 se basa en la definición de reglas de transición usando proposiciones lógicas atómicas con lo cual es transparente ver la estructura del modelo como una máquina de transición de estados más allá de que internamente se los trata simbólicamente como fórmulas para mejorar el rendimiento.
 
-A todo esto, el metalenguaje utilizado para el desarrollo de estas herramientas es Haskell. Esto también significó una motivación para el desarrollo de esta tesis ya que la utilización de un lenguaje funcional como Haskell para el desarrollo de la herramienta en su totalidad, en lugar de la utilización lenguajes imperativos u orientados a objetos, da un enfoque distinto al comportamiento de la herramienta.
-
-Lo que se propone con este proyecto es explorar otras alternativas para especificar propiedades que un modelo deba satisfacer, siendo la alternativa en este trabajo el Cálculo Mu, en vez de las lógicas temporales más utilizadas en este tipo de herramientas, como ser LTL, CTL y CTL*, ya que esto trae la ventaja de que el Cálculo-Mu es más expresivo que los anteriormente nombrados. MC2 puede servir como herramienta de bajo nivel, en el sentido de que se puede extraer una descripción MC2 a partir de modelos de mas alto nivel, y asi mismo, propiedades en lógicas temporales de más alto nivel, para asi despues usar el verificador MC2 sobre la descripción extraida.
-
-
+\noindent El objetivo principal es utilizar esta herramienta para la resolución de acertijos lógicos, a la vez que también se permite la verificación de propiedades complejas sobre sistemas de computación. El metalenguaje utilizado para el desarrollo de esta herramienta es Haskell, por lo tanto la herramienta desarrollada es puramente funcional ya que además utiliza librerías de Diagramas Binarios de Decisión implementados funcionalmente \cite{Waldmann:6}.
 %\emph{Palabras clave}: .
 
 %\thispagestyle{empty} % para que no se numere esta página
@@ -31,5 +27,5 @@ Lo que se propone con este proyecto es explorar otras alternativas para especifi
 \chapter*{Agradecimientos}
 \addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el índice
 %\thispagestyle{empty} 
-{\sl Agradezco a la universidad, el departamento de computación, y en especial a mi familia y mis amigos, esto no seria posible sin ellos.}
+{\sl Agradezco a la universidad, el departamento de computación, mi director de tesis, y en especial a mi familia y mis amigos, esto no seria posible sin ellos.}
 

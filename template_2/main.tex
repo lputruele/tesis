@@ -64,7 +64,7 @@
 % traducción de algunos nombres del paquete algorithm
 %\floatname{algorithm}{Algoritmo}
 %\renewcommand{\listalgorithmname}{Indice de algoritmos}
-
+\newcommand{\mucalculo}{$\mu$-Cálculo}
 % Definiciones
 \newtheorem{definition}{Definición}[section]
 
@@ -143,7 +143,7 @@ process all files:}
 \ifx\files\all \typeout{Including all files.} \else \typeout{Including only \files.} \includeonly{\files} \fi
 
 \begin{document}
-
+\raggedbottom
 
 \title{
 UNIVERSIDAD NACIONAL DE RIO CUARTO\\
@@ -151,7 +151,7 @@ $\;$\\
 $\;$\\
 \small{Trabajo de tesis para la obtenci\'on del grado de Licenciatura en Ciencias de la Computaci\'on}
 $\;$\\$\;$\\
-\Large{\textbf{ T\'itulo : Verificación de modelos con Cálculo-$\mu$}}
+\Large{\textbf{ T\'itulo : Un Verificador de Modelos Funcional para \mucalculo}}
 } 
 
 \author{

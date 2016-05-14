@@ -1,12 +1,12 @@
 \chapter{Verificación simbólica de modelos}
 
-El algoritmo de verificación de modelos con estados explícitos para Cálculo-$\mu$ presentado anteriormente tiene un problema, es muy susceptible a que ocurra una explosión en el tamaño del modelo, especialmente si el grafo de transición de estados se extrae de un sistema concurrente con muchos componentes. En muchos casos, la “complejidad” del espacio de estados es mucho menor que lo que el número de estados indica. A menudo, los sistemas con un gran número de componentes tienen una estructura regular que sugeriria una regularidad correspondiente en el grafo de estados. En consecuencia, existen representaciones mas sofisticadas que explotan esta regularidad. Un buen candidato para tal representación simbólica es el diagrama de decisión binario (BDD) \cite{Burch:4}. En esta sección se describe un algoritmo de verificación de modelos simbólicos para Cálculo-$\mu$ que opera sobre estructuras de Kripke, esta vez representadas no de manera explícita, sino de manera simbólica a través de fórmulas lógicas (que internamente operan como BDDs).
+El algoritmo de verificación de modelos con estados explícitos para {\mucalculo} presentado anteriormente tiene un problema, es muy susceptible a que ocurra una explosión en el tamaño del modelo, especialmente si el grafo de transición de estados se extrae de un sistema concurrente con muchos componentes. En muchos casos, la “complejidad” del espacio de estados es mucho menor que lo que el número de estados indica. A menudo, los sistemas con un gran número de componentes tienen una estructura regular que sugeriria una regularidad correspondiente en el grafo de estados. En consecuencia, existen representaciones mas sofisticadas que explotan esta regularidad. Un buen candidato para tal representación simbólica es el diagrama de decisión binario (BDD) \cite{Burch:4}. En esta sección se describe un algoritmo de verificación de modelos simbólicos para {\mucalculo} que opera sobre estructuras de Kripke, esta vez representadas no de manera explícita, sino de manera simbólica a través de fórmulas lógicas (que internamente operan como BDDs).
 
 \section{Representación de fórmulas lógicas}
 
-Los árboles binarios de decisión ordenados (OBDDs) son formas canónicas de representación de fórmulas lógicas. Son considerablemente mas compactos que las formas normales tradicionales como la forma normal conjuntiva y la forma normal disyuntiva, y pueden ser manipulados eficientemente. Por esto, los OBDDs han sido utilizados ampliamente para una variedad de aplicaciones en el diseño asistido por computadoras, incluyendo simulacion simbólica, verificación de lógica combinatoria y, mas recientemente, verificación de sistemas concurrentes con estados finitos.
+Los árboles binarios de decisión ordenados (OBDDs) son formas canónicas de representación de fórmulas lógicas. Son considerablemente más compactos que las formas normales tradicionales como la forma normal conjuntiva y la forma normal disyuntiva, y pueden ser manipulados eficientemente. Por esto, los OBDDs han sido utilizados ampliamente para una variedad de aplicaciones en el diseño asistido por computadoras, incluyendo simulacion simbólica, verificación de lógica combinatoria y verificación de sistemas concurrentes con estados finitos.
 
-Para entender la necesidad de usar OBDDs, consideremos primero los árboles binarios de decisión. Un arbol binario de decisión es un árbol dirigido con raiz que consiste en vertices terminales y no terminales. Cada vertice no terminal $v$ esta etiquetado por una variable $var(v)$ y tiene dos hijos: $izq(v)$ corresponde al caso en que $v$ tenga el valor 0 y $der(v)$ en caso contrario. Cada vértice terminal esta etiquetado por una constante $valor(v)$ la cual es 0 o 1. Un árbol binario de decisión para la fórmula $f(a,b,c) = (a \land b) \lor (a \land c)$ es mostrado en la figura \ref{fig:bdt1}. Uno puede decidir si una asignación particular a las variables hace verdadera la fórmula o no al atravesar el árbol desde la raíz hasta un vertice terminal. Por ejemplo, la asignación $\{ a \gets 1, b \gets 0, c \gets 0\}$ lleva al vértice terminal 0, por lo tanto la fórmula es falsa para esta asignación.
+\noindent Para entender la necesidad de usar OBDDs, consideremos primero los árboles binarios de decisión. Un arbol binario de decisión es un árbol dirigido con raiz que consiste en vertices terminales y no terminales. Cada vertice no terminal $v$ esta etiquetado por una variable $var(v)$ y tiene dos hijos: $izq(v)$ corresponde al caso en que $v$ tenga el valor 0 y $der(v)$ en caso contrario. Cada vértice terminal esta etiquetado por una constante $valor(v)$ la cual es 0 o 1. Un árbol binario de decisión para la fórmula $f(a,b,c) = (a \land b) \lor (a \land c)$ es mostrado en la figura \ref{fig:bdt1}. Uno puede decidir si una asignación particular a las variables hace verdadera la fórmula o no al atravesar el árbol desde la raíz hasta un vertice terminal. Por ejemplo, la asignación $\{ a \gets 1, b \gets 0, c \gets 0\}$ lleva al vértice terminal 0, por lo tanto la fórmula es falsa para esta asignación.
 
 \begin{figure}[h!]
   \centering
@@ -15,7 +15,7 @@ Para entender la necesidad de usar OBDDs, consideremos primero los árboles bina
   \label{fig:bdt1}
 \end{figure}
 
-Los árboles binarios de decisión no proveen una representación muy concisa para las funciones lógicas. De hecho, tienen el mismo tamaño que las tablas de verdad. Afortunadamente, es común que haya mucha redundancia en tales árboles. Por ejemplo, en la figura \ref{fig:bdt1} todos los caminos donde a tiene el valor 0 llevan al nodo terminal 0, por lo tanto no seria necesario analizar los valores de $b$ y $c$ en esta rama. Esto lleva a pensar que hay formas de reducir el tamaño del árbol unificando subárboles isomorfos. Esto da como resultado un grafo acíclico dirigido (DAG) llamado diagrama binario de decisión (BDD). Mas precisamente, un BDD es un grafo con raiz, dirigido y acíclico con dos tipos de vertices, vertices terminales y no terminales. Estos tienen el mismo significado que en el caso de los árboles. Cada BDD $B$ con raiz $v$ determina una función lógica $f_{v}(x_{1},...,x_{n})$ de la siguiente manera \cite{Clarke:1}:\\
+\noindent Los árboles binarios de decisión no proveen una representación muy concisa para las funciones lógicas. De hecho, tienen el mismo tamaño que las tablas de verdad. Afortunadamente, es común que haya mucha redundancia en tales árboles. Por ejemplo, en la figura \ref{fig:bdt1} todos los caminos donde a tiene el valor 0 llevan al nodo terminal 0, por lo tanto no seria necesario analizar los valores de $b$ y $c$ en esta rama. Esto lleva a pensar que hay formas de reducir el tamaño del árbol unificando subárboles isomorfos. Esto da como resultado un grafo acíclico dirigido (DAG) llamado diagrama binario de decisión (BDD). Mas precisamente, un BDD es un grafo con raiz, dirigido y acíclico con dos tipos de vertices, vertices terminales y no terminales. Estos tienen el mismo significado que en el caso de los árboles. Cada BDD $B$ con raiz $v$ determina una función lógica $f_{v}(x_{1},...,x_{n})$ de la siguiente manera \cite{Clarke:1}:\\
 \\
 1. Si $v$ es un vértice terminal:
   (a) Si $valor(v) = 1$ entonces $f_{v}(x_{1},...,x_{n}) = 1$.
@@ -23,7 +23,7 @@ Los árboles binarios de decisión no proveen una representación muy concisa pa
 \\
 2. Si $v$ es un vértice no terminal con $var(v) = x_{i}$ entonces $f_{v}$ es la función 
 \[f_{v}(x_{1},...,x_{n}) = (\neg x_{i} \land f_{izq(v)}(x_{1},...,x_{n})) \lor (x_{i} \land f_{der(v)}(x_{1},...,x_{n}))\]\\
-Bryant \cite{Bryant:8} demostró como obtener una representación canónica para funciones lógicas al poner dos restricciones sobre los BDDs. Primero, las variables deberian aparecer en el mismo orden a lo largo de cada camino desde la raiz a un terminal. Segundo, no deberia haber subárboles isomórficos o vertices redundantes en el diagrama. El primer requisito se logra al imponer un ordenamiento total $<$ sobre las variables que etiquetan los vertices en el BDD y requiriendo eso para cada vertice $u$ en el diagrama, si $u$ tiene un sucesor no terminal, entonces $var(u) < var(v)$. El segundo requisito se logra al aplicar repetidamente tres reglas de transformación que no alteran la función representada por el diagrama, \\
+\noindent Bryant \cite{Bryant:8} demostró como obtener una representación canónica para funciones lógicas al poner dos restricciones sobre los BDDs. Primero, las variables deberian aparecer en el mismo orden a lo largo de cada camino desde la raiz a un terminal. Segundo, no deberia haber subárboles isomórficos o vertices redundantes en el diagrama. El primer requisito se logra al imponer un ordenamiento total $<$ sobre las variables que etiquetan los vertices en el BDD y requiriendo eso para cada vertice $u$ en el diagrama, si $u$ tiene un sucesor no terminal, entonces $var(u) < var(v)$. El segundo requisito se logra al aplicar repetidamente tres reglas de transformación que no alteran la función representada por el diagrama, \\
 \\
 - Eliminar terminales duplicados: Dejar solo un terminal para cada valor y redirigir todos los arcos a los eliminados hacia este.\\
 \\
@@ -63,13 +63,13 @@ $(x \land y \land \neg z \land x' \land y' \land z') \lor (x \land y \land \neg 
   \label{fig:kripke2}
 \end{figure}
 
-En la fórmula hay cuatro disyuntos porque la estructura de Kripke tiene cuatro transiciones. Esta fórmula se convierte ahora en OBDD para obtener una representación concisa de la relación de transición.\\
+\noindent En la fórmula hay cuatro disyuntos porque la estructura de Kripke tiene cuatro transiciones. Esta fórmula se convierte ahora en OBDD para obtener una representación concisa de la relación de transición.\\
 \\
 En muchos casos, construir una representación explicita de la estructura de Kripke $M$ y luego codificarla como se vió anteriormente no es factible porque la estructura es demasiado grande, incluso si la representación simbólica termina siendo concisa. Por lo tanto, en la práctica construimos los OBDDs directamente desde una descripción de alto nivel del sistema. En el próximo capitulo, cuando introduzcamos el lenguaje de modelado de sistemas utilizado en este trabajo, veremos como se realiza esta transformación.
 
 \section{Algoritmo de verificación de modelos simbólicos}
 
-En la sección anterior vimos como codificar una estructura de Kripke como un OBDD, ahora mostraremos una adaptación del algoritmo de verificación con estados explicitos, ahora con un modelo simbolico en forma de OBDD. En este caso transformaremos las fórmulas del Cálculo-$\mu$ de la siguiente manera\cite{Clarke:1}: \\
+En la sección anterior vimos como codificar una estructura de Kripke como un OBDD, ahora mostraremos una adaptación del algoritmo de verificación con estados explicitos, ahora con un modelo simbolico en forma de OBDD. En este caso transformaremos las fórmulas del {\mucalculo} de la siguiente manera\cite{Clarke:1}: \\
 \\
 - Los valores Falso y Verdadero estan representados por OBDD-FALSE y OBDD-TRUE que son constantes(hojas).\\
 \\
@@ -91,7 +91,7 @@ Asumamos que tenemos una fórmula $f$ de cáluclo-$\mu$ con las variables relaci
  B(\nu Q. f, assoc) &= FIX(f,assoc,OBDD-TRUE) \\
 \end{align*}
 
-Donde $B(f,assoc)(x')$ reemplaza cada aparición de $x$ por $x'$, y FIX es la siguiente función \cite{Clarke:1}:
+\noindent Donde $B(f,assoc)(x')$ reemplaza cada aparición de $x$ por $x'$, y FIX es la siguiente función \cite{Clarke:1}:
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.7\textwidth]{Figures/fix.png}
@@ -99,7 +99,7 @@ Donde $B(f,assoc)(x')$ reemplaza cada aparición de $x$ por $x'$, y FIX es la si
   \label{fig:fix}
 \end{figure}
 
-Las operaciones lógicas que ocurren del lado derecho de las ecuaciones son operaciones de BDDs. El significado de la cuantificación existencial de una variable l'ogica esta dada por la siguiente ecuación \cite{Andersen:7} :
+\noindent Las operaciones lógicas que ocurren del lado derecho de las ecuaciones son operaciones de BDDs. El significado de la cuantificación existencial de una variable l'ogica esta dada por la siguiente ecuación \cite{Andersen:7} :
 
 \[ \exists x . t = t[0/x] \lor t[1/x]\] 
 
@@ -107,4 +107,4 @@ Donde $t[v/x]$ es t pero donde x toma el valor v.
 
 \subsection{Complejidad}
 
-Un interrogante importante en cuanto a la verificación de modelos para cálculo-$\mu$ es su complejidad. Los algoritmos mas eficientes conocidos son exponenciales en cuanto al tamaño de la fórmula. Existe la conjetura\cite{Clarke:1} deque no hay un algoritmo polinomial para el problema de la verificación de modelos para cálculo-$\mu$. Es posible demostrar que el problema esta en $NP \cap co-NP$. Si el problema fuera NP-completo, entonces NP seria igual a co-NP, lo cuál se cree que no es cierto.
+Un interrogante importante en cuanto a la verificación de modelos para {\mucalculo} es su complejidad. Los algoritmos más eficientes conocidos son exponenciales en cuanto al tamaño de la fórmula. Existe la conjetura\cite{Clarke:1} de que no hay un algoritmo polinomial para el problema de la verificación de modelos para {\mucalculo}. Es posible demostrar que el problema esta en $NP \cap co-NP$. Si el problema fuera NP-completo, entonces NP seria igual a co-NP, lo cuál se cree que no es cierto.

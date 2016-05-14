@@ -6,7 +6,7 @@
 %% prompt when you run the file main.tex through LaTeX.
 \chapter{Conceptos preliminares}
 
-En el diseño de software y hardware para sistemas complejos, cada vez es más el tiempo y esfuerzo dedicado a la verificación en vez de la construcción. Se buscan técnicas para reducir y facilitar el trabajo de la verificación y a la vez incrementar su cobertura. Los métodos formales ofrecen un gran potencial para obtener una integración temprana de la verificación en el proceso de diseño, para proveer técnicas de verificación mas efectivas, y para reducir el tiempo de verificación en general.\\
+\textit{En el diseño de software y hardware para sistemas complejos, cada vez es más el tiempo y esfuerzo dedicado a la verificación en vez de la construcción. Se buscan técnicas para reducir y facilitar el trabajo de la verificación y a la vez incrementar su cobertura. Los métodos formales ofrecen un gran potencial para obtener una integración temprana de la verificación en el proceso de diseño, para proveer técnicas de verificación mas efectivas, y para reducir el tiempo de verificación en general} \cite{Baier:2}.\\
 \\
 La verificación de modelos o \emph model \emph checking es una técnica automática de verificación de propiedades sobre sistemas con una cantidad finita de estados. Es una alternativa interesante con respecto al testing o las simulaciones ya que a diferencia de estas técnicas, el model checking hace una prueba exhaustiva del sistema, es decir, analiza todas las trazas posibles de la ejecución del sistema en cuestión. Sin embargo, esto trae un problema, esto es el problema de la explosión de estados. Esto ocurre en sistemas con muchas interacciones internas, y que pueden hacer crecer exponencialmente el espacio de estados posibles del sistema, ya que la prueba es exhaustiva no se puede ignorar ningún estado posible. En los últimos años se ha logrado un gran progreso en cómo lidiar con este problema mediante formas más compactas de representar al sistema, como por ejemplo, una representación simbólica del modelo del sistema \cite{Bryant:8} \cite{Burch:4}.\\
 \\
@@ -54,8 +54,9 @@ Desventajas de la verificación de modelos \cite{Baier:2}:\\
 - En general, verificar sistemas con una cantidad arbitraria de componentes, o sistemas parametrizados, no es posible.\\
 \\
 \section{Modelado de sistemas}
-En esta sección veremos cómo representar un modelo explícitamente mediante una estructura de Kripke, en el siguiente capítulo veremos otra forma de representación llamada simbólica que representa el modelo mediante una fórmula lógica de primer orden.\\
-\\
+En esta sección veremos cómo representar un modelo explícitamente mediante una estructura de Kripke, en el siguiente capítulo veremos otra forma de representación llamada simbólica que representa el modelo mediante una fórmula lógica de primer orden.
+
+\begin{definition}
 Sea $AP$ un conjunto de proposiciones atómicas, una estructura de Kripke $M$ sobre $AP$ es una cuatro-upla $M = (S, S_{0}, R, L)$ donde \cite{Clarke:1}: \\
 \\
 1. $S$ es un conjunto finito de estados.\\
@@ -66,7 +67,8 @@ Sea $AP$ un conjunto de proposiciones atómicas, una estructura de Kripke $M$ so
 \\
 4. $L \colon S \to 2^{AP}$ es una función que etiqueta a cada estado con el conjunto de proposiciones atómicas que son verdaderas en ese estado.\\
 \\
-Un camino en la estructura $M$ desde un estado $s$ es una secuencia infinita de estados $p = s_{0}, s_{1}, s_{2}, s_{3}, ...$, tal que $s = s_{0}$ y $R(s_{i},s_{i+1})$ vale para todo $i>0$.\\
+\end{definition}
+\noindent Un camino en la estructura $M$ desde un estado $s$ es una secuencia infinita de estados $p = s_{0}, s_{1}, s_{2}, s_{3}, ...$, tal que $s = s_{0}$ y $R(s_{i},s_{i+1})$ vale para todo $i>0$.\\
 \\
 Sea $V = {v_{1}, v_{2}, ..., v_{n}}$ el conjunto de variables del sistema y sea $D$ el dominio, llamaremos una valuación de $V$ a una función que asocia a cada variable de $V$ un valor de $D$.\\
 \\
@@ -101,23 +103,23 @@ Con el propósito de familiarizarnos con las lógicas temporales, introduciremos
 
 \subsection{CTL}
 
-CTL tiene dos clases de fórmulas, fórmulas de estado y fórmulas de camino. Las primeras son aserciones respecto de las proposiciones atómicas en los estados y de su estructura de ramificación, mientras que las formulas de camino expresan propiedades temporales de caminos.
+\noindent CTL tiene dos clases de fórmulas, fórmulas de estado y fórmulas de camino. Las primeras son aserciones respecto de las proposiciones atómicas en los estados y de su estructura de ramificación, mientras que las formulas de camino expresan propiedades temporales de caminos.
 Las fórmulas de estado CTL sobre el conjunto AP de proposiciones atómicas, están formadas de acuerdo a la siguiente gramática\cite{Baier:2}:
 \[\Phi ::= true | a | \Phi_{1} \land \Phi_{2} | \neg \Phi | \exists \varphi | \forall \varphi  \]
 donde $a \in AP$ y $\varphi$ es una fórmula de camino. La sintaxis de fórmula de camino CTL esta dada por la siguiente gramática:
 \[\varphi ::= \bigcirc \Phi | \Phi_{1} \cup \Phi_{2} \]
 donde $\varphi$ es una fórmula de camino, y $\Phi$, $\Phi_{1}$, $\Phi_{2}$ son fórmulas de estado.
 
-Intuitivamente $\exists f$ vale en un estado $s$, ssi a partir del mismo existe un camino donde vale f (notar que f solo puede ser una formula de estado). Naturalmente $\forall f$ significa que en todos los caminos vale f. En cuanto a $\bigcirc f$, esto vale en el camino $p$ ssi en el próximo estado (en un camino, existe un único próximo estado) vale f, y $ f\  \cup \ g$ vale en $p$ solo ssi $f$ vale siempre hasta que valga $g$. Los operadores de camino solo toman fórmulas de estado.
+\noindent Intuitivamente $\exists f$ vale en un estado $s$, ssi a partir del mismo existe un camino donde vale f (notar que f solo puede ser una formula de estado). Naturalmente $\forall f$ significa que en todos los caminos vale f. En cuanto a $\bigcirc f$, esto vale en el camino $p$ ssi en el próximo estado (en un camino, existe un único próximo estado) vale f, y $ f\  \cup \ g$ vale en $p$ solo ssi $f$ vale siempre hasta que valga $g$. Los operadores de camino solo toman fórmulas de estado.
 
-Los operadores booleanos $false$, $\lor$ y $\to$ se definen de la manera usual. Las modalidades temporales “eventualmente” y “siempre” pueden ser derivadas de la siguiente manera:\\
+\noindent Los operadores booleanos $false$, $\lor$ y $\to$ se definen de la manera usual. Las modalidades temporales “eventualmente” y “siempre” pueden ser derivadas de la siguiente manera:\\
 \\
-eventualmente:\\
+Eventualmente:\\
 \\
 $\exists \Diamond \Phi \ = \ \exists(true\ \cup \ \Phi)$\\
 $\forall \Diamond \Phi \ = \ \forall(true\ \cup \ \Phi)$\\
 \\
-siempre:\\
+Siempre:\\
 \\
 $\exists \Box \Phi \ = \ \neg \forall \Diamond \neg \Phi$\\
 $\forall \Box \Phi \ = \ \neg \exists \Diamond \neg \Phi$\\
@@ -129,14 +131,13 @@ $\forall \Box (amarillo \lor \forall \bigcirc \neg rojo)$ (cada fase de luz roja
 
 \subsection{CTL*}
 
-CTL* es una lógica que permite combinar libremente los operadores de CTL, por lo cuál CTL* incluye a CTL.
-Las fórmulas de estado CTL* sobre el conjunto AP de proposiciones atómicas, están formadas de acuerdo a la siguiente gramática\cite{Baier:2}:
+\noindent CTL* es una lógica que permite combinar libremente los operadores de CTL, por lo cuál CTL* incluye a CTL. Las fórmulas de estado CTL* sobre el conjunto AP de proposiciones atómicas, están formadas de acuerdo a la siguiente gramática\cite{Baier:2}:
 \[\Phi ::= true | a | \Phi_{1} \land \Phi_{2} | \neg \Phi | \exists \varphi \]
 donde $a \in AP$ y $\varphi$ es una fórmula de camino. La sintaxis de fórmula de camino CTL* esta dada por la siguiente gramática:
 \[\varphi ::= \Phi | \varphi_{1} \land \varphi_{2} | \neg \varphi | \bigcirc \varphi | \varphi_{1} \cup \varphi_{2} \]
 donde $\Phi$ es una fórmula de estado, y $\varphi$, $\varphi_{1}$, $\varphi_{2}$ son fórmulas de camino.
 
-Analizaremos a continuación una lógica temporal llamada cálculo-$\mu$, este puede codificar (y de hecho incluye) a CTL y CTL* \cite{Emerson:16}.
+\noindent Analizaremos a continuación una lógica temporal llamada {\mucalculo}, este puede codificar (y de hecho incluye) a CTL y CTL* \cite{Emerson:16}.
 
 \begin{figure}[H]
   \centering
@@ -146,9 +147,9 @@ Analizaremos a continuación una lógica temporal llamada cálculo-$\mu$, este p
 \end{figure}
 
 
-\section{Cálculo-$\mu$}
+\section{{\mucalculo}}
 
-El Cálculo-$\mu$ es un poderoso lenguaje para expresar propiedades de sistemas de transición de estados al usar operadores de punto fijo. El Cálculo-$\mu$ ha generado mucho interés entre investigadores en verificación asistida por computadoras. Este interés surge del hecho de que muchas lógicas temporales pueden ser codificadas por el Cálculo-$\mu$. Otra fuente de interés en el Cálculo-$\mu$ viene de la existencia de algoritmos eficientes de verificación de modelos para este formalismo. Como consecuencia, los procedimientos de verificación para muchas lógicas temporales y modales pueden ser descriptas al traducirse al Cálculo-$\mu$. Hay varias versiones del Cálculo-$\mu$, concretamente usaremos la versión proposicional de Kozen\cite{Kozen:3}.
+\noindent El {\mucalculo} es un poderoso lenguaje para expresar propiedades de sistemas de transición de estados al usar operadores de punto fijo. Este lenguaje posee la ventaja de su expresividad, ya que muchas lógicas temporales se pueden codificar por el {\mucalculo}, otra ventaja se da en la existencia de algoritmos eficientes de verificación de modelos para este formalismo. Estas características favorables despertaron interés entre investigadores en verificación asistida por computadoras. Como consecuencia, los procedimientos de verificación para muchas lógicas temporales y modales pueden ser descriptas al traducirse al {\mucalculo}. Hay varias versiones del {\mucalculo}, concretamente usaremos la versión proposicional de Kozen\cite{Kozen:3} \cite{Clarke:1}.
 
 \subsection{Sintaxis}
 
@@ -210,11 +211,11 @@ Observemos algunos ejemplos, supongamos que tenemos una estructura de Kripke $M 
 
 \subsection{Algoritmo de verificación de modelos explícitos}
 
-El algoritmo de verificación de modelos explícitos para Cálculo-$\mu$ que analizaremos es el más intuitivo (hay algoritmos mas eficientes), se basa en la semántica anterior, y calcula el subconjunto de estados de un modelo $M$ que cumplen con una formula $f$. El algoritmo trabaja en forma bottom-up a través de la fórmula, evaluandola a partir de los valores de sus subfórmulas. Este algoritmo requiere tiempo $O(n^{k})$, donde $n$ es la cantidad de estados del sistema y $k$ es el número de operadores de punto fijo anidados en la fórmula. Esto se debe a que cada operador de punto fijo hace $n+1$ iteraciones cómo máximo, ya que en cada iteración se hace una aproximación del resultado ya sea agregando o quitando al menos un estado(menor y mayor punto fijo respectivamente). En la figura \ref{fig:eval1} se puede ver el algoritmo \cite{Clarke:1}, donde $f$ es la fórmula y $e$ es el ambiente de variables relacionales.
+El algoritmo de verificación de modelos explícitos para {\mucalculo} que analizaremos es el más intuitivo (hay algoritmos mas eficientes), se basa en la semántica anterior, y calcula el subconjunto de estados de un modelo $M$ que cumplen con una formula $f$. El algoritmo trabaja en forma bottom-up a través de la fórmula, evaluandola a partir de los valores de sus subfórmulas. Este algoritmo requiere tiempo $O(n^{k})$, donde $n$ es la cantidad de estados del sistema y $k$ es el número de operadores de punto fijo anidados en la fórmula. Esto se debe a que cada operador de punto fijo hace $n+1$ iteraciones cómo máximo, ya que en cada iteración se hace una aproximación del resultado ya sea agregando o quitando al menos un estado(menor y mayor punto fijo respectivamente). En la figura \ref{fig:eval1} se puede ver el algoritmo \cite{Clarke:1}, donde $f$ es la fórmula y $e$ es el ambiente de variables relacionales.
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.7\textwidth]{Figures/eval.png}
-  \caption{Algoritmo de verificación de modelos explícitos para Cálculo-$\mu$.} 
+  \caption{Algoritmo de verificación de modelos explícitos para {\mucalculo}.} 
   \label{fig:eval1}
 \end{figure}

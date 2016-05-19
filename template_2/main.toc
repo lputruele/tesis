@@ -4,6 +4,7 @@
 \contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n}{1}
 \contentsline {section}{\numberline {1.1}Objetivos}{1}
 \contentsline {section}{\numberline {1.2}Estructura}{2}
+\contentsline {section}{\numberline {1.3}Disposici\IeC {\'o}n de la herramienta}{2}
 \contentsline {chapter}{\numberline {2}Conceptos preliminares}{3}
 \contentsline {section}{\numberline {2.1}Ventajas y desventajas de la verificaci\IeC {\'o}n de modelos}{4}
 \contentsline {section}{\numberline {2.2}Modelado de sistemas}{6}
@@ -16,21 +17,21 @@
 \contentsline {subsection}{\numberline {2.4.3}Algoritmo de verificaci\IeC {\'o}n de modelos expl\IeC {\'\i }citos}{14}
 \contentsline {chapter}{\numberline {3}Verificaci\IeC {\'o}n simb\IeC {\'o}lica de modelos}{16}
 \contentsline {section}{\numberline {3.1}Representaci\IeC {\'o}n de f\IeC {\'o}rmulas l\IeC {\'o}gicas}{16}
-\contentsline {section}{\numberline {3.2}Representaci\IeC {\'o}n de estructuras de Kripke}{19}
-\contentsline {section}{\numberline {3.3}Algoritmo de verificaci\IeC {\'o}n de modelos simb\IeC {\'o}licos}{20}
-\contentsline {subsection}{\numberline {3.3.1}Complejidad}{22}
-\contentsline {chapter}{\numberline {4}Lenguaje MC2}{23}
-\contentsline {section}{\numberline {4.1}Sintaxis}{23}
-\contentsline {section}{\numberline {4.2}Sem\IeC {\'a}ntica}{25}
-\contentsline {subsection}{\numberline {4.2.1}Sem\IeC {\'a}ntica informal}{25}
-\contentsline {subsection}{\numberline {4.2.2}Sem\IeC {\'a}ntica formal}{28}
-\contentsline {section}{\numberline {4.3}Notas sobre dise\IeC {\~n}o e implementaci\IeC {\'o}n}{30}
-\contentsline {subsection}{\numberline {4.3.1}Tipos en MC2}{31}
-\contentsline {subsection}{\numberline {4.3.2}Descripci\IeC {\'o}n del modelo en MC2}{31}
-\contentsline {subsection}{\numberline {4.3.3}{$\mu $-C\IeC {\'a}lculo} en MC2}{31}
-\contentsline {subsection}{\numberline {4.3.4}M\IeC {\'o}dulo principal}{32}
-\contentsline {chapter}{\numberline {5}Casos de estudio}{33}
-\contentsline {section}{\numberline {5.1}Cruce del rio}{33}
-\contentsline {section}{\numberline {5.2}1,2,3, Coloca otra vez}{35}
-\contentsline {section}{\numberline {5.3}Ranas saltarinas}{37}
-\contentsline {chapter}{Conclusi\IeC {\'o}n}{41}
+\contentsline {section}{\numberline {3.2}Representaci\IeC {\'o}n de estructuras de Kripke}{20}
+\contentsline {section}{\numberline {3.3}Algoritmo de verificaci\IeC {\'o}n dimb\IeC {\'o}licade modelos}{21}
+\contentsline {subsection}{\numberline {3.3.1}Complejidad}{23}
+\contentsline {chapter}{\numberline {4}Lenguaje MC2}{24}
+\contentsline {section}{\numberline {4.1}Sintaxis}{24}
+\contentsline {section}{\numberline {4.2}Sem\IeC {\'a}ntica}{26}
+\contentsline {subsection}{\numberline {4.2.1}Sem\IeC {\'a}ntica informal}{26}
+\contentsline {subsection}{\numberline {4.2.2}Sem\IeC {\'a}ntica formal}{29}
+\contentsline {section}{\numberline {4.3}Notas sobre dise\IeC {\~n}o e implementaci\IeC {\'o}n}{31}
+\contentsline {subsection}{\numberline {4.3.1}Tipos en MC2}{32}
+\contentsline {subsection}{\numberline {4.3.2}Descripci\IeC {\'o}n del modelo en MC2}{32}
+\contentsline {subsection}{\numberline {4.3.3}{$\mu $-C\IeC {\'a}lculo} en MC2}{32}
+\contentsline {subsection}{\numberline {4.3.4}M\IeC {\'o}dulo principal}{33}
+\contentsline {chapter}{\numberline {5}Casos de estudio}{34}
+\contentsline {section}{\numberline {5.1}Cruce del rio}{34}
+\contentsline {section}{\numberline {5.2}1,2,3, Coloca otra vez}{36}
+\contentsline {section}{\numberline {5.3}Ranas saltarinas}{38}
+\contentsline {chapter}{Conclusi\IeC {\'o}n}{42}

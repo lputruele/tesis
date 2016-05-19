@@ -1,5 +1,9 @@
 \begin{thebibliography}{10}
 
+\bibitem{Waldmann:6}
+J.~Waldmann, {\em The OBDD package}.
+\newblock https://github.com/jwaldmann/haskell-obdd.
+
 \bibitem{Clarke:5}
 E.~Clarke, O.~Grumberg, and D.~Long, {\em Model Checking}.
 
@@ -11,6 +15,16 @@ P.~F. Castro, C.~Kilmurray, A.~Acosta, and N.~Aguirre, {\em dCTL: A Branching
 \bibitem{Baier:2}
 C.~Baier and J.-P. Katoen, {\em Principles of Model Checking}.
 \newblock The MIT Press, 2008.
+
+\bibitem{Bryant:8}
+R.~E. Bryant, {\em Symbolic Boolean Manipulation with Ordered Binary Decision
+  Diagrams}.
+\newblock Fujitsu Laboratories, Ltd., 1992.
+
+\bibitem{Burch:4}
+J.~Burch, E.~M. Clarke, and K.~L. McMillan, {\em Symbolic Model Checking
+  $10^{20}$ States and Beyond*}.
+\newblock LICS, 1990.
 
 \bibitem{Clarke:1}
 E.~M. Clarke, O.~Grumberg, and D.~A. Peled, {\em Model Checking}.
@@ -24,23 +38,13 @@ E.~A. Emerson, {\em Temporal and modal logic}.
 D.~Kozen, {\em Results on the prepositional mu-calculus}.
 \newblock Elsevier Science Publishers B.V., 1983.
 
-\bibitem{Burch:4}
-J.~Burch, E.~M. Clarke, and K.~L. McMillan, {\em Symbolic Model Checking
-  $10^{20}$ States and Beyond*}.
-\newblock LICS, 1990.
-
-\bibitem{Bryant:8}
-R.~E. Bryant, {\em Symbolic Boolean Manipulation with Ordered Binary Decision
-  Diagrams}.
-\newblock Fujitsu Laboratories, Ltd., 1992.
+\bibitem{Tarski:17}
+A.~Tarski, {\em A lattice-theoretical fixpoint theorem and its applications}.
+\newblock Pacific Journal of Mathematics, 1955.
 
 \bibitem{Andersen:7}
 H.~R. Andersen, {\em An Introduction to Binary Decision Diagrams}.
 \newblock Lecture Notes, IT University of Copenhagen, 1999.
-
-\bibitem{Waldmann:6}
-J.~Waldmann, {\em The OBDD package}.
-\newblock https://github.com/jwaldmann/haskell-obdd.
 
 \bibitem{Hutton:10}
 G.~Hutton and E.~Meijer, {\em A LIBRARY OF MONADIC PARSER COMBINATORS}.

@@ -14,10 +14,10 @@
 \pagenumbering{roman}
 \addcontentsline{toc}{chapter}{Resumen} % si queremos que aparezca en el índice
 
-\noindent En esta tesis desarrollaremos una herramienta puramente funcional para la verificación de sistemas, llamada MC2 (Mu-Calculus Model Checker), la cual utiliza la técnica llamada model checking (o verificación de modelos) para determinar la verdad de propiedades lógicas sobre descripciones de sistemas. Este verificador trabaja sobre modelos de sistemas formalizados en un lenguaje de descripción simple que también será desarrollado en este trabajo, y utiliza el {\mucalculo} como formalismo de especificación de propiedades. El model checker se encargará de verificar estas propiedades sobre algún modelo descripto. Cabe destacar que el lenguaje de descripción de modelos como el verificador forman parte de la misma herramienta.
-
-\noindent El lenguaje de descripción de modelos MC2 se basa en la definición de reglas de transición usando proposiciones lógicas atómicas con lo cual es transparente ver la estructura del modelo como una máquina de transición de estados más allá de que internamente se los trata simbólicamente como fórmulas para mejorar el rendimiento.
-
+\noindent En esta tesis desarrollaremos una herramienta puramente funcional para la verificación de sistemas, llamada MC2 (Mu-Calculus Model Checker), la cuál utiliza la técnica llamada model checking (o verificación de modelos) para determinar la verdad de propiedades lógicas sobre descripciones de sistemas. Este verificador trabaja sobre modelos de sistemas formalizados en un lenguaje de descripción simple que también será desarrollado en este trabajo, y utiliza el {\mucalculo} como formalismo de especificación de propiedades. El model checker se encargará de verificar estas propiedades sobre algún modelo descripto. Cabe destacar que tanto el lenguaje de descripción de modelos como el verificador forman parte de la misma herramienta.\\
+\\
+\noindent El lenguaje de descripción de modelos MC2 se basa en la definición de reglas de transición usando proposiciones lógicas atómicas con lo cual es transparente ver la estructura del modelo como una máquina de transición de estados más allá de que internamente los modelos se representan  simbólicamente por medio de fórmulas lógicas para mejorar el rendimiento.\\
+\\
 \noindent El objetivo principal es utilizar esta herramienta para la resolución de acertijos lógicos, a la vez que también se permite la verificación de propiedades complejas sobre sistemas de computación. El metalenguaje utilizado para el desarrollo de esta herramienta es Haskell, por lo tanto la herramienta desarrollada es puramente funcional ya que además utiliza librerías de Diagramas Binarios de Decisión implementados funcionalmente \cite{Waldmann:6}.
 %\emph{Palabras clave}: .
 
@@ -27,5 +27,5 @@
 \chapter*{Agradecimientos}
 \addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el índice
 %\thispagestyle{empty} 
-{\sl Agradezco a la universidad, el departamento de computación, mi director de tesis, y en especial a mi familia y mis amigos, esto no seria posible sin ellos.}
+{\sl Agradezco a la universidad, el departamento de computación, a Pablo Castro y Germán Regis por dirigir mi tesis, y en especial a mi familia y mis amigos, ya que esto no sería posible sin ellos.}
 

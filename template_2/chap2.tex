@@ -6,7 +6,7 @@
 %% prompt when you run the file main.tex through LaTeX.
 \chapter{Conceptos preliminares}
 
-\textit{En el diseño de software y hardware para sistemas complejos, cada vez es más el tiempo y esfuerzo dedicado a la verificación en vez de la construcción. Se buscan técnicas para reducir y facilitar el trabajo de la verificación y a la vez incrementar su cobertura. Los métodos formales ofrecen un gran potencial para obtener una integración temprana de la verificación en el proceso de diseño, para proveer técnicas de verificación mas efectivas, y para reducir el tiempo de verificación en general} \cite{Baier:2}.\\
+\textit{En el diseño de software y hardware para sistemas complejos, cada vez es más el tiempo y esfuerzo dedicado a la verificación en vez de la construcción. Se buscan técnicas para reducir y facilitar el trabajo de la verificación y a la vez incrementar su cobertura. Los métodos formales ofrecen un gran potencial para obtener una integración temprana de la verificación en el proceso de diseño, para proveer técnicas de verificación más efectivas, y para reducir el tiempo de verificación en general} \cite{Baier:2}.\\
 \\
 La verificación de modelos o \emph model \emph checking es una técnica automática de verificación de propiedades sobre sistemas con una cantidad finita de estados. Es una alternativa interesante con respecto al testing o las simulaciones ya que a diferencia de estas técnicas, el model checking hace una prueba exhaustiva del sistema, es decir, analiza todas las trazas posibles de la ejecución del sistema en cuestión. Sin embargo, esto trae un problema, esto es el problema de la explosión de estados. Esto ocurre en sistemas con muchas interacciones internas, y que pueden hacer crecer exponencialmente el espacio de estados posibles del sistema, ya que la prueba es exhaustiva no se puede ignorar ningún estado posible. En los últimos años se ha logrado un gran progreso en cómo lidiar con este problema mediante formas más compactas de representar al sistema, como por ejemplo, una representación simbólica del modelo del sistema \cite{Bryant:8} \cite{Burch:4}.\\
 \\
@@ -27,13 +27,13 @@ Ventajas de la verificación de modelos \cite{Baier:2}:\\
 \\
 - No es vulnerable a la probabilidad de que un error sea expuesto, en contraste con el testing y la simulación que son técnicas que apuntan a escenarios particulares de error.\\
 \\
-- Provee información en caso de que una propiedad sea inválida, lo çuál es útil para el $debugging$.\\
+- Provee información en caso de que una propiedad sea inválida, lo cuál es útil para el $debugging$.\\
 \\
 - La utilización de un verificador necesita poca interacción con el usuario.\\
 \\
 - Esta creciendo en popularidad debido a su facilidad de uso.\\
 \\
-- Tiene una base matemática, se basa en teoria de grafos, estructuras de datos y lógica, lo cuál la hace confiable.\\
+- Tiene una base matemática, se basa en teoría de grafos, estructuras de datos y lógica, lo cuál la hace confiable.\\
 \\
 Desventajas de la verificación de modelos \cite{Baier:2}:\\
 \\
@@ -54,10 +54,10 @@ Desventajas de la verificación de modelos \cite{Baier:2}:\\
 - En general, verificar sistemas con una cantidad arbitraria de componentes, o sistemas parametrizados, no es posible.\\
 \\
 \section{Modelado de sistemas}
-En esta sección veremos cómo representar un modelo explícitamente mediante una estructura de Kripke, en el siguiente capítulo veremos otra forma de representación llamada simbólica que representa el modelo mediante una fórmula lógica de primer orden.
+En esta sección veremos cómo representar un modelo explícitamente mediante una forma de grafo llamada \emph{estructura de Kripke}, en el siguiente capítulo veremos otra forma de representación llamada simbólica que representa el modelo mediante una fórmula lógica de primer orden. Las definiciones de esta sección se han extraido de \cite{Clarke:1}.
 
 \begin{definition}
-Sea $AP$ un conjunto de proposiciones atómicas, una estructura de Kripke $M$ sobre $AP$ es una cuatro-upla $M = (S, S_{0}, R, L)$ donde \cite{Clarke:1}: \\
+Sea $AP$ un conjunto de proposiciones atómicas, una \emph{estructura de Kripke} $M$ sobre $AP$ es una cuatro-upla $M = (S, S_{0}, R, L)$ donde: \\
 \\
 1. $S$ es un conjunto finito de estados.\\
 \\
@@ -99,7 +99,7 @@ El único camino posible en esta estructura partiendo del estado inicial es: (1,
 
 Ahora describiremos una lógica para especificar propiedades deseadas en una estructura de Kripke u otra máquina de transición de estados. La lógica utiliza proposiciones atómicas y operadores como la disyunción y la negación para construir expresiones más complicadas que describan propiedades sobre estados.
 La lógica temporal es un formalismo que permite describir secuencias de transiciones entre estados en un sistema reactivo, nos interesa saber si en algún momento se llega a un estado determinado o que nunca se llegue a un deadlock. Para esto introduce nuevos operadores especiales que permiten hablar sobre tiempo. Estos operadores pueden combinarse con los operadores lógicos conocidos.
-Con el propósito de familiarizarnos con las lógicas temporales, introduciremos ahora las lógicas LTL (Linear Temporal Logic), CTL (Computational Tree Logic), y CTL*. 
+Con el propósito de familiarizarnos con las lógicas temporales, introduciremos ahora las lógicas CTL (Computational Tree Logic), y CTL*. 
 
 \subsection{CTL}
 
@@ -174,11 +174,11 @@ Los operadores $\mu$ y $\nu$ expresan puntos fijos menores y mayores respectivam
 \\
 Ejemplos: \\
 \\
-$\nu Z \cdot f \land \Box Z$ se interpreta como “f es verdadera siempre en todo camino”.\\
+$\nu X \cdot f \land \Box X$ se interpreta como “f es verdadera siempre en todo camino”.\\
 \\
-$\mu Z \cdot f \lor \Diamond Z$ se interpreta como “existe un camino hacia un estado donde f vale”.\\
+$\mu X \cdot f \lor \Diamond X$ se interpreta como “existe un camino hacia un estado donde f vale”.\\
 \\
-$\nu Z \cdot \Diamond True \land \Box Z$ se interpreta como “no hay estados que no tengan transiciones hacia otros estados”.\\
+$\nu X \cdot \Diamond True \land \Box X$ se interpreta como “no hay estados que no tengan transiciones hacia otros estados”.\\
 \\
 Formalmente, una fórmula $f$ se interpreta como un conjunto de estados donde $f$ es verdadera, escribimos este conjunto como $[[f]]$ sobre un sistema de transición de estados $M$ y un ambiente $e: VAR \to 2^{S}$, denotaremos $e[Q \gets W]$ como un ambiente que es igual a $e$ solo que $Q$ ahora tiene el valor $W$. el conjunto $[[f]]$ sobre $M$ y $e$ se define recursivamente de la siguiente manera:
 
@@ -194,6 +194,15 @@ Formalmente, una fórmula $f$ se interpreta como un conjunto de estados donde $f
 $[[\mu Q. f]] \ M\ e\ $ es el menor punto fijo del predicado transformador $t:2^{S} \to 2^{S}$ definido como $t(W) = [[f]]\ M\ e[Q \gets W] $ \\
 $[[\nu Q. f]] \ M\ e\ $ es el mayor punto fijo del predicado transformador $t:2^{S} \to 2^{S}$ definido como $t(W) = [[f]]\ M\ e[Q \gets W] $ \\
 \\
+Los puntos fijos pueden ser calculados utilizando el llamado teorema de Tarski-Knapster \cite{Tarski:17}. En donde para obtener el punto fijo de un transformador the predicados $t$, el mínimo punto fijo viene dado por la siguiente ecuación:
+$$
+	\bigcup^\infty_i=0 t^i(\emptyset)
+$$
+en donde, $t^0 = id$. Es decir, en la practica calculamos iterativamente aplicando $t$ y empezando desde el conjunto vacío, hasta obtener un resultado que no puede ser expandido. Esto en general, puede hacerce con un ciclo. El máximo punto fijo es similar, pero empezando desde el conjunto de
+todos los estados, y usando la intersección.
+$$
+	\bigcap^\infty_i=0 t^i(S)
+$$
 Observemos algunos ejemplos, supongamos que tenemos una estructura de Kripke $M = (S,T,L)$ como la de la figura \ref{fig:kripke3}, donde $L(s_{0}) = \{p,q,r\}$, $L(s_{1}) = \{p,q\}$, $L(s_{2}) = \{q,r\}$ y $L(s_{3}) = \{r\}$. Algunos ejemplos de propiedades que uno podria querer verificar son $q \land r$, $\Diamond q$, $\Box r$, $\mu Q. (r \land \neg p \lor \Diamond Q)$, $\nu Q. (p \land \Box Q)$. $q \land r$ se cumple en $\{s_{2}\}$, $\Diamond q$ se cumple en $\{s_{0},s_{1},s_{3}\}$, $\Box r$ se cumple en $\{s_{1},s_{2},s_{3}\}$, $\mu Q. (r \land \neg p \lor \Diamond Q)$ se cumple en $S$, y $\nu Q. (p \land \Box Q)$ se cumple en $\oslash$. Para entender cómo funcionan los operadores de punto fijo consideremos la fórmula $\nu Q. (p \land \Box Q)$, es decir, queremos saber que estados cumplen con la propiedad de que p vale siempre en todo camino. Cada iteración del operador esta ilustrada en la figura \ref{fig:kripke3-gfp1}. Q se inicializa en True, luego en cada iteración se hace una aproximación al resultado verdadero, los resultados de cada iteración en este caso son, en orden, $S$, $\{s_{0},s_{1}\}$, $\{s_{0}\}$, $\oslash$. Como se puede apreciar en el resultado, no hay estado donde valga esta propiedad. Si, en vez de usar el mayor punto fijo usaramos el menor, el procedimiento es análogo, solo que la variable se inicializaria en False, aunque no es dificil darse cuenta que no tiene mucho sentido verificar $\mu Q.(p \land \Box Q)$.
 
 \begin{figure}[h!]
@@ -211,7 +220,7 @@ Observemos algunos ejemplos, supongamos que tenemos una estructura de Kripke $M 
 
 \subsection{Algoritmo de verificación de modelos explícitos}
 
-El algoritmo de verificación de modelos explícitos para {\mucalculo} que analizaremos es el más intuitivo (hay algoritmos mas eficientes), se basa en la semántica anterior, y calcula el subconjunto de estados de un modelo $M$ que cumplen con una formula $f$. El algoritmo trabaja en forma bottom-up a través de la fórmula, evaluandola a partir de los valores de sus subfórmulas. Este algoritmo requiere tiempo $O(n^{k})$, donde $n$ es la cantidad de estados del sistema y $k$ es el número de operadores de punto fijo anidados en la fórmula. Esto se debe a que cada operador de punto fijo hace $n+1$ iteraciones cómo máximo, ya que en cada iteración se hace una aproximación del resultado ya sea agregando o quitando al menos un estado(menor y mayor punto fijo respectivamente). En la figura \ref{fig:eval1} se puede ver el algoritmo \cite{Clarke:1}, donde $f$ es la fórmula y $e$ es el ambiente de variables relacionales.
+El algoritmo de verificación de modelos explícitos para {\mucalculo} que analizaremos es el más intuitivo (hay algoritmos más eficientes), se basa en la semántica anterior, y calcula el subconjunto de estados de un modelo $M$ que cumplen con una formula $f$. El algoritmo trabaja en forma bottom-up a través de la fórmula, evaluandola a partir de los valores de sus subfórmulas. Este algoritmo requiere tiempo $O(n^{k})$ \cite{Clarke:1}, donde $n$ es la cantidad de estados del sistema y $k$ es el número de operadores de punto fijo anidados en la fórmula. Esto se debe a que cada operador de punto fijo hace $n+1$ iteraciones cómo máximo, ya que en cada iteración se hace una aproximación del resultado ya sea agregando o quitando al menos un estado(menor y mayor punto fijo respectivamente). En la figura \ref{fig:eval1} se puede ver el algoritmo (figura extraida de \cite{Clarke:1}), donde $f$ es la fórmula y $e$ es el ambiente de variables relacionales.
 
 \begin{figure}[h!]
   \centering

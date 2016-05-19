@@ -106,14 +106,14 @@ En esta sección vamos a formalizar las nociones descriptas en la sección anter
 [F\ |\ F \in P\ \land\ NULL\ (NOT\ & inst\ D[E]\ ([[F]]_{f}\ [[C]]_{c}\ assocInit))] \\
 \end{align*}
 
-\noindent Donde $assocInit$ es el estado inicial de la función $assoc$ e $inst$ es una función que instancia las variables proposicionales de un OBDD con los valores del ambiente $D[E]$ (D inicializado con los valores de E). Es decir, de todas las fórmulas en $P$ solo nos quedamos con aquellas que al instanciarlas con los valores de $init$ siempre da como resultado $True$. La semántica de una declaración está dada por la siguiente función: \\
+\noindent Donde $assocInit$ es el estado inicial de la función $assoc$ e $inst$ es una función que instancia las variables proposicionales del OBDD generado por la evaluación de $F$ con los valores del ambiente $D[E]$ (D inicializado con los valores de E). Es decir, de todas las fórmulas en $P$ solo nos quedamos con aquellas que al instanciarlas con los valores de $init$ siempre da como resultado $True$. La semántica de una declaración está dada por la siguiente función: \\
 \\
 \begin{align*}
 [[p]]_{d}\ &=\ (p,False) \\
 [[D0;D1]]_{d}\ &=\ [[D0]]\ ++\ [[D1]] \\
 \end{align*}
 
-\noindent Una declaración da como resultado un ambiente, es decir, una lista de proposiciones con sus valores asociados ($False$ en principio). A continuación tenemos la función que denota la semántica de los modelos, un modelo es la disyunción de una o más reglas, a su vez, una regla es una disyunción de todas las transiciones que genera, donde una transición es una conjunción de los OBDDs generados por la evaluación de los ambientes del estado corriente y el siguiente (en el siguiente estado todas las proposiciones deben estar primadas).
+\noindent Una declaración da como resultado un ambiente, es decir, una lista de proposiciones con sus valores asociados ($False$ en principio). A continuación tenemos la función que denota la semántica de los modelos, un modelo es la disyunción de una o más reglas, a su vez, una regla es una disyunción de todas las transiciones que genera, de nuevo por simpleza suponemos aquí que cada regla genera exactamente una transición. Una transición es una conjunción de los OBDDs generados por la evaluación de los ambientes del estado corriente y el siguiente (en el siguiente estado todas las proposiciones deben estar primadas).
 
 \begin{align*}
 [[C;D]]_{c}\ &=\ [[C]]_{c}\ OR\ [[D]]_{c} \\
@@ -150,7 +150,7 @@ En esta sección vamos a formalizar las nociones descriptas en la sección anter
 
 \section{Notas sobre diseño e implementación}
 
-En esta sección vamos a aclarar detalles del diseño y la implementación del verificador de modelos MC2. La herramienta esta implementada en el lenguaje funcional Haskell, y se interpreta con ghc. La misma está compuesta por los módulos $Types$, $Mu$, $MuEval$, $Model$, $ModelEval$, $Main$, y usa dos modulos externos, $OBDD$ \cite{Waldmann:6} (provee la estructura con sus operaciones) y $ParseLib$ \cite{Hutton:10} (tiene utilidades de parsing).
+En esta sección vamos a aclarar detalles del diseño y la implementación del verificador de modelos MC2. La herramienta esta implementada en el lenguaje funcional Haskell, y se interpreta con Ghc (Glasgow Haskell Compiler). La misma está compuesta por los módulos $Types$, $Mu$, $MuEval$, $Model$, $ModelEval$, $Main$, y usa dos modulos externos, $OBDD$ \cite{Waldmann:6} (provee la estructura con sus operaciones) y $ParseLib$ \cite{Hutton:10} (tiene utilidades de parsing).
 
 \subsection{Tipos en MC2}
 
@@ -166,4 +166,4 @@ Similarmente tenemos dos modulos dedicados al {\mucalculo}. Uno es $Mu$, el cuá
 
 \subsection{Módulo principal}
 
-El módulo $Main$ contiene el $parser$ de descripciones MC2, su evaluador y varias funciones auxiliares para la lectura de archivos. El $parser$ utiliza los $parsers$ de las declaraciones, comandos (reglas) y propiedades (fórmulas de {\mucalculo}). Para el el estado inicial también se usa el $parser$ de declaraciones, solo que en vez de inicializarse todas las proposiciones atómicas en $False$, se inicializan con los valores de la sección $init$ de la descripción del modelo.
+El módulo $Main$ contiene el $parser$ de descripciones MC2, su evaluador y varias funciones auxiliares para la lectura de archivos e impresión por pantalla de los resultados. El $parser$ utiliza los $parsers$ de las declaraciones, comandos (reglas) y propiedades (fórmulas de {\mucalculo}). Para el el estado inicial también se usa el $parser$ de declaraciones, solo que en vez de inicializarse todas las proposiciones atómicas en $False$, se inicializan con los valores de la sección $init$ de la descripción del modelo.

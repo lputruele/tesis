@@ -1,10 +1,14 @@
 \chapter{Verificación simbólica de modelos}
 
-El algoritmo de verificación de modelos con estados explícitos para {\mucalculo} presentado anteriormente tiene un problema, es muy susceptible a que ocurra una explosión en el tamaño del modelo, especialmente si el grafo de transición de estados se extrae de un sistema concurrente con muchos componentes. En muchos casos, la “complejidad” del espacio de estados es mucho menor que lo que el número de estados indica. A menudo, los sistemas con un gran número de componentes tienen una estructura regular que sugeriria una regularidad correspondiente en el grafo de estados. En consecuencia, existen representaciones mas sofisticadas que explotan esta regularidad. Un buen candidato para tal representación simbólica es el diagrama de decisión binario (BDD) \cite{Burch:4}. En esta sección se describe un algoritmo de verificación de modelos simbólicos para {\mucalculo} que opera sobre estructuras de Kripke, esta vez representadas no de manera explícita, sino de manera simbólica a través de fórmulas lógicas (que internamente operan como BDDs).
+El algoritmo de verificación de modelos con estados explícitos para {\mucalculo} tiene un problema, es muy susceptible a que ocurra una explosión en el tamaño del modelo, especialmente si el grafo de transición de estados se extrae de un sistema concurrente con muchos componentes. \\
+\\
+\textit{En muchos casos, la “complejidad” del espacio de estados es mucho menor que lo que el número de estados indica. A menudo, los sistemas con un gran número de componentes tienen una estructura regular que sugeriria una regularidad correspondiente en el grafo de estados. En consecuencia, existen representaciones más sofisticadas que explotan esta regularidad. Un buen candidato para tal representación simbólica es el diagrama de decisión binario (BDD)} \cite{Burch:4}.\\ 
+\\
+En esta capítulo se describe un algoritmo de verificación de modelos simbólicos para {\mucalculo} que opera sobre estructuras de Kripke, esta vez representadas no de manera explícita, sino de manera simbólica a través de fórmulas lógicas (que internamente operan como BDDs).
 
 \section{Representación de fórmulas lógicas}
 
-Los árboles binarios de decisión ordenados (OBDDs) son formas canónicas de representación de fórmulas lógicas. Son considerablemente más compactos que las formas normales tradicionales como la forma normal conjuntiva y la forma normal disyuntiva, y pueden ser manipulados eficientemente. Por esto, los OBDDs han sido utilizados ampliamente para una variedad de aplicaciones en el diseño asistido por computadoras, incluyendo simulacion simbólica, verificación de lógica combinatoria y verificación de sistemas concurrentes con estados finitos.
+Los árboles binarios de decisión ordenados (OBDDs) son formas canónicas de representación de fórmulas lógicas. Son considerablemente más compactos que las formas normales tradicionales como la forma normal conjuntiva y la forma normal disyuntiva, y existen algoritmos para manipularlos eficientemente. Por esto, los OBDDs se han utilizado para una amplia variedad de aplicaciones en el diseño asistido por computadoras, incluyendo simulación simbólica, verificación de lógica combinatoria y verificación de sistemas concurrentes con estados finitos \cite{Clarke:1}. Las definiciones que aparecen en esta sección se extraen de \cite{Clarke:1}.
 
 \noindent Para entender la necesidad de usar OBDDs, consideremos primero los árboles binarios de decisión. Un arbol binario de decisión es un árbol dirigido con raiz que consiste en vertices terminales y no terminales. Cada vertice no terminal $v$ esta etiquetado por una variable $var(v)$ y tiene dos hijos: $izq(v)$ corresponde al caso en que $v$ tenga el valor 0 y $der(v)$ en caso contrario. Cada vértice terminal esta etiquetado por una constante $valor(v)$ la cual es 0 o 1. Un árbol binario de decisión para la fórmula $f(a,b,c) = (a \land b) \lor (a \land c)$ es mostrado en la figura \ref{fig:bdt1}. Uno puede decidir si una asignación particular a las variables hace verdadera la fórmula o no al atravesar el árbol desde la raíz hasta un vertice terminal. Por ejemplo, la asignación $\{ a \gets 1, b \gets 0, c \gets 0\}$ lleva al vértice terminal 0, por lo tanto la fórmula es falsa para esta asignación.
 
@@ -67,9 +71,9 @@ $(x \land y \land \neg z \land x' \land y' \land z') \lor (x \land y \land \neg 
 \\
 En muchos casos, construir una representación explicita de la estructura de Kripke $M$ y luego codificarla como se vió anteriormente no es factible porque la estructura es demasiado grande, incluso si la representación simbólica termina siendo concisa. Por lo tanto, en la práctica construimos los OBDDs directamente desde una descripción de alto nivel del sistema. En el próximo capitulo, cuando introduzcamos el lenguaje de modelado de sistemas utilizado en este trabajo, veremos como se realiza esta transformación.
 
-\section{Algoritmo de verificación de modelos simbólicos}
+\section{Algoritmo de verificación dimbólicade modelos}
 
-En la sección anterior vimos como codificar una estructura de Kripke como un OBDD, ahora mostraremos una adaptación del algoritmo de verificación con estados explicitos, ahora con un modelo simbolico en forma de OBDD. En este caso transformaremos las fórmulas del {\mucalculo} de la siguiente manera\cite{Clarke:1}: \\
+En la sección anterior vimos como codificar una estructura de Kripke como un OBDD, ahora mostraremos una adaptación del algoritmo de verificación con estados explicitos, ahora con una representación simbólica del modelo en forma de OBDD. En este caso transformaremos las fórmulas del {\mucalculo} de la siguiente manera\cite{Clarke:1}: \\
 \\
 - Los valores Falso y Verdadero estan representados por OBDD-FALSE y OBDD-TRUE que son constantes(hojas).\\
 \\
@@ -77,7 +81,7 @@ En la sección anterior vimos como codificar una estructura de Kripke como un OB
 \\
 - El sistema de transiciones tiene un diagrama ordenado de decisión $OBDD_{m}(x,x')$ asociado al mismo. Un par $(x,x') \in S \times S$ satisface $OBDD_{m}$ si y solo si $(x,x') \in T$ \\
 \\
-Asumamos que tenemos una fórmula $f$ de cáluclo-$\mu$ con las variables relacionales libres $Q_{1},...,Q_{k}$. La función $assoc[Q_{i}]$ asigna a cada variable relacional el OBDD correspondiente al conjunto de estados asociados a esa variable. La notación $assoc(Q \gets B_{Q})$ significa que a $Q$ se le da el valor $B_{Q}$, se puede ver a $assoc$ como un ambiente de OBDDs. A continuación se da el procedimiento $B$ que, apartir de una fórmula $f$ y una función $assoc$, retorna el OBDD correspondiente a la semántica de $f$.
+Asumamos que tenemos una fórmula $f$ de {\mucalculo} con las variables relacionales libres $Q_{1},...,Q_{k}$. La función $assoc[Q_{i}]$ asigna a cada variable relacional el OBDD correspondiente al conjunto de estados asociados a esa variable. La notación $assoc(Q \gets B_{Q})$ significa que a $Q$ se le da el valor $B_{Q}$, se puede ver a $assoc$ como un ambiente de OBDDs. A continuación se da el procedimiento $B$ que, apartir de una fórmula $f$ y una función $assoc$, retorna el OBDD correspondiente a la semántica de $f$.
 
 \begin{align*}
  B(p,assoc)\ &=\ OBDD_{p}(x) \\
@@ -91,7 +95,7 @@ Asumamos que tenemos una fórmula $f$ de cáluclo-$\mu$ con las variables relaci
  B(\nu Q. f, assoc) &= FIX(f,assoc,OBDD-TRUE) \\
 \end{align*}
 
-\noindent Donde $B(f,assoc)(x')$ reemplaza cada aparición de $x$ por $x'$, y FIX es la siguiente función \cite{Clarke:1}:
+\noindent Donde $B(f,assoc)(x')$ reemplaza cada aparición de $x$ por $x'$, y FIX es la siguiente función (figura extraida de \cite{Clarke:1}):
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.7\textwidth]{Figures/fix.png}

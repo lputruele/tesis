@@ -6,7 +6,7 @@
 %% prompt when you run the file main.tex through LaTeX.
 \chapter{Introducción}
 \pagenumbering{arabic}
-\noindent La verificación de modelos (\emph{model checking}) es una técnica automática para verificar modelos sistemas reactivos con una cantidad finita de estados, por ejemplo protocolos de comunicación y diseños de circuitos, entre otros. En general, la aplicación de esta técnica consta de una caracterización del modelo en términos de algún tipo de sistema de transición de estados y la especificación de la propiedad a analizar en algún tipo de lenguaje formal, comúnmente algún tipo de lógica temporal.\\
+\noindent La verificación de modelos (\emph{model checking}) es una técnica automática para verificar modelos de sistemas con una cantidad finita de estados, por ejemplo protocolos de comunicación y diseños de circuitos, entre otros. En general, la aplicación de esta técnica consta de una caracterización del modelo en términos de algún tipo de sistema de transición de estados y la especificación de la propiedad a analizar en algún tipo de lenguaje formal, comúnmente algún tipo de lógica temporal.\\
 \\
 \noindent Se utiliza una búsqueda eficiente para determinar automáticamente si las especificaciones son satisfechas por el grafo \cite{Clarke:5}. Esta técnica fue desarrollada originalmente en 1981 por Clarke y Emerson. Esta técnica tiene varias ventajas importantes sobre probadores de teoremas para verificación de circuitos y protocolos. La más importante es que es automática. Normalmente, el usuario provee una representación de alto nivel del modelo y una especificación de la propiedad que se desea verificar. El model checker terminará devolviendo la respuesta True indicando que el modelo satisface la especificación o dará una traza de ejecución a modo de contra-ejemplo si el modelo no satisface la propiedad. Esta es una propiedad muy importante a la hora de encontrar bugs sutiles.
 
@@ -15,9 +15,15 @@ El objetivo principal de este proyecto es proveer una herramienta de verificaci�
 
 \section{Estructura}
 En el capítulo 2 analizaremos conceptos básicos para la comprensión de esta tesis, conceptos como la verificación de modelos, representación de estos modelos, el concepto de lógicas temporales, y en particular, el {\mucalculo}.
-En el capítulo 3 veremos formas de representar los datos de una manera mas concisa e introduciremos la noción de verificación simbólica de modelos.
+En el capítulo 3 veremos formas de representar los datos de una manera más concisa e introduciremos la noción de verificación simbólica de modelos.
 En el capítulo 4 nos adentramos en la herramienta MC2, su lenguaje de descripción de modelos y su verificador de modelos. Se entra en detalle con la sintaxis y la semántica del lenguaje. Para terminar, se analizarán cuestiones de diseño e implementación de la herramienta. 
-En el capítulo 5 aplicaremos la herramienta a algunos casos de estudio concretos a modo de ejemplificación de uso práctico de esta herramienta.
+En el capítulo 5 aplicaremos la herramienta a algunos casos de estudio concretos a modo de ejemplificación del uso práctico de esta herramienta.
+
+\section{Disposición de la herramienta}
+
+La herramienta MC2 se puede encontrar en el siguiente repositorio:\\
+\\
+https://github.com/lputruele/MC2-Mu-Calculus-Model-Checker
 
 
 

@@ -2,13 +2,9 @@ vars
   a;b
 
 rules
-  a,b -> !a,b;
-  !a,b ->;
-  a,b -> a,!b;
-  a,!b -> 
-
+  a,b-> a,!b
 init
   a,b
   
 check
-  $x.%y.(((!a & !b) & <>:x) | <>:y)
+  $x.(a & <>:x)

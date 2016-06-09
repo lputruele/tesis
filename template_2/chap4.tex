@@ -42,9 +42,9 @@ M &:=\ vars\ D\ rules\ C\ init\ E\ check\ P \\
 Un detalle de implementación muy importante que hace falta destacar es que el parsing de $E$ retorna un ambiente, el cual es una lista de pares $(p,v)$, donde $p \in AP$ y $v \in Bool$. Se puede decir que hay una semántica intermedia para E:
 
 \begin{align*}
-[[p]]\ &=\ (p,True)\\
-[[!p]]\ &=\ (p,False) \\
-[[E0,E1]]\ &=\ [[E0]]\ ++\ [[E1]] \\
+\llbracket p \rrbracket \ &=\ (p,True)\\
+\llbracket !p \rrbracket \ &=\ (p,False) \\
+\llbracket E0,E1 \rrbracket \ &=\ \llbracket E0 \rrbracket \ ++\ \llbracket E1 \rrbracket  \\
 \end{align*}
 
 De ahora en mas cuando hablemos de E, hacemos referencia a la lista generada anteriormente.
@@ -94,76 +94,76 @@ La figura \ref{fig:MC2-1} muestra un ejemplo de una descripción MC2. Aqui repre
   \label{fig:MC2-3}
 \end{figure}
 
-\noindent En la sección $check$ se puede ver que hay cuatro propiedades descritas en {\mucalculo}, que son las siguientes: $\Diamond (\neg a \land \neg b)$, $\mu z. (b \lor \Diamond z)$, $\nu z. (b \land \Box z)$, y $\nu z. (a \land \Box z)$. Al ejecutar el verificador con la descripción de la figura \ref{fig:MC2-1}, el resultado va a ser el conjunto de propiedades que el modelo haya satisfecho, en este caso $\mu z. (b \lor \Diamond : z)$ y $\nu z. (a \land \Box : z)$, ya que existe un camino en donde $b$ vale en algún momento, y $a$ vale siempre en todo camino. Evidentemente $'\$'$ representa a $\nu$ y $'\%'$ representa a $\nu$. Cabe destacar también que al anteponer $':'$ a una cadena estamos haciendo referencia a una variable relacional y no a una proposición atómica.
+\noindent En la sección $check$ se puede ver que hay cuatro propiedades descritas en {\mucalculo}, que son las siguientes: $\Diamond (\neg a \land \neg b)$, $\mu z. (b \lor \Diamond z)$, $\nu z. (b \land \Box z)$, y $\nu z. (a \land \Box z)$. Al ejecutar el verificador con la descripción de la figura \ref{fig:MC2-1}, el resultado va a ser el conjunto de propiedades que el modelo haya satisfecho, en este caso $\mu z. (b \lor \Diamond : z)$ y $\nu z. (a \land \Box : z)$, ya que existe un camino en donde $b$ vale en algún momento, y $a$ vale siempre en todo camino. Se puede apreciar que $'\$'$ representa a $\nu$ y $'\%'$ representa a $\mu$. Cabe destacar también que al anteponer $'\:'$ a una cadena estamos haciendo referencia a una variable relacional y no a una proposición atómica.
 
 \subsection{Semántica formal}
 
 En esta sección vamos a formalizar las nociones descriptas en la sección anterior. Vamos a necesitar usar operaciones de OBDDs, para lo cual tenemos NOT, AND, OR, NULL(True si no hay modelos para este OBDD \cite{Waldmann:6} ), EXISTS, OBDD-TRUE y OBDD-FALSE. Por cuestiones de simpleza, omitiremos la semántica de los azúcares sintácticos vistos en la semántica informal. La semántica de una descripción MC2 es la siguiente:\\
 \\
 \begin{align*}
-[[\ vars\ D\ rules\ & C\  init\ E\ check\ P ]]_{m} \\ 
+\llbracket \ vars\ D\ rules\ & C\  init\ E\ check\ P  \rrbracket _{m} \\ 
 &= \\
-[F\ |\ F \in P\ \land\ NULL\ (NOT\ & inst\ D[E]\ ([[F]]_{f}\ [[C]]_{c}\ assocInit))] \\
+[F\ |\ F \in P\ \land\ NULL\ (NOT\ & inst\ D[E]\ (\llbracket F \rrbracket _{f}\ \llbracket C \rrbracket _{c}\ assocInit))] 
 \end{align*}
 
 \noindent Donde $assocInit$ es el estado inicial de la función $assoc$ e $inst$ es una función que instancia las variables proposicionales del OBDD generado por la evaluación de $F$ con los valores del ambiente $D[E]$ (D inicializado con los valores de E). Es decir, de todas las fórmulas en $P$ solo nos quedamos con aquellas que al instanciarlas con los valores de $init$ siempre da como resultado $True$. La semántica de una declaración está dada por la siguiente función: \\
 \\
 \begin{align*}
-[[p]]_{d}\ &=\ (p,False) \\
-[[D0;D1]]_{d}\ &=\ [[D0]]\ ++\ [[D1]] \\
+\llbracket p \rrbracket _{d}\ &=\ (p,False) \\
+\llbracket D0;D1 \rrbracket _{d}\ &=\ \llbracket D0 \rrbracket \ ++\ \llbracket D1 \rrbracket  
 \end{align*}
 
 \noindent Una declaración da como resultado un ambiente, es decir, una lista de proposiciones con sus valores asociados ($False$ en principio). A continuación tenemos la función que denota la semántica de los modelos, un modelo es la disyunción de una o más reglas, a su vez, una regla es una disyunción de todas las transiciones que genera, de nuevo por simpleza suponemos aquí que cada regla genera exactamente una transición. Una transición es una conjunción de los OBDDs generados por la evaluación de los ambientes del estado corriente y el siguiente (en el siguiente estado todas las proposiciones deben estar primadas).
 
 \begin{align*}
-[[C;D]]_{c}\ &=\ [[C]]_{c}\ OR\ [[D]]_{c} \\
-[[E0->E1]]_{c}\ &=\ [[E0]]_{e}\ AND\ [[E1]]_{e'} \\
+\llbracket C;D \rrbracket _{c}\ &=\ \llbracket C \rrbracket _{c}\ OR\ \llbracket D \rrbracket _{c} \\
+\llbracket E0->E1 \rrbracket _{c}\ &=\ \llbracket E0 \rrbracket _{e}\ AND\ \llbracket E1 \rrbracket _{e'}
 \end{align*}
 
-\noindent La evaluación de un ambiente esta dada por las funciones $[[E]]_{e}$ y $[[E]]_{e'}$, donde la única diferencia entre estas funciones es que la segunda prima a las proposiciones. La semántica de un ambiente da como resultado la conjunción de las proposiciones del mismo con paridad acorde a sus valores asociados.
+\noindent La evaluación de un ambiente está dada por las funciones $\llbracket E \rrbracket _{e}$ y $\llbracket E \rrbracket _{e'}$, donde la única diferencia entre estas funciones es que la segunda prima a las proposiciones. La semántica de un ambiente da como resultado la conjunción de las proposiciones del mismo con paridad acorde a sus valores asociados.
 
 \begin{align*}
-[[(p,True)]]_{e}\ &=\ OBDD_{p} \\
-[[(p,False)]]_{e}\ &=\ NOT\ OBDD_{p} \\
-[[E0++E1]]_{e}\ &=\ [[E0]]_{e}\ AND\ [[E1]]_{e} \\
-\end{align*}
-
-\begin{align*}
-[[(p,True)]]_{e'}\ &=\ OBDD_{p'} \\
-[[(p,False)]]_{e'}\ &=\ NOT\ OBDD_{p'} \\
-[[E0++E1]]_{e'}\ &=\ [[E0]]_{e'}\ AND\ [[E1]]_{e'} \\
+\llbracket (p,True) \rrbracket _{e}\ &=\ OBDD_{p} \\
+\llbracket (p,False) \rrbracket _{e}\ &=\ NOT\ OBDD_{p} \\
+\llbracket E0++E1 \rrbracket _{e}\ &=\ \llbracket E0 \rrbracket _{e}\ AND\ \llbracket E1 \rrbracket _{e} \\
+\\
+\llbracket (p,True) \rrbracket _{e'}\ &=\ OBDD_{p'} \\
+\llbracket (p,False) \rrbracket _{e'}\ &=\ NOT\ OBDD_{p'} \\
+\llbracket E0++E1 \rrbracket _{e'}\ &=\ \llbracket E0 \rrbracket _{e'}\ AND\ \llbracket E1 \rrbracket _{e'} \\
 \end{align*}
 
 \noindent Por ultimo, la semántica de las fórmulas, es la vista en el capítulo 3. M es el modelo del sistema (un OBDD). Assoc es una función que asocia cada variable relacional con un OBDD. La operación EXISTS de los OBDD toma un conjunto de variables y las elimina existencialmente de un OBDD.
 
 \begin{align*}
-[[p]]_{f}\ M\ assoc\ &=\ OBDD_{p} \\
-[[:X]]_{f}\ M\ assoc\ &=\ assoc\ X \\
-[[!F]]_{f}\ M\ assoc\ &=\ NOT\ ([[F]]_{f}\ M\ assoc)\\
-[[F \& G]]_{f}\ M\ assoc\ &=\ ([[F]]_{f}\ M\ assoc)\ AND\ ([[G]]_{f}\ M\ assoc)\\
-[[F | G]]_{f}\ M\ assoc\ &=\ ([[F]]_{f}\ M\ assoc)\ OR\ ([[G]]_{f}\ M\ assoc)\\
-[[<>F]]_{f}\ M\ assoc\ &=\ EXISTS\ x'\ :\ M\ AND\ ([[F]]_{f}(x')\ M\ assoc) \\
-[[[]F]]_{f}\ M\ assoc\ &=\ [[!<>!F]]_{f}\ M\ assoc \\
-[[\%X.F]]_{f}\ M\ assoc\ &=\ FIX\ F\ assoc\ OBDD-FALSE \\
-[[\$X.F]]_{f}\ M\ assoc\ &=\ FIX\ F\ assoc\ OBDD-TRUE \\
+\llbracket p \rrbracket _{f}\ M\ assoc\ &=\ OBDD_{p} \\
+\llbracket :X \rrbracket _{f}\ M\ assoc\ &=\ assoc\ X \\
+\llbracket !F \rrbracket _{f}\ M\ assoc\ &=\ NOT\ (\llbracket F \rrbracket _{f}\ M\ assoc)\\
+\llbracket (F\ \&\ G) \rrbracket _{f}\ M\ assoc\ &=\ (\llbracket F \rrbracket _{f}\ M\ assoc)\ AND\ (\llbracket G \rrbracket _{f}\ M\ assoc)\\
+\llbracket (F\ |\ G) \rrbracket _{f}\ M\ assoc\ &=\ (\llbracket F \rrbracket _{f}\ M\ assoc)\ OR\ (\llbracket G \rrbracket _{f}\ M\ assoc)\\
+\llbracket <>F \rrbracket _{f}\ M\ assoc\ &=\ EXISTS\ \vec {x'}\ :\ M\ AND\ (\llbracket F \rrbracket _{f}(\vec {x'})\ M\ assoc) \\
+\llbracket []F \rrbracket _{f}\ M\ assoc\ &=\ \llbracket !<>!F \rrbracket _{f}\ M\ assoc \\
+\llbracket \%X.F \rrbracket _{f}\ M\ assoc\ &=\ FIX\ F\ assoc\ OBDD-FALSE \\
+\llbracket \$X.F \rrbracket _{f}\ M\ assoc\ &=\ FIX\ F\ assoc\ OBDD-TRUE \\
 \end{align*}
+
+Donde $\vec {x'}$ es la versión primada del conjunto de variables proposicionales del modelo, $(\llbracket F \rrbracket _{f}(\vec {x'})\ M\ assoc)$ reemplaza cada variable $x_{i}$ por $x'_{i}$, y FIX es la función de punto fijo.
 
 \section{Notas sobre diseño e implementación}
 
-En esta sección vamos a aclarar detalles del diseño y la implementación del verificador de modelos MC2. La herramienta esta implementada en el lenguaje funcional Haskell, y se interpreta con Ghc (Glasgow Haskell Compiler). La misma está compuesta por los módulos $Types$, $Mu$, $MuEval$, $Model$, $ModelEval$, $Main$, y usa dos modulos externos, $OBDD$ \cite{Waldmann:6} (provee la estructura con sus operaciones) y $ParseLib$ \cite{Hutton:10} (tiene utilidades de parsing).
+En esta sección vamos a aclarar detalles del diseño y la implementación del verificador de modelos MC2. La herramienta esta implementada en el lenguaje funcional Haskell, y se interpreta con GHC (Glasgow Haskell Compiler). La misma está compuesta por los módulos $Types$, $Mu$, $MuEval$, $Model$, $ModelEval$, $Main$, y usa dos modulos externos, $OBDD$ \cite{Waldmann:6} (provee la estructura con sus operaciones) y $ParseLib$ \cite{Hutton:10} (tiene utilidades de parsing).
 
 \subsection{Tipos en MC2}
 
-En $MC2$ tenemos proposiciones atómicas ($AP$) representadas por cadenas, cada una tiene asociada un valor lógico ($True$ o $False$), para lo cual existe un tipo $Env$ (ambiente) que consta de una lista de pares de proposiciones atómicas y sus valores lógicos asociados. Un valor de tipo $Env$ representa el estado del sistema en un momento dado. Tambien definimos el tipo $VName$ como sinónimo de cadenas, pero este tipo lo usamos para hacer referencia a variables relacionales. También hemos definido en este modulo el tipo $Assoc$ como una función Assoc: $VName -> OBDD AP$. $OBDD AP$ hace referencia al tipo de OBDDs donde las variables de sus nodos estan representadas con cadenas (AP). Assoc es un tipo que se utiliza en la semántica de las fórmulas de {\mucalculo}, este representa una función que toma el nombre de una variable y devuelve el valor asociado (representado por un OBDD).
+En $MC2$ tenemos proposiciones atómicas ($AP$) representadas por cadenas, cada una tiene asociada un valor lógico ($True$ o $False$), para lo cual existe un tipo $Env$ (ambiente) que consta de una lista de pares de proposiciones atómicas y sus valores lógicos asociados. Un valor de tipo $Env$ representa el estado del sistema en un momento dado. Tambien definimos el tipo $VName$ como sinónimo de cadenas, pero este tipo lo usamos para hacer referencia a variables relacionales. También hemos definido en este modulo el tipo $Assoc$ como una función Assoc: $VName -> OBDD\ AP$. $OBDD\ AP$ hace referencia al tipo de OBDDs donde las variables de sus nodos estan representadas con cadenas (AP). Assoc es un tipo que se utiliza en la semántica de las fórmulas de {\mucalculo}, este representa una función que toma el nombre de una variable y devuelve el valor asociado (representado por un OBDD).
 
 \subsection{Descripción del modelo en MC2}
 
-Hay dos modulos dedicados a la descripción del modelo. Uno es $Model$, el cuál contiene la definición de la sintaxis de las declaraciones y comandos, y  sus correspondientes $parsers$. El otro módulo es $ModelEval$, este contiene las funciones $ceval$, $deval$ y $eeval$ correspondientes a los evaluadores de comandos, declaraciones y ambientes respectivamente, además de algunas funciones auxiliares. La función $deval$ toma una declaración y un ambiente con proposiciones a inicializar (se usa en la sección $init$ unicamente), y a partir de estos genera el ambiente inicial del sistema. La función $eeval$ transforma un ambiente en una OBDD-conjunción como se vió en la semántica de ambientes.
+Hay dos modulos dedicados a la descripción del modelo. Uno es $Model$, el cuál contiene la definición de la sintaxis de las declaraciones y comandos, y  sus correspondientes \textit{parsers}. El otro módulo es $ModelEval$, este contiene las funciones $ceval$, $deval$ y $eeval$ correspondientes a los evaluadores de comandos, declaraciones y ambientes respectivamente, además de algunas funciones auxiliares. La función $deval$ toma una declaración y un ambiente con proposiciones a inicializar (se usa en la sección $init$ unicamente), y a partir de estos genera el ambiente inicial del sistema. La función $eeval$ transforma un ambiente en una OBDD-conjunción como se vió en la semántica de ambientes.
 
 \subsection{{\mucalculo} en MC2}
 
-Similarmente tenemos dos modulos dedicados al {\mucalculo}. Uno es $Mu$, el cuál contiene la definición de la sintaxis, y adicionalmente también contiene el $parser$, y un $printer$. El otro módulo es $MuEval$, este contiene la función $check$ que, dada una fórmula, un modelo (OBDD) y la función $Assoc$, evalua la fórmula y devuelve el OBDD correspondiente a su semántica. Al ser funcional la implementación, toda la información necesaria para computar un resultado debe ser pasada como parámetro, por lo que la función $check$ también toma dos parámetros extra, necesarios para reescribir los nombres de las proposiciones atómicas del OBDD por sus respectivas versiones primas (cuando es necesario verificar algo sobre el siguiente estado). Además $MuEval$ contiene algunas funciones auxiliares como $fix$, la cual se utiliza en el cálculo de puntos fijos.
+Similarmente tenemos dos modulos dedicados al {\mucalculo}. Uno es $Mu$, el cuál contiene la definición de la sintaxis, y adicionalmente también contiene el \textit{parser}, y un \textit{printer}. El otro módulo es $MuEval$, este contiene la función $check$ que, dada una fórmula, un modelo (OBDD) y la función $Assoc$, evalua la fórmula y devuelve el OBDD correspondiente a su semántica. Al ser funcional la implementación, toda la información necesaria para computar un resultado debe ser pasada como parámetro, por lo que la función $check$ también toma dos parámetros extra, necesarios para reescribir los nombres de las proposiciones atómicas del OBDD por sus respectivas versiones primas (cuando es necesario verificar algo sobre el siguiente estado). Además $MuEval$ contiene algunas funciones auxiliares como $fix$, la cual se utiliza en el cálculo de puntos fijos.
 
 \subsection{Módulo principal}
 
-El módulo $Main$ contiene el $parser$ de descripciones MC2, su evaluador y varias funciones auxiliares para la lectura de archivos e impresión por pantalla de los resultados. El $parser$ utiliza los $parsers$ de las declaraciones, comandos (reglas) y propiedades (fórmulas de {\mucalculo}). Para el el estado inicial también se usa el $parser$ de declaraciones, solo que en vez de inicializarse todas las proposiciones atómicas en $False$, se inicializan con los valores de la sección $init$ de la descripción del modelo.
+El módulo $Main$ contiene el $parser$ de descripciones MC2, su evaluador y varias funciones auxiliares para la lectura de archivos e impresión por pantalla de los resultados. El $parser$ principal utiliza los \textit{parsers} de las declaraciones, comandos (reglas) y propiedades (fórmulas de {\mucalculo}). Para el el estado inicial también se usa el $parser$ de declaraciones, solo que en vez de inicializarse todas las proposiciones atómicas en $False$, se inicializan con los valores de la sección $init$ de la descripción del modelo.

@@ -4,6 +4,10 @@
 J.~Waldmann, {\em The OBDD package}.
 \newblock https://github.com/jwaldmann/haskell-obdd.
 
+\bibitem{Clarke:1}
+E.~M. Clarke, O.~Grumberg, and D.~A. Peled, {\em Model Checking}.
+\newblock The MIT Press, 2000.
+
 \bibitem{Clarke:5}
 E.~Clarke, O.~Grumberg, and D.~Long, {\em Model Checking}.
 
@@ -11,6 +15,9 @@ E.~Clarke, O.~Grumberg, and D.~Long, {\em Model Checking}.
 P.~F. Castro, C.~Kilmurray, A.~Acosta, and N.~Aguirre, {\em dCTL: A Branching
   Time Temporal Logic for Fault-Tolerant System Verification}.
 \newblock 2011.
+
+\bibitem{Haskell:18}
+https://www.haskell.org/.
 
 \bibitem{Baier:2}
 C.~Baier and J.-P. Katoen, {\em Principles of Model Checking}.
@@ -25,10 +32,6 @@ R.~E. Bryant, {\em Symbolic Boolean Manipulation with Ordered Binary Decision
 J.~Burch, E.~M. Clarke, and K.~L. McMillan, {\em Symbolic Model Checking
   $10^{20}$ States and Beyond*}.
 \newblock LICS, 1990.
-
-\bibitem{Clarke:1}
-E.~M. Clarke, O.~Grumberg, and D.~A. Peled, {\em Model Checking}.
-\newblock The MIT Press, 2000.
 
 \bibitem{Emerson:16}
 E.~A. Emerson, {\em Temporal and modal logic}.

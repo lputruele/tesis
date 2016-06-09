@@ -4,7 +4,7 @@ El algoritmo de verificación de modelos con estados explícitos para {\mucalcul
 \\
 \textit{En muchos casos, la “complejidad” del espacio de estados es mucho menor que lo que el número de estados indica. A menudo, los sistemas con un gran número de componentes tienen una estructura regular que sugeriria una regularidad correspondiente en el grafo de estados. En consecuencia, existen representaciones más sofisticadas que explotan esta regularidad. Un buen candidato para tal representación simbólica es el diagrama de decisión binario (BDD)} \cite{Burch:4}.\\ 
 \\
-En esta capítulo se describe un algoritmo de verificación de modelos simbólicos para {\mucalculo} que opera sobre estructuras de Kripke, esta vez representadas no de manera explícita, sino de manera simbólica a través de fórmulas lógicas (que internamente operan como BDDs).
+En este capítulo se describe un algoritmo de verificación de modelos simbólicos para {\mucalculo} que opera sobre estructuras de Kripke, esta vez representadas no de manera explícita, sino de manera simbólica a través de fórmulas lógicas (que internamente operan como BDDs).
 
 \section{Representación de fórmulas lógicas}
 
@@ -71,7 +71,7 @@ $(x \land y \land \neg z \land x' \land y' \land z') \lor (x \land y \land \neg 
 \\
 En muchos casos, construir una representación explicita de la estructura de Kripke $M$ y luego codificarla como se vió anteriormente no es factible porque la estructura es demasiado grande, incluso si la representación simbólica termina siendo concisa. Por lo tanto, en la práctica construimos los OBDDs directamente desde una descripción de alto nivel del sistema. En el próximo capitulo, cuando introduzcamos el lenguaje de modelado de sistemas utilizado en este trabajo, veremos como se realiza esta transformación.
 
-\section{Algoritmo de verificación dimbólicade modelos}
+\section{Algoritmo de verificación simbólica de modelos}
 
 En la sección anterior vimos como codificar una estructura de Kripke como un OBDD, ahora mostraremos una adaptación del algoritmo de verificación con estados explicitos, ahora con una representación simbólica del modelo en forma de OBDD. En este caso transformaremos las fórmulas del {\mucalculo} de la siguiente manera\cite{Clarke:1}: \\
 \\
@@ -95,15 +95,15 @@ Asumamos que tenemos una fórmula $f$ de {\mucalculo} con las variables relacion
  B(\nu Q. f, assoc) &= FIX(f,assoc,OBDD-TRUE) \\
 \end{align*}
 
-\noindent Donde $B(f,assoc)(x')$ reemplaza cada aparición de $x$ por $x'$, y FIX es la siguiente función (figura extraida de \cite{Clarke:1}):
+\noindent Donde $B(f,assoc)(x')$ reemplaza cada aparición de $x$ por $x'$, y FIX es la siguiente función:
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.7\textwidth]{Figures/fix.png}
-  \caption{Pseudocódigo e la función FIX.}
+  \caption{Pseudocódigo de la función FIX \cite{Clarke:1}.}
   \label{fig:fix}
 \end{figure}
 
-\noindent Las operaciones lógicas que ocurren del lado derecho de las ecuaciones son operaciones de BDDs. El significado de la cuantificación existencial de una variable l'ogica esta dada por la siguiente ecuación \cite{Andersen:7} :
+\noindent Las operaciones lógicas que ocurren del lado derecho de las ecuaciones son operaciones de BDDs. El significado de la cuantificación existencial de una variable lógica está dada por la siguiente ecuación \cite{Andersen:7} :
 
 \[ \exists x . t = t[0/x] \lor t[1/x]\] 
 

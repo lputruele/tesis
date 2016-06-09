@@ -8,18 +8,18 @@
 
 \textit{En el diseño de software y hardware para sistemas complejos, cada vez es más el tiempo y esfuerzo dedicado a la verificación en vez de la construcción. Se buscan técnicas para reducir y facilitar el trabajo de la verificación y a la vez incrementar su cobertura. Los métodos formales ofrecen un gran potencial para obtener una integración temprana de la verificación en el proceso de diseño, para proveer técnicas de verificación más efectivas, y para reducir el tiempo de verificación en general} \cite{Baier:2}.\\
 \\
-La verificación de modelos o \emph model \emph checking es una técnica automática de verificación de propiedades sobre sistemas con una cantidad finita de estados. Es una alternativa interesante con respecto al testing o las simulaciones ya que a diferencia de estas técnicas, el model checking hace una prueba exhaustiva del sistema, es decir, analiza todas las trazas posibles de la ejecución del sistema en cuestión. Sin embargo, esto trae un problema, esto es el problema de la explosión de estados. Esto ocurre en sistemas con muchas interacciones internas, y que pueden hacer crecer exponencialmente el espacio de estados posibles del sistema, ya que la prueba es exhaustiva no se puede ignorar ningún estado posible. En los últimos años se ha logrado un gran progreso en cómo lidiar con este problema mediante formas más compactas de representar al sistema, como por ejemplo, una representación simbólica del modelo del sistema \cite{Bryant:8} \cite{Burch:4}.\\
+La verificación de modelos es una técnica automática de verificación de propiedades sobre sistemas con una cantidad finita de estados. Es una alternativa interesante con respecto al testing o las simulaciones ya que a diferencia de estas técnicas, el model checking hace una prueba exhaustiva del sistema, es decir, analiza todas las trazas posibles de la ejecución del sistema en cuestión. Sin embargo, esto conlleva el problema conocidad como la \emph{explosión de estados}, es decir, la cantidad de estados del sistema crece exponencialmente. Esto ocurre en sistemas con muchas interacciones internas, y que pueden hacer crecer exponencialmente el espacio de estados posibles del sistema, ya que la prueba es exhaustiva no se puede ignorar ningún estado posible. En los últimos años se ha logrado un gran progreso en cómo lidiar con este problema mediante formas más compactas de representar al sistema, como por ejemplo, una representación simbólica del modelo del sistema \cite{Bryant:8} \cite{Burch:4}.\\
 \\
 El modelo del sistema generalmente es generado automáticamente desde una descripción del modelo en un un lenguaje similar a alguno de programación como C, Java, etc. Hay que notar que la especificación de la propiedad prescribe lo que el sistema debe y no debe hacer, en cambio la descripción del modelo señala como se comporta el sistema. El verificador de modelos examina todos los estados relevantes del sistema para verificar si satisface o no la propiedad deseada. El proceso del verificación de modelos consta de varias fases diferenciables \cite{Baier:2}:\\
 \\
-Modelado: Hay que modelar el sistema en cuestión usando el lenguaje de descripción de modelos del verificador, y formalizar la propiedad que se desea verificar usando el lenguaje de especificación de propiedades.\\
+\textbf{Modelado}: Hay que modelar el sistema en cuestión usando el lenguaje de descripción de modelos del verificador, y formalizar la propiedad que se desea verificar usando el lenguaje de especificación de propiedades.\\
 \\
-Ejecución: Ejecutar el verificador para corroborar la validez de la propiedad en el modelo del sistema.\\
+\textbf{Ejecución}: Ejecutar el verificador para corroborar la validez de la propiedad en el modelo del sistema.\\
 \\
-Análisis: Si la propiedad fue satisfecha, verificar la próxima propiedad (si la hay), si en cambio, no fue satisfecha, hay que refinar el modelo y/o la propiedad y finalmente, repetir el proceso.\\
+\textbf{Análisis}: Si la propiedad fue satisfecha, verificar la próxima propiedad (si la hay), si en cambio, no fue satisfecha, hay que refinar el modelo y/o la propiedad y finalmente, repetir el proceso.\\
 
 \section{Ventajas y desventajas de la verificación de modelos}
-Ventajas de la verificación de modelos \cite{Baier:2}:\\
+\noindent Podemos destacar las siguientes ventajas de la verificación de modelos \cite{Baier:2}:\\
 \\
 - Es un enfoque general de verificación que es aplicable a una gran variedad de areas, como sistemas embebidos, ingenieria de software, y diseño de hardware.\\
 \\
@@ -35,7 +35,7 @@ Ventajas de la verificación de modelos \cite{Baier:2}:\\
 \\
 - Tiene una base matemática, se basa en teoría de grafos, estructuras de datos y lógica, lo cuál la hace confiable.\\
 \\
-Desventajas de la verificación de modelos \cite{Baier:2}:\\
+Sin embargo, también existen las siguientes desventajas \cite{Baier:2}:\\
 \\
 - Es principalmente apropiada para aplicaciones dirigidas por control y menos apropiada para aplicaciones dirigidas por datos ya que los datos suelen pertenecer a dominios infinitos.\\
 \\
@@ -78,7 +78,7 @@ Dada una valuación, podemos escribir una fórmula que sea verdadera precisament
 \\
 Una transición del sistema se puede representar como un par ordenado de valuaciones, de forma similar podemos describir conjuntos de transiciones mediante una formula para ese par, pero para poder expresar la fórmula se necesita una copia $V'$ de $V$ para hablar de siguiente estado, en $V'$ todas las variables estan primadas. Por ejemplo si tenemos una transición $(x \gets True, y \gets True, z \gets False,(x \gets True, y \gets True, z \gets True))$, podemos derivar la fórmula $(x \land y \land !z \land x' \land y' \land z')$.\\
 \\
-Consideremos el siguiente ejemplo, tenemos $V = \{x,y,z\}$ y $D = \{True, False\}$, $S_{0} (x,y,z) = (x= True \land y = True \land z = False)$, y tenemos solo una transición: $z := x \land y$,consideremos False = 0 y True = 1 por una cuestión de facilidad de lectura. Definimos asi la estructura de kripke (\ref{fig:kripke1})  de la siguiente manera:
+Consideremos el siguiente ejemplo, tenemos $V = \{x,y,z\}$ y $D = \{True, False\}$, $S_{0} (x,y,z) = (x= True \land y = True \land z = False)$, y tenemos solo una transición: $z := x \land y$,consideremos False = 0 y True = 1 por una cuestión de facilidad de lectura. Definimos asi la estructura de kripke (Figura \ref{fig:kripke1})  de la siguiente manera:
 
 \[S = D \times D \times D\]
 \[S_{0} = \{(1, 1, 0)\}\]
@@ -104,10 +104,10 @@ Con el propósito de familiarizarnos con las lógicas temporales, introduciremos
 \subsection{CTL}
 
 \noindent CTL tiene dos clases de fórmulas, fórmulas de estado y fórmulas de camino. Las primeras son aserciones respecto de las proposiciones atómicas en los estados y de su estructura de ramificación, mientras que las formulas de camino expresan propiedades temporales de caminos.
-Las fórmulas de estado CTL sobre el conjunto AP de proposiciones atómicas, están formadas de acuerdo a la siguiente gramática\cite{Baier:2}:
-\[\Phi ::= true | a | \Phi_{1} \land \Phi_{2} | \neg \Phi | \exists \varphi | \forall \varphi  \]
+Las fórmulas de estado CTL sobre el conjunto AP de proposiciones atómicas, están formadas de acuerdo a la siguiente gramática \cite{Baier:2}:
+\[\Phi ::= true\ |\ a\ |\ \Phi_{1} \land \Phi_{2}\ |\ \neg \Phi\ |\ \exists \varphi\ |\ \forall \varphi  \]
 donde $a \in AP$ y $\varphi$ es una fórmula de camino. La sintaxis de fórmula de camino CTL esta dada por la siguiente gramática:
-\[\varphi ::= \bigcirc \Phi | \Phi_{1} \cup \Phi_{2} \]
+\[\varphi ::= \bigcirc \Phi\ |\ \Phi_{1} \cup \Phi_{2} \]
 donde $\varphi$ es una fórmula de camino, y $\Phi$, $\Phi_{1}$, $\Phi_{2}$ son fórmulas de estado.
 
 \noindent Intuitivamente $\exists f$ vale en un estado $s$, ssi a partir del mismo existe un camino donde vale f (notar que f solo puede ser una formula de estado). Naturalmente $\forall f$ significa que en todos los caminos vale f. En cuanto a $\bigcirc f$, esto vale en el camino $p$ ssi en el próximo estado (en un camino, existe un único próximo estado) vale f, y $ f\  \cup \ g$ vale en $p$ solo ssi $f$ vale siempre hasta que valga $g$. Los operadores de camino solo toman fórmulas de estado.
@@ -132,9 +132,9 @@ $\forall \Box (amarillo \lor \forall \bigcirc \neg rojo)$ (cada fase de luz roja
 \subsection{CTL*}
 
 \noindent CTL* es una lógica que permite combinar libremente los operadores de CTL, por lo cuál CTL* incluye a CTL. Las fórmulas de estado CTL* sobre el conjunto AP de proposiciones atómicas, están formadas de acuerdo a la siguiente gramática\cite{Baier:2}:
-\[\Phi ::= true | a | \Phi_{1} \land \Phi_{2} | \neg \Phi | \exists \varphi \]
+\[\Phi ::= true\ |\ a\ |\ \Phi_{1} \land \Phi_{2}\ |\ \neg \Phi\ |\ \exists \varphi \]
 donde $a \in AP$ y $\varphi$ es una fórmula de camino. La sintaxis de fórmula de camino CTL* esta dada por la siguiente gramática:
-\[\varphi ::= \Phi | \varphi_{1} \land \varphi_{2} | \neg \varphi | \bigcirc \varphi | \varphi_{1} \cup \varphi_{2} \]
+\[\varphi ::= \Phi\ |\ \varphi_{1} \land \varphi_{2}\ |\ \neg \varphi\ |\ \bigcirc \varphi\ |\ \varphi_{1} \cup \varphi_{2} \]
 donde $\Phi$ es una fórmula de estado, y $\varphi$, $\varphi_{1}$, $\varphi_{2}$ son fórmulas de camino.
 
 \noindent Analizaremos a continuación una lógica temporal llamada {\mucalculo}, este puede codificar (y de hecho incluye) a CTL y CTL* \cite{Emerson:16}.
@@ -165,7 +165,7 @@ Si $f$ es una fórmula, entonces $\Box f$ y $\Diamond f$ son fórmulas. \\
 \\
 Si $Q \in VAR$ y $f$ es una fórmula entonces $\mu Q.f$ y $\nu Q.f$ son fórmulas. \\
 \\
-Las variables pueden estar libres o ligadas en una fórmula a través de un operador de punto fijo. Una fórmula cerrada es una fórmula sin variables libres.
+Las variables pueden estar libres o ligadas en una fórmula a través de un operador de punto fijo. Una fórmula cerrada es una fórmula sin variables libres. En general, se asume que las fórmulas están en forma normal positiva (PNF), es decir, las negaciones solo están aplicadas a las variables proposicionales.
 
 \subsection{Semántica}
 
@@ -180,28 +180,29 @@ $\mu X \cdot f \lor \Diamond X$ se interpreta como “existe un camino hacia un 
 \\
 $\nu X \cdot \Diamond True \land \Box X$ se interpreta como “no hay estados que no tengan transiciones hacia otros estados”.\\
 \\
-Formalmente, una fórmula $f$ se interpreta como un conjunto de estados donde $f$ es verdadera, escribimos este conjunto como $[[f]]$ sobre un sistema de transición de estados $M$ y un ambiente $e: VAR \to 2^{S}$, denotaremos $e[Q \gets W]$ como un ambiente que es igual a $e$ solo que $Q$ ahora tiene el valor $W$. el conjunto $[[f]]$ sobre $M$ y $e$ se define recursivamente de la siguiente manera:
+Formalmente, una fórmula $f$ se interpreta como un conjunto de estados donde $f$ es verdadera, escribimos este conjunto como $\llbracket f \rrbracket$ sobre un sistema de transición de estados $M$ y un ambiente $e: VAR \to 2^{S}$, denotaremos $e[Q \gets W]$ como un ambiente que es igual a $e$ solo que $Q$ ahora tiene el valor $W$. el conjunto $\llbracket f \rrbracket$ sobre $M$ y $e$ se define recursivamente de la siguiente manera:
 
 \begin{align*}
- [[p]]\ M\ e &= \{s \mid p \in L(s)\}  \\
- [[Q]]\ M\ e &= e(Q) \\
- [[\neg f]]\ M\ e &= S \setminus [[f]]\ M\ e \\
- [[f \land g]]\ M\ e &= [[f]]\ M\ e \cap [[g]]\ M\ e \\
- [[f \lor g]]\ M\ e &= [[f]]\ M\ e \cup [[g]]\ M\ e \\
- [[\Diamond f]]\ M\ e &= \{s \mid \exists t : s \to t \land t \in [[f]]\ M\ e\} \\
- [[\Box f]]\ M\ e &= \{s \mid \forall t : s \to t  \rightarrow t \in [[f]]\ M\ e\} \\
+\llbracket p \rrbracket \ M\ e &= \{s \mid p \in L(s)\}  \\
+ \llbracket Q \rrbracket \ M\ e &= e(Q) \\
+ \llbracket \neg f \rrbracket \ M\ e &= S \setminus \llbracket f \rrbracket \ M\ e \\
+ \llbracket f \land g \rrbracket \ M\ e &= \llbracket f \rrbracket \ M\ e \cap \llbracket g \rrbracket \ M\ e \\
+ \llbracket f \lor g \rrbracket \ M\ e &= \llbracket f \rrbracket \ M\ e \cup \llbracket g \rrbracket \ M\ e \\
+ \llbracket \Diamond f \rrbracket \ M\ e &= \{s \mid \exists t : s \to t \land t \in \llbracket f \rrbracket \ M\ e\} \\
+ \llbracket \Box f \rrbracket \ M\ e &= \{s \mid \forall t : s \to t  \rightarrow t \in \llbracket f \rrbracket \ M\ e\}
 \end{align*}
-$[[\mu Q. f]] \ M\ e\ $ es el menor punto fijo del predicado transformador $t:2^{S} \to 2^{S}$ definido como $t(W) = [[f]]\ M\ e[Q \gets W] $ \\
-$[[\nu Q. f]] \ M\ e\ $ es el mayor punto fijo del predicado transformador $t:2^{S} \to 2^{S}$ definido como $t(W) = [[f]]\ M\ e[Q \gets W] $ \\
+\noindent $\llbracket \mu Q. f \rrbracket  \ M\ e\ $ es el menor punto fijo del predicado transformador $t:2^{S} \to 2^{S}$ definido como $t(W) = \llbracket f \rrbracket \ M\ e[Q \gets W] $.
+
+\noindent $\llbracket \nu Q. f \rrbracket  \ M\ e\ $ es el mayor punto fijo del predicado transformador $t:2^{S} \to 2^{S}$ definido como $t(W) = \llbracket f \rrbracket \ M\ e[Q \gets W] $.\\
 \\
 Los puntos fijos pueden ser calculados utilizando el llamado teorema de Tarski-Knapster \cite{Tarski:17}. En donde para obtener el punto fijo de un transformador the predicados $t$, el mínimo punto fijo viene dado por la siguiente ecuación:
 $$
-	\bigcup^\infty_i=0 t^i(\emptyset)
+	\bigcup^\infty_{i=0} t^i(\emptyset)
 $$
 en donde, $t^0 = id$. Es decir, en la practica calculamos iterativamente aplicando $t$ y empezando desde el conjunto vacío, hasta obtener un resultado que no puede ser expandido. Esto en general, puede hacerce con un ciclo. El máximo punto fijo es similar, pero empezando desde el conjunto de
 todos los estados, y usando la intersección.
 $$
-	\bigcap^\infty_i=0 t^i(S)
+	\bigcap^\infty_{i=0} t^i(S)
 $$
 Observemos algunos ejemplos, supongamos que tenemos una estructura de Kripke $M = (S,T,L)$ como la de la figura \ref{fig:kripke3}, donde $L(s_{0}) = \{p,q,r\}$, $L(s_{1}) = \{p,q\}$, $L(s_{2}) = \{q,r\}$ y $L(s_{3}) = \{r\}$. Algunos ejemplos de propiedades que uno podria querer verificar son $q \land r$, $\Diamond q$, $\Box r$, $\mu Q. (r \land \neg p \lor \Diamond Q)$, $\nu Q. (p \land \Box Q)$. $q \land r$ se cumple en $\{s_{2}\}$, $\Diamond q$ se cumple en $\{s_{0},s_{1},s_{3}\}$, $\Box r$ se cumple en $\{s_{1},s_{2},s_{3}\}$, $\mu Q. (r \land \neg p \lor \Diamond Q)$ se cumple en $S$, y $\nu Q. (p \land \Box Q)$ se cumple en $\oslash$. Para entender cómo funcionan los operadores de punto fijo consideremos la fórmula $\nu Q. (p \land \Box Q)$, es decir, queremos saber que estados cumplen con la propiedad de que p vale siempre en todo camino. Cada iteración del operador esta ilustrada en la figura \ref{fig:kripke3-gfp1}. Q se inicializa en True, luego en cada iteración se hace una aproximación al resultado verdadero, los resultados de cada iteración en este caso son, en orden, $S$, $\{s_{0},s_{1}\}$, $\{s_{0}\}$, $\oslash$. Como se puede apreciar en el resultado, no hay estado donde valga esta propiedad. Si, en vez de usar el mayor punto fijo usaramos el menor, el procedimiento es análogo, solo que la variable se inicializaria en False, aunque no es dificil darse cuenta que no tiene mucho sentido verificar $\mu Q.(p \land \Box Q)$.
 
@@ -220,11 +221,11 @@ Observemos algunos ejemplos, supongamos que tenemos una estructura de Kripke $M 
 
 \subsection{Algoritmo de verificación de modelos explícitos}
 
-El algoritmo de verificación de modelos explícitos para {\mucalculo} que analizaremos es el más intuitivo (hay algoritmos más eficientes), se basa en la semántica anterior, y calcula el subconjunto de estados de un modelo $M$ que cumplen con una formula $f$. El algoritmo trabaja en forma bottom-up a través de la fórmula, evaluandola a partir de los valores de sus subfórmulas. Este algoritmo requiere tiempo $O(n^{k})$ \cite{Clarke:1}, donde $n$ es la cantidad de estados del sistema y $k$ es el número de operadores de punto fijo anidados en la fórmula. Esto se debe a que cada operador de punto fijo hace $n+1$ iteraciones cómo máximo, ya que en cada iteración se hace una aproximación del resultado ya sea agregando o quitando al menos un estado(menor y mayor punto fijo respectivamente). En la figura \ref{fig:eval1} se puede ver el algoritmo (figura extraida de \cite{Clarke:1}), donde $f$ es la fórmula y $e$ es el ambiente de variables relacionales.
+El algoritmo de verificación de modelos explícitos para {\mucalculo} que analizaremos es el más intuitivo (hay algoritmos más eficientes), se basa en la semántica anterior, y calcula el subconjunto de estados de un modelo $M$ que cumplen con una formula $f$. El algoritmo trabaja en forma bottom-up a través de la fórmula, evaluandola a partir de los valores de sus subfórmulas. Este algoritmo requiere tiempo $O(n^{k})$ \cite{Clarke:1}, donde $n$ es la cantidad de estados del sistema y $k$ es el número de operadores de punto fijo anidados en la fórmula. Esto se debe a que cada operador de punto fijo hace $n+1$ iteraciones cómo máximo, ya que en cada iteración se hace una aproximación del resultado ya sea agregando o quitando al menos un estado(menor y mayor punto fijo respectivamente). En la figura \ref{fig:eval1} se puede ver el algoritmo , donde $f$ es la fórmula y $e$ es el ambiente de variables relacionales.
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.7\textwidth]{Figures/eval.png}
-  \caption{Algoritmo de verificación de modelos explícitos para {\mucalculo}.} 
+  \caption{Algoritmo de verificación de modelos explícitos para {\mucalculo} \cite{Clarke:1}.} 
   \label{fig:eval1}
 \end{figure}

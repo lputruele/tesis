@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.1.12)  9 JUN 2016 18:34
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.1.12)  16 JUN 2016 15:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**main.tex
+**main
 (./main.tex
 LaTeX2e <2011/06/27>
 Babel <3.9h> and hyphenation patterns for 2 languages loaded.
@@ -489,19 +489,19 @@ LaTeX Warning: Unused global option(s):
 (./chap4.aux) (./chap5.aux) (./biblio.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 147.
-LaTeX Font Info:    ... okay on input line 147.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 147.
-LaTeX Font Info:    ... okay on input line 147.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 147.
-LaTeX Font Info:    ... okay on input line 147.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 147.
-LaTeX Font Info:    ... okay on input line 147.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 147.
-LaTeX Font Info:    ... okay on input line 147.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 147.
-LaTeX Font Info:    ... okay on input line 147.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 147.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 148.
 
 (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -567,75 +567,75 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 170.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 171.
 
 
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )<<ot1.cmap>>
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 170.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 171.
 
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 170
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 171
 .
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 170
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 171
 .
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <20.74> on input line 170.
+(Font)              <20.74> on input line 171.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 170.
+(Font)              <14.4> on input line 171.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 170.
-LaTeX Font Info:    Try loading font information for U+lasy on input line 170.
+(Font)              <12> on input line 171.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 171.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 170.
+LaTeX Font Info:    Try loading font information for U+msa on input line 171.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 170.
+LaTeX Font Info:    Try loading font information for U+msb on input line 171.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+stmry on input line 170.
+LaTeX Font Info:    Try loading font information for U+stmry on input line 171.
 
 
 (/home/luciano/texmf/tex/latex/stmaryrd/Ustmry.fd)
-LaTeX Font Info:    Try loading font information for U+esvect on input line 170
+LaTeX Font Info:    Try loading font information for U+esvect on input line 171
 .
-LaTeX Font Info:    No file Uesvect.fd. on input line 170.
+LaTeX Font Info:    No file Uesvect.fd. on input line 171.
 
 
 LaTeX Font Warning: Font shape `U/esvect/m/n' undefined
-(Font)              using `U/cmr/m/n' instead on input line 170.
+(Font)              using `U/cmr/m/n' instead on input line 171.
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 170.
+(Font)              <10.95> on input line 171.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 170.
+(Font)              <8> on input line 171.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 170.
+(Font)              <6> on input line 171.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <17.28> on input line 170.
+(Font)              <17.28> on input line 171.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 170.
+(Font)              <10> on input line 171.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 170.
+(Font)              <7> on input line 171.
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [1]
@@ -1219,95 +1219,72 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--10
 
 
 
-] <Figures/rivercross.png, id=181, 240.9pt x 311.66437pt>
+] <Figures/rivercross.png, id=181, 256.70906pt x 487.8225pt>
 File: Figures/rivercross.png Graphic file (type png)
 
 <use Figures/rivercross.png>
 Package pdftex.def Info: Figures/rivercross.png used on input line 13.
-(pdftex.def)             Requested size: 251.07419pt x 324.83664pt.
-
-<Figures/riverobdd.png, id=182, 1104.37593pt x 1990.43625pt>
-File: Figures/riverobdd.png Graphic file (type png)
-
-<use Figures/riverobdd.png>
-Package pdftex.def Info: Figures/riverobdd.png used on input line 20.
-(pdftex.def)             Requested size: 292.91563pt x 527.91867pt.
- [35 <./Figures/rivercross.png>]
-Overfull \vbox (6.25198pt too high) has occurred while \output is active []
-
-
-[36 <./Figures/riverobdd.png>]
-<Figures/pentagram.png, id=192, 82.8696pt x 79.2561pt>
+(pdftex.def)             Requested size: 251.07419pt x 477.11745pt.
+ [35] [36 <./Figures/rivercross.png>]
+<Figures/pentagram.png, id=190, 82.8696pt x 79.2561pt>
 File: Figures/pentagram.png Graphic file (type png)
 
 <use Figures/pentagram.png>
-Package pdftex.def Info: Figures/pentagram.png used on input line 31.
+Package pdftex.def Info: Figures/pentagram.png used on input line 24.
 (pdftex.def)             Requested size: 209.22636pt x 200.12671pt.
 
-<Figures/estrella.png, id=193, 511.15968pt x 407.27156pt>
+<Figures/estrella.png, id=191, 511.15968pt x 407.27156pt>
 File: Figures/estrella.png Graphic file (type png)
 
 <use Figures/estrella.png>
-Package pdftex.def Info: Figures/estrella.png used on input line 40.
+Package pdftex.def Info: Figures/estrella.png used on input line 33.
 (pdftex.def)             Requested size: 418.45274pt x 333.40553pt.
  [37 <./Figures/pentagram.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 47--55
+Underfull \hbox (badness 10000) in paragraph at lines 40--48
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--55
+Underfull \hbox (badness 10000) in paragraph at lines 40--48
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--55
+Underfull \hbox (badness 10000) in paragraph at lines 40--48
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--55
+Underfull \hbox (badness 10000) in paragraph at lines 40--48
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--55
+Underfull \hbox (badness 10000) in paragraph at lines 40--48
 
  []
 
 [38 <./Figures/estrella.png>]
-<Figures/ranasjuego.png, id=202, 365.86688pt x 70.01157pt>
+<Figures/ranasjuego.png, id=200, 365.86688pt x 70.01157pt>
 File: Figures/ranasjuego.png Graphic file (type png)
 
 <use Figures/ranasjuego.png>
-Package pdftex.def Info: Figures/ranasjuego.png used on input line 58.
+Package pdftex.def Info: Figures/ranasjuego.png used on input line 51.
 (pdftex.def)             Requested size: 334.76346pt x 64.06314pt.
 
-<Figures/ranas.png, id=203, 368.87813pt x 855.94781pt>
+<Figures/ranas.png, id=201, 445.665pt x 855.94781pt>
 File: Figures/ranas.png Graphic file (type png)
  <use Figures/ranas.png>
-Package pdftex.def Info: Figures/ranas.png used on input line 67.
-(pdftex.def)             Requested size: 209.22636pt x 485.49216pt.
+Package pdftex.def Info: Figures/ranas.png used on input line 60.
+(pdftex.def)             Requested size: 251.07419pt x 482.21393pt.
 
-[39 <./Figures/ranasjuego.png>] [40 <./Figures/ranas.png>]
-<Figures/parser1.png, id=212, 983.17313pt x 758.835pt>
-File: Figures/parser1.png Graphic file (type png)
-
-<use Figures/parser1.png>
-Package pdftex.def Info: Figures/parser1.png used on input line 76.
-(pdftex.def)             Requested size: 460.30057pt x 355.27461pt.
-
-Overfull \hbox (41.84782pt too wide) in paragraph at lines 76--77
- [][] 
- []
-
-[41 <./Figures/parser1.png>])
-Underfull \hbox (badness 10000) in paragraph at lines 84--203
+[39 <./Figures/ranasjuego.png>] [40 <./Figures/ranas.png>] [41])
+Underfull \hbox (badness 10000) in paragraph at lines 70--204
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 84--203
+Underfull \hbox (badness 10000) in paragraph at lines 70--204
 
  []
 
@@ -1347,13 +1324,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 4050 strings out of 495028
- 51738 string characters out of 6181497
- 108228 words of memory out of 5000000
- 7004 multiletter control sequences out of 15000+600000
+ 4038 strings out of 495028
+ 51489 string characters out of 6181497
+ 108206 words of memory out of 5000000
+ 6994 multiletter control sequences out of 15000+600000
  87253 words of font info for 99 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 38i,10n,43p,1511b,261s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,10n,43p,1598b,261s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/en
 c/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/u
 sr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/l
@@ -1368,10 +1345,10 @@ re/texmf/fonts/type1/public/lm/lmro12.pfb></usr/share/texmf/fonts/type1/public/
 lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy6.pfb></usr/share/tex
 mf/fonts/type1/public/lm/lmsy8.pfb></home/luciano/texmf/fonts/type1/public/stma
 ryrd/stmary10.pfb>
-Output written on main.pdf (51 pages, 1267123 bytes).
+Output written on main.pdf (51 pages, 659351 bytes).
 PDF statistics:
- 284 PDF objects out of 1000 (max. 8388607)
+ 280 PDF objects out of 1000 (max. 8388607)
  168 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 119 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 109 words of extra memory for PDF output out of 10000 (max. 10000000)
 

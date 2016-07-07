@@ -14,14 +14,12 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Estructura de Kripke del modelo.}}{26}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Ejemplo de descripci\IeC {\'o}n MC2.}}{27}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Ejemplo de descripci\IeC {\'o}n MC2 usando azucar sint\IeC {\'a}ctico.}}{28}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Ejemplo de descripci\IeC {\'o}n MC2 usando az\IeC {\'u}car sint\IeC {\'a}ctico.}}{28}
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Estructura de Kripke del nuevo modelo.}}{28}
 \contentsline {figure}{\numberline {4.5}{\ignorespaces Ejemplo de descripci\IeC {\'o}n MC2 con m\IeC {\'a}s de una transici\IeC {\'o}n por regla.}}{29}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Descripci\IeC {\'o}n de modelo del problema del cruce del rio.}}{35}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces OBDD para el modelo del cruce del rio.}}{36}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Pentagrama de 1,2,3 Coloca otra vez.}}{37}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Descripci\IeC {\'o}n de modelo del problema de 1,2,3 Coloca otra vez.}}{38}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Juego de las ranas saltarinas.}}{39}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Descripci\IeC {\'o}n de modelo del problema de las ranas saltarinas.}}{40}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Pseudoc\IeC {\'o}digo de $parser$ de alto nivel.}}{41}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Descripci\IeC {\'o}n de modelo del problema del cruce del r\IeC {\'\i }o.}}{36}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Pentagrama de 1,2,3 Coloca otra vez.}}{37}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Descripci\IeC {\'o}n de modelo del problema de 1,2,3 Coloca otra vez.}}{38}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Juego de las ranas saltarinas.}}{39}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Descripci\IeC {\'o}n de modelo del problema de las ranas saltarinas.}}{40}

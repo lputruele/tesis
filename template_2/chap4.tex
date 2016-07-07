@@ -39,7 +39,7 @@ M &:=\ vars\ D\ rules\ C\ init\ E\ check\ P \\
 \end{align*}
 
 \noindent Usamos la coma $','$ para separar elementos de una lista de expresiones, y , punto y coma $';'$ para separar elementos de una lista de comandos o de declaraciones. La diferencia es sutil pero es importante destacarla para evitar confusión.
-Un detalle de implementación muy importante que hace falta destacar es que el parsing de $E$ retorna un ambiente, el cual es una lista de pares $(p,v)$, donde $p \in AP$ y $v \in Bool$. Se puede decir que hay una semántica intermedia para E:
+Un detalle de implementación muy importante que hace falta destacar es que el \emph{parsing} de $E$ retorna un ambiente, el cual es una lista de pares $(p,v)$, donde $p \in AP$ y $v \in Bool$. Se puede decir que hay una semántica intermedia para E:
 
 \begin{align*}
 \llbracket p \rrbracket \ &=\ (p,True)\\
@@ -55,7 +55,7 @@ Ya definimos la sintaxis del lenguaje, ahora vamos a definir el significado asoc
 
 \subsection{Semántica informal}
 
-La figura \ref{fig:MC2-1} muestra un ejemplo de una descripción MC2. Aqui representamos una estructura de Kripke con dos estados $s_{0}$,$s_{1}$ donde $L(s_{0}) = \{a,b\}$, $L(s_{1}) = \{a\}$, y $T = \{(s_{0},s_{1}),(s_{1},s_{0}),(s_{1},s_{1})\}$ como el de la figura \ref{fig:kripke4}. En la sección $vars$ se declara el conjunto de proposiciones atómicas del modelo. La sección $rules$ describe las transiciones del sistema. La sección $init$ es donde se señala el valor inicial de las proposiciones atómicas. En la sección $check$ se especifican las propiedades que se desean verificar sobre el modelo en el estado $init$.
+La figura \ref{fig:MC2-1} muestra un ejemplo de una descripción MC2. Aquí representamos una estructura de Kripke con dos estados $s_{0}$,$s_{1}$ donde $L(s_{0}) = \{a,b\}$, $L(s_{1}) = \{a\}$, y $T = \{(s_{0},s_{1}),(s_{1},s_{0}),(s_{1},s_{1})\}$ como el de la figura \ref{fig:kripke4}. En la sección $vars$ se declara el conjunto de proposiciones atómicas del modelo. La sección $rules$ describe las transiciones del sistema. La sección $init$ es donde se señala el valor inicial de las proposiciones atómicas. En la sección $check$ se especifican las propiedades que se desean verificar sobre el modelo en el estado $init$.
 
 \begin{figure}[H]
   \centering
@@ -71,12 +71,12 @@ La figura \ref{fig:MC2-1} muestra un ejemplo de una descripción MC2. Aqui repre
   \label{fig:MC2-1}
 \end{figure}
 
-\noindent Se puede ver que las reglas describen precisamente las tres transiciones del sistema. Aquellas proposiciones que no varian su valor de un estado al siguiente, se las puede obviar en la parte derecha de la regla como se ve en la figura \ref{fig:MC2-2}. Esta descripción es equivalente a la anterior. Intuitivamente podemos pensar la parte izquierda de la regla como el estado corriente y la parte derecha como el siguiente estado, pero en realidad podemos representar mas de una transición con una sola regla. Por ejemplo, la descripción de la figura \ref{fig:MC2-3} modela el sistema de la figura \ref{fig:kripke5}. Al omitir $a$ en la parte izquierda de las reglas, estamos diciendo que las mismas se cumplen tanto si vale como si no vale $a$.
+\noindent Se puede ver que las reglas describen precisamente las tres transiciones del sistema. Aquellas proposiciones que no varían su valor de un estado al siguiente, se las puede obviar en la parte derecha de la regla como se ve en la figura \ref{fig:MC2-2}. Esta descripción es equivalente a la anterior. Intuitivamente podemos pensar la parte izquierda de la regla como el estado corriente y la parte derecha como el siguiente estado, pero en realidad podemos representar mas de una transición con una sola regla. Por ejemplo, la descripción de la figura \ref{fig:MC2-3} modela el sistema de la figura \ref{fig:kripke5}. Al omitir $a$ en la parte izquierda de las reglas, estamos diciendo que las mismas se cumplen tanto si vale como si no vale $a$.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.33\textwidth]{Figures/modeloMC2-2.png}
-  \caption{Ejemplo de descripción MC2 usando azucar sintáctico.}
+  \caption{Ejemplo de descripción MC2 usando azúcar sintáctico.}
   \label{fig:MC2-2}
 \end{figure}
 
@@ -94,7 +94,7 @@ La figura \ref{fig:MC2-1} muestra un ejemplo de una descripción MC2. Aqui repre
   \label{fig:MC2-3}
 \end{figure}
 
-\noindent En la sección $check$ se puede ver que hay cuatro propiedades descritas en {\mucalculo}, que son las siguientes: $\Diamond (\neg a \land \neg b)$, $\mu z. (b \lor \Diamond z)$, $\nu z. (b \land \Box z)$, y $\nu z. (a \land \Box z)$. Al ejecutar el verificador con la descripción de la figura \ref{fig:MC2-1}, el resultado va a ser el conjunto de propiedades que el modelo haya satisfecho, en este caso $\mu z. (b \lor \Diamond : z)$ y $\nu z. (a \land \Box : z)$, ya que existe un camino en donde $b$ vale en algún momento, y $a$ vale siempre en todo camino. Se puede apreciar que $'\$'$ representa a $\nu$ y $'\%'$ representa a $\mu$. Cabe destacar también que al anteponer $'\:'$ a una cadena estamos haciendo referencia a una variable relacional y no a una proposición atómica.
+\noindent En la sección $check$ se puede ver que hay cuatro propiedades descritas en {\mucalculo}, que son las siguientes: $\Diamond (\neg a \land \neg b)$, $\mu z. (b \lor \Diamond z)$, $\nu z. (b \land \Box z)$, y $\nu z. (a \land \Box z)$. Al ejecutar el verificador con la descripción de la figura \ref{fig:MC2-1}, el resultado va a ser el conjunto de propiedades que el modelo haya satisfecho, en este caso $\mu z. (b \lor \Diamond : z)$ y $\nu z. (a \land \Box : z)$, ya que existe un camino en donde $b$ vale en algún momento, y $a$ vale siempre en todo camino. Se puede apreciar que $'\$'$ representa a $\nu$ y $'\%'$ representa a $\mu$. Cabe destacar también que al anteponer $':'$ a una cadena estamos haciendo referencia a una variable relacional y no a una proposición atómica.
 
 \subsection{Semántica formal}
 
@@ -132,7 +132,7 @@ En esta sección vamos a formalizar las nociones descriptas en la sección anter
 \llbracket E0++E1 \rrbracket _{e'}\ &=\ \llbracket E0 \rrbracket _{e'}\ AND\ \llbracket E1 \rrbracket _{e'} \\
 \end{align*}
 
-\noindent Por ultimo, la semántica de las fórmulas, es la vista en el capítulo 3. M es el modelo del sistema (un OBDD). Assoc es una función que asocia cada variable relacional con un OBDD. La operación EXISTS de los OBDD toma un conjunto de variables y las elimina existencialmente de un OBDD.
+\noindent Por ultimo, la semántica de las fórmulas, es la vista en el capítulo 3. $M$ es el modelo del sistema (un OBDD). $Assoc$ es una función que asocia cada variable relacional con un OBDD. La operación EXISTS de los OBDD toma un conjunto de variables y las elimina existencialmente de un OBDD.
 
 \begin{align*}
 \llbracket p \rrbracket _{f}\ M\ assoc\ &=\ OBDD_{p} \\
@@ -150,19 +150,19 @@ Donde $\vec {x'}$ es la versión primada del conjunto de variables proposicional
 
 \section{Notas sobre diseño e implementación}
 
-En esta sección vamos a aclarar detalles del diseño y la implementación del verificador de modelos MC2. La herramienta esta implementada en el lenguaje funcional Haskell, y se interpreta con GHC (Glasgow Haskell Compiler). La misma está compuesta por los módulos $Types$, $Mu$, $MuEval$, $Model$, $ModelEval$, $Main$, y usa dos modulos externos, $OBDD$ \cite{Waldmann:6} (provee la estructura con sus operaciones) y $ParseLib$ \cite{Hutton:10} (tiene utilidades de parsing).
+En esta sección vamos a aclarar detalles del diseño y la implementación del verificador de modelos MC2. La herramienta esta implementada en el lenguaje funcional Haskell, y se interpreta con GHC (Glasgow Haskell Compiler). La misma está compuesta por los módulos $Types$, $Mu$, $MuEval$, $Model$, $ModelEval$, $Main$, y usa dos módulos externos, $OBDD$ \cite{Waldmann:6} (provee la estructura con sus operaciones) y $ParseLib$ \cite{Hutton:10} (tiene utilidades de \emph{parsing}).
 
 \subsection{Tipos en MC2}
 
-En $MC2$ tenemos proposiciones atómicas ($AP$) representadas por cadenas, cada una tiene asociada un valor lógico ($True$ o $False$), para lo cual existe un tipo $Env$ (ambiente) que consta de una lista de pares de proposiciones atómicas y sus valores lógicos asociados. Un valor de tipo $Env$ representa el estado del sistema en un momento dado. Tambien definimos el tipo $VName$ como sinónimo de cadenas, pero este tipo lo usamos para hacer referencia a variables relacionales. También hemos definido en este modulo el tipo $Assoc$ como una función Assoc: $VName -> OBDD\ AP$. $OBDD\ AP$ hace referencia al tipo de OBDDs donde las variables de sus nodos estan representadas con cadenas (AP). Assoc es un tipo que se utiliza en la semántica de las fórmulas de {\mucalculo}, este representa una función que toma el nombre de una variable y devuelve el valor asociado (representado por un OBDD).
+En $MC2$ tenemos proposiciones atómicas ($AP$) representadas por cadenas, cada una tiene asociada un valor lógico ($True$ o $False$), para lo cual existe un tipo $Env$ (ambiente) que consta de una lista de pares de proposiciones atómicas y sus valores lógicos asociados. Un valor de tipo $Env$ representa el estado del sistema en un momento dado. También definimos el tipo $VName$ como sinónimo de cadenas, pero este tipo lo usamos para hacer referencia a variables relacionales. También hemos definido en este modulo el tipo $Assoc$ como una función $Assoc$: $VName -> OBDD\ AP$. $OBDD\ AP$ hace referencia al tipo de OBDDs donde las variables de sus nodos están representadas con cadenas (AP). Assoc es un tipo que se utiliza en la semántica de las fórmulas de {\mucalculo}, este representa una función que toma el nombre de una variable y devuelve el valor asociado (representado por un OBDD).
 
 \subsection{Descripción del modelo en MC2}
 
-Hay dos modulos dedicados a la descripción del modelo. Uno es $Model$, el cuál contiene la definición de la sintaxis de las declaraciones y comandos, y  sus correspondientes \textit{parsers}. El otro módulo es $ModelEval$, este contiene las funciones $ceval$, $deval$ y $eeval$ correspondientes a los evaluadores de comandos, declaraciones y ambientes respectivamente, además de algunas funciones auxiliares. La función $deval$ toma una declaración y un ambiente con proposiciones a inicializar (se usa en la sección $init$ unicamente), y a partir de estos genera el ambiente inicial del sistema. La función $eeval$ transforma un ambiente en una OBDD-conjunción como se vió en la semántica de ambientes.
+Hay dos módulos dedicados a la descripción del modelo. Uno es $Model$, el cuál contiene la definición de la sintaxis de las declaraciones y comandos, y  sus correspondientes \textit{parsers}. El otro módulo es $ModelEval$, este contiene las funciones $ceval$, $deval$ y $eeval$ correspondientes a los evaluadores de comandos, declaraciones y ambientes respectivamente, además de algunas funciones auxiliares. La función $deval$ toma una declaración y un ambiente con proposiciones a inicializar (se usa en la sección $init$ unicamente), y a partir de estos genera el ambiente inicial del sistema. La función $eeval$ transforma un ambiente en una OBDD-conjunción como se observó en la semántica de ambientes.
 
 \subsection{{\mucalculo} en MC2}
 
-Similarmente tenemos dos modulos dedicados al {\mucalculo}. Uno es $Mu$, el cuál contiene la definición de la sintaxis, y adicionalmente también contiene el \textit{parser}, y un \textit{printer}. El otro módulo es $MuEval$, este contiene la función $check$ que, dada una fórmula, un modelo (OBDD) y la función $Assoc$, evalua la fórmula y devuelve el OBDD correspondiente a su semántica. Al ser funcional la implementación, toda la información necesaria para computar un resultado debe ser pasada como parámetro, por lo que la función $check$ también toma dos parámetros extra, necesarios para reescribir los nombres de las proposiciones atómicas del OBDD por sus respectivas versiones primas (cuando es necesario verificar algo sobre el siguiente estado). Además $MuEval$ contiene algunas funciones auxiliares como $fix$, la cual se utiliza en el cálculo de puntos fijos.
+Similarmente tenemos dos módulos dedicados al {\mucalculo}. Uno es $Mu$, el cuál contiene la definición de la sintaxis, y adicionalmente también contiene el \textit{parser}, y un \textit{printer}. El otro módulo es $MuEval$, este contiene la función $check$ que, dada una fórmula, un modelo (OBDD) y la función $Assoc$, evalua la fórmula y devuelve el OBDD correspondiente a su semántica. Al ser funcional la implementación, toda la información necesaria para computar un resultado debe ser pasada como parámetro, por lo que la función $check$ también toma dos parámetros extra, necesarios para reescribir los nombres de las proposiciones atómicas del OBDD por sus respectivas versiones primas (cuando es necesario verificar algo sobre el siguiente estado). Además $MuEval$ contiene algunas funciones auxiliares como $fix$, la cual se utiliza en el cálculo de puntos fijos.
 
 \subsection{Módulo principal}
 
